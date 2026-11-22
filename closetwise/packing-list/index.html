@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packing list generator: clothes for any trip length</title>
+<meta name="description" content="Free packing list generator: trip length, laundry, weather and activities give how many tops, bottoms, shoes and spares to pack. Tick it off or print it.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/closetwise/packing-list/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Closetwise">
+<meta property="og:title" content="Packing list generator: clothes for any trip length">
+<meta property="og:description" content="Free packing list generator: trip length, laundry, weather and activities give how many tops, bottoms, shoes and spares to pack. Tick it off or print it.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/closetwise/packing-list/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/closetwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Closetwise: a closet of clean cut-outs on a grey background">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e9eae6">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/closetwise/static/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/closetwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/closetwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/closetwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/closetwise/"}, {"@type": "ListItem", "position": 2, "name": "Packing list generator"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast"><div class="frame mast-in">
+  <a class="wordmark" href="/closetwise/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8.5a3 3 0 1 1 4.2 2.8c-.8.4-1.2 1-1.2 1.9v1.3"/><path d="M16 14.5 4.6 22.2c-1 .7-.5 2.3.7 2.3h21.4c1.2 0 1.7-1.6.7-2.3Z"/></svg><span>Closetwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/closetwise/cost-per-wear-calculator/">Cost per wear</a><a href="/closetwise/packing-list/" aria-current="page">Packing lists</a><a href="/closetwise/guides/">Guides</a></nav>
+  <a class="pill mast-cta" href="/closetwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs frame no-print" aria-label="Breadcrumb"><a href="/closetwise/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Packing list generator</span></nav>
+<header class="lead frame">
+  <h1>Packing list generator</h1>
+  <p class="lede answer">Choose how many days you’ll be away, whether you can do laundry, the weather and what you’ll do, and the generator gives a clothes and essentials list you can tick off and print. The quantities come from the same rules the Closetwise app uses, so the numbers match.</p>
+</header>
+
+<section class="packer frame" aria-label="Packing list generator">
+  <form class="pk-form no-print" data-packer>
+    <div class="field"><label class="cap" for="pkDays">Days away</label>
+      <span class="stepper"><button type="button" data-step="-1" aria-label="One day fewer">−</button><input id="pkDays" type="number" name="days" value="7" min="1" max="90" inputmode="numeric"><button type="button" data-step="1" aria-label="One day more">+</button></span></div>
+    <label class="tog"><input type="checkbox" name="laundry"><span>I can do laundry<small>Pack for up to 7 days and wash</small></span></label>
+    <fieldset><legend class="cap">Weather</legend><div class="chks"><label class="chk"><input type="checkbox" name="climate" value="hot"><span>Hot</span></label><label class="chk"><input type="checkbox" name="climate" value="mild" checked><span>Mild</span></label><label class="chk"><input type="checkbox" name="climate" value="cold"><span>Cold</span></label><label class="chk"><input type="checkbox" name="climate" value="rain"><span>Rain</span></label><label class="chk"><input type="checkbox" name="climate" value="snow"><span>Snow</span></label></div></fieldset>
+    <fieldset><legend class="cap">What you’ll do</legend><div class="chks"><label class="chk"><input type="checkbox" name="act" value="city" checked><span>City</span></label><label class="chk"><input type="checkbox" name="act" value="beach"><span>Beach</span></label><label class="chk"><input type="checkbox" name="act" value="hiking"><span>Hiking</span></label><label class="chk"><input type="checkbox" name="act" value="business"><span>Work</span></label><label class="chk"><input type="checkbox" name="act" value="formal"><span>Formal event</span></label><label class="chk"><input type="checkbox" name="act" value="gym"><span>Gym</span></label><label class="chk"><input type="checkbox" name="act" value="evening"><span>Evenings out</span></label></div></fieldset>
+  </form>
+  <div class="pk-out">
+    <h2 class="pk-h" data-title>Your packing list</h2>
+    <div class="checklist" id="list" data-list><p class="pk-note" data-note>Packing for 7 days.</p><h3 class="cap">Clothes</h3><ul class="ticks" data-clothes><li><label><input type="checkbox" data-k="underwear"><span class="q">8</span><span class="n">Underwear<small>One a day, plus a spare</small></span></label></li><li><label><input type="checkbox" data-k="socks"><span class="q">8</span><span class="n">Socks<small>One a day, plus a spare</small></span></label></li><li><label><input type="checkbox" data-k="tops"><span class="q">7</span><span class="n">Tops<small>One a day</small></span></label></li><li><label><input type="checkbox" data-k="bottoms"><span class="q">3</span><span class="n">Bottoms<small>One for every 3 days</small></span></label></li><li><label><input type="checkbox" data-k="knitwear"><span class="q">1</span><span class="n">Knitwear<small>One for cooler evenings</small></span></label></li><li><label><input type="checkbox" data-k="outerwear"><span class="q">1</span><span class="n">Outerwear<small>A warm coat for cold, a rain jacket for rain, a blazer for work</small></span></label></li><li><label><input type="checkbox" data-k="shoes"><span class="q">1</span><span class="n">Shoes<small>An everyday pair, plus one for each special activity</small></span></label></li><li><label><input type="checkbox" data-k="sleepwear"><span class="q">2</span><span class="n">Sleepwear<small>One for every 4 days</small></span></label></li><li><label><input type="checkbox" data-k="bags"><span class="q">1</span><span class="n">Bags<small>A day bag, plus one for evenings</small></span></label></li></ul><h3 class="cap">Essentials</h3><ul class="ticks ess" data-ess><li><label><input type="checkbox" data-k="ess-toothbrush"><span class="n">Toothbrush and toothpaste</span></label></li><li><label><input type="checkbox" data-k="ess-toiletries"><span class="n">Toiletries</span></label></li><li><label><input type="checkbox" data-k="ess-deodorant"><span class="n">Deodorant</span></label></li><li><label><input type="checkbox" data-k="ess-medication"><span class="n">Medication</span></label></li><li><label><input type="checkbox" data-k="ess-charger"><span class="n">Phone charger</span></label></li><li><label><input type="checkbox" data-k="ess-adapter"><span class="n">Plug adapter</span></label></li><li><label><input type="checkbox" data-k="ess-passport"><span class="n">Passport or ID</span></label></li><li><label><input type="checkbox" data-k="ess-tickets"><span class="n">Tickets and bookings</span></label></li><li><label><input type="checkbox" data-k="ess-wallet"><span class="n">Wallet and cards</span></label></li><li><label><input type="checkbox" data-k="ess-keys"><span class="n">Keys</span></label></li><li><label><input type="checkbox" data-k="ess-headphones"><span class="n">Headphones</span></label></li><li><label><input type="checkbox" data-k="ess-glasses"><span class="n">Glasses or contact lenses</span></label></li></ul><div class="tools no-print"><button type="button" class="btn-q" data-print hidden>Print the list</button><button type="button" class="btn-q" data-copy hidden>Copy as text</button><button type="button" class="btn-q" data-reset hidden>Untick all</button><span class="copied" data-copied role="status"></span></div></div>
+  </div>
+</section>
+<div class="frame"><aside class="cta no-print" aria-label="Get the Closetwise app"><h2 class="cta-h">Pack from your own closet</h2><div class="cta-b"><p>In Closetwise, each line is filled with real pieces from your closet, chosen for the weather and what you’ll do. Tick them off as you pack and save the trip as a template.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download, unlock everything once for US$4.99. No account, no subscription, no ads.</p></div></aside></div>
+
+<section class="trips frame" aria-labelledby="ready">
+  <h2 id="ready">Ready-made packing lists</h2>
+  <ul class="trip-grid"><li><a href="/closetwise/packing-list/weekend-away/"><span class="plinth"><img src="/closetwise/static/g/breton.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>Weekend away</b><span class="cap">2 days, mild</span></a></li><li><a href="/closetwise/packing-list/one-week/"><span class="plinth"><img src="/closetwise/static/g/linenShirt.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>One week</b><span class="cap">7 days, mild</span></a></li><li><a href="/closetwise/packing-list/two-weeks-carry-on/"><span class="plinth"><img src="/closetwise/static/g/blackTee.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>Two weeks, carry-on only</b><span class="cap">14 days, mild</span></a></li><li><a href="/closetwise/packing-list/beach-holiday/"><span class="plinth"><img src="/closetwise/static/g/swimsuit.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>Beach holiday</b><span class="cap">7 days, hot</span></a></li><li><a href="/closetwise/packing-list/ski-trip/"><span class="plinth"><img src="/closetwise/static/g/puffer.svg" alt="" width="400" height="460" loading="lazy" decoding="async"></span><b>Ski trip</b><span class="cap">7 days, cold and snow</span></a></li><li><a href="/closetwise/packing-list/europe-summer/"><span class="plinth"><img src="/closetwise/static/g/dotDress.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>Europe in summer</b><span class="cap">14 days, hot</span></a></li><li><a href="/closetwise/packing-list/europe-winter/"><span class="plinth"><img src="/closetwise/static/g/trench.svg" alt="" width="400" height="520" loading="lazy" decoding="async"></span><b>Europe in winter</b><span class="cap">10 days, cold and rain</span></a></li><li><a href="/closetwise/packing-list/business-trip/"><span class="plinth"><img src="/closetwise/static/g/blazer.svg" alt="" width="400" height="440" loading="lazy" decoding="async"></span><b>Business trip</b><span class="cap">3 days, mild</span></a></li><li><a href="/closetwise/packing-list/one-month-with-laundry/"><span class="plinth"><img src="/closetwise/static/g/blueRunners.svg" alt="" width="520" height="300" loading="lazy" decoding="async"></span><b>One month with laundry</b><span class="cap">30 days, mild and rain</span></a></li><li><a href="/closetwise/packing-list/wedding-weekend/"><span class="plinth"><img src="/closetwise/static/g/slipDress.svg" alt="" width="400" height="500" loading="lazy" decoding="async"></span><b>Wedding weekend</b><span class="cap">3 days, mild</span></a></li></ul>
+</section>
+
+<div class="article frame">
+  <figure class="fig art-fig"><div class="plinth"><img src="/closetwise/static/g/crossbody.svg" alt="Black crossbody, an illustration from the Closetwise sample closet" width="400" height="420" loading="lazy" decoding="async"></div><figcaption class="cap">Black crossbody. Evenings out add a second bag</figcaption></figure>
+  <article class="prose">
+  <h2>How the quantities are worked out</h2>
+  <p>The generator runs the packing rules from the Closetwise app, unchanged:</p>
+  <ul>
+    <li>Days to pack for are the trip days, capped at 7 if you can do laundry.</li>
+    <li>Underwear and socks: one a day, plus a spare. Tops: one a day.</li>
+    <li>Bottoms: one for every 3 days, plus a smart pair for work.</li>
+    <li>Dresses: one for every 4 evenings out, plus one for a formal event.</li>
+    <li>Knitwear: one for every 4 cold days, or one for cooler evenings in mild weather.</li>
+    <li>Outerwear: a warm coat for cold, a rain jacket for rain, a blazer for work, at most 3.</li>
+    <li>Shoes: an everyday pair, plus one for each special activity, at most 4.</li>
+    <li>Swimwear: two from 4 days on, so one can dry. Sleepwear: one for every 4 days.</li>
+  </ul>
+  <p>Weather and plans add a few essentials, such as sunscreen for heat, an umbrella for rain, a beach towel, a water bottle for hiking and a laptop for work.</p>
+  <p>Rules are a starting point. Untick what you won’t need, and read <a href="/closetwise/guides/capsule-wardrobe/">how to build a capsule wardrobe</a> to make every piece work with the others.</p>
+</article>
+</div>
+<div class="frame"><div class="end no-print"><p>Packing lists filled from your own closet.</p><a class="pill" href="/closetwise/#app">Get the app</a></div></div>
+<div class="stk no-print" data-stk hidden><span>Packing lists from your closet</span><a class="pill" href="/closetwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+<script type="application/json" id="pk-strings">{"trip.laundry": "I can do laundry", "trip.laundrySub": "Pack for up to 7 days and wash", "trip.packingFor": {"one": "Packing for {n} day.", "other": "Packing for {n} days."}, "trip.laundryNote": {"one": "With laundry, packing for {n} day and washing once.", "other": "With laundry, packing for {n} days, then washing."}, "trip.clothes": "Clothes", "trip.essentials": "Essentials", "trip.rulesNote": "Quantities follow simple rules: a top a day, bottoms every third day, underwear and socks with a spare, and extra layers for cold or rain. Change anything you like.", "pack.underwear": "Underwear", "pack.socks": "Socks", "pack.tops": "Tops", "pack.bottoms": "Bottoms", "pack.dresses": "Dresses", "pack.knitwear": "Knitwear", "pack.outerwear": "Outerwear", "pack.shoes": "Shoes", "pack.bags": "Bags", "pack.accessories": "Accessories", "pack.jewellery": "Jewellery", "pack.activewear": "Activewear", "pack.swim": "Swimwear", "pack.sleepwear": "Sleepwear", "pack.other": "Other", "rule.dayPlusOne": "One a day, plus a spare", "rule.perDay": "One a day", "rule.per3": "One for every 3 days", "rule.per3Business": "One for every 3 days, plus one smart pair for work", "rule.per4": "One for every 4 days", "rule.evening": "One for every 4 evenings out, plus one for a formal event", "rule.coldPer4": "One for every 4 cold days", "rule.mildOne": "One for cooler evenings", "rule.outer": "A warm coat for cold, a rain jacket for rain, a blazer for work", "rule.shoes": "An everyday pair, plus one for each special activity", "rule.swim": "Two for 4 days or more, so one can dry", "rule.bags": "A day bag, plus one for evenings", "rule.accessories": "Sunglasses or a hat for sun; hat, scarf and gloves for cold", "rule.extra": "Chosen by you", "ess.toothbrush": "Toothbrush and toothpaste", "ess.toiletries": "Toiletries", "ess.deodorant": "Deodorant", "ess.medication": "Medication", "ess.charger": "Phone charger", "ess.adapter": "Plug adapter", "ess.passport": "Passport or ID", "ess.tickets": "Tickets and bookings", "ess.wallet": "Wallet and cards", "ess.keys": "Keys", "ess.headphones": "Headphones", "ess.glasses": "Glasses or contact lenses", "ess.sunscreen": "Sunscreen", "ess.umbrella": "Umbrella", "ess.beachtowel": "Beach towel", "ess.waterbottle": "Water bottle", "ess.laptop": "Laptop and charger"}</script>
+
+</main>
+<footer class="foot"><div class="frame foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/closetwise/"><svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8.5a3 3 0 1 1 4.2 2.8c-.8.4-1.2 1-1.2 1.9v1.3"/><path d="M16 14.5 4.6 22.2c-1 .7-.5 2.3.7 2.3h21.4c1.2 0 1.7-1.6.7-2.3Z"/></svg><span>Closetwise</span></a>
+    <p>A private wardrobe and shoe organiser with outfits and packing lists. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/closetwise/cost-per-wear-calculator/">Cost per wear calculator</a>
+    <a href="/closetwise/packing-list/">Packing list generator</a>
+    <a href="/closetwise/guides/">Wardrobe guides</a>
+    <a href="/closetwise/support/">Support</a>
+    <a href="/closetwise/privacy/">Privacy</a>
+  </nav>
+  <p class="foot-also">Also by the same developer: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>, <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>, <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a> and <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>. © 2026 Closetwise.</p>
+</div></footer>
+<script src="/closetwise/static/site.js" defer></script><script src="/closetwise/static/engine.js" defer></script><script src="/closetwise/static/pack.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open a script | Scenewise</title>
+<meta name="description" content="Open a script someone sent you with Scenewise: rehearse it in the app or in your browser.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/open/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Open a script | Scenewise">
+<meta property="og:description" content="Open a script someone sent you with Scenewise: rehearse it in the app or in your browser.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/open/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench bench-open">
+  <div class="tool open-card" data-tool="open" data-web="https://wiseapps-dev.github.io/scenewise/open/">
+  <div data-pane="loading"><p class="help">Opening your script…</p></div>
+  <div data-pane="script" hidden>
+    <p class="open-kicker">A script for you</p>
+    <h1 class="open-title" data-role="title"></h1>
+    <p class="open-meta" data-role="meta"></p>
+    <blockquote class="open-note" data-role="note" hidden></blockquote>
+    <p class="sub-label">Characters</p>
+    <div class="chips" data-role="chars"></div>
+    <p class="help" data-role="counts"></p>
+    <div class="open-actions">
+      <a class="btn primary block" data-role="app" href="scenewise://open">Open in the Scenewise app</a>
+      <a class="btn block" data-role="web" href="/scenewise/run-lines-online/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Rehearse in your browser</span></a>
+    </div>
+    <p class="help">No app yet? The browser version reads the other parts aloud for your first 6 lines, free.</p>
+    <div class="open-get"><p class="sub-label">Get Scenewise</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></div>
+  </div>
+  <div data-pane="password" hidden>
+    <div class="lock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7-2a2 2 0 1 1 4 0v2h-4V7z"/></svg></div>
+    <h2 class="open-title">This script has a password</h2>
+    <p class="help">The person who sent it should have given you the password separately, by text or in person.</p>
+    <form class="pw-row" data-role="pwform" autocomplete="off">
+      <label class="sr-only" for="op-pw">Password</label>
+      <input id="op-pw" class="input" type="password" autocomplete="off" placeholder="Password">
+      <button type="submit" class="btn primary">Open</button>
+    </form>
+    <p class="help err" data-role="pw-err" hidden></p>
+  </div>
+  <div data-pane="problem" hidden>
+    <h2 class="open-title" data-role="problem-title">No script in this link</h2>
+    <p class="help" data-role="problem-text"></p>
+    <label class="sub-label" for="op-paste">Paste the link or message you were sent</label>
+    <textarea id="op-paste" rows="3" spellcheck="false"></textarea>
+    <div class="row"><button type="button" class="btn primary" data-act="paste-open">Open</button><a class="btn ghost" href="/scenewise/run-lines-online/">Paste a script instead</a></div>
+  </div>
+  <p class="fine">The script travels in the part of the link after the #. Browsers never send that part to any server, so it hasn't been uploaded to us or anyone else.</p>
+</div>
+  <noscript><p>Opening a cast link needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <div class="prose">
+  <h2>What is a cast link?</h2>
+  <p>An agent, drama teacher, director or scene partner prepared this script in Scenewise and sent it to you as a link. The whole script, with its characters and scenes sorted out, is packed inside the link itself.</p>
+  <ul>
+    <li><b>Got the app?</b> Tap <b>Open in the Scenewise app</b>. The script opens ready to rehearse, with your part picked if the sender chose one.</li>
+    <li><b>No app yet?</b> <b>Rehearse in your browser</b> reads the other parts aloud and hides your lines, for your first 6 lines.</li>
+    <li><b>Asked for a password?</b> The sender gives it to you separately. Nobody else, including us, can recover it.</li>
+  </ul>
+  <p>Want to send a script yourself? <a href="/scenewise/send/">Send a script to your cast or clients</a>. It's free.</p>
+  </div>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Learn the whole part with Scenewise</h2>
+  <p>Import your script or sides, pick your part, and your phone reads every other character while your lines fade from full text to first letters to a blank page.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, unlock everything once for US$6.99. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer. Also from the same maker: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a> (spacing and cut lists) and <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a> (knots).</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/castlink.js" defer></script><script src="/scenewise/static/tools.js" defer></script>
+</body>
+</html>

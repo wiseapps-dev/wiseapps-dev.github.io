@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Send a Script to Your Cast or Clients, Free | Scenewise</title>
+<meta name="description" content="Free for talent agents, drama teachers, coaches and directors: turn a script into a link each actor can rehearse with. Nothing uploaded, optional password.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/send/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Send a Script to Your Cast or Clients, Free | Scenewise">
+<meta property="og:description" content="Free for talent agents, drama teachers, coaches and directors: turn a script into a link each actor can rehearse with. Nothing uploaded, optional password.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/send/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Send a script to your cast or clients", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/scenewise/send/", "description": "Free for talent agents, drama teachers, coaches and directors: turn a script into a link each actor can rehearse with. Nothing uploaded, optional password."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/scenewise/"}, {"@type": "ListItem", "position": 2, "name": "Send a script"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench-head">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/scenewise/">Home</a></li><li aria-current="page">Send a script</li></ol></nav>
+  <h1>Send a script to your cast or clients</h1>
+  <p class="lede">Send a script to your cast or clients as a link they can rehearse with. Paste the script, check the character names, add a note and an optional password, and copy the link. Actors open it in the Scenewise app or rehearse in their browser. It's free, and nothing is uploaded: the script travels inside the link.</p>
+</div>
+<div class="bench">
+  <div class="tool" data-tool="send" data-web="https://wiseapps-dev.github.io/scenewise/open/">
+  <a href="/scenewise/open/" data-role="open-base" hidden tabindex="-1"></a>
+  <div class="tool-label"><label for="sd-text"><span class="step-n">1</span>The script</label><span class="tool-btns"><button type="button" class="btn ghost sm" data-act="file">Open a .txt file</button><button type="button" class="btn ghost sm" data-act="sample">Sample</button></span></div>
+  <input type="file" accept=".txt,.text,.fountain,.md,text/plain" data-role="file" hidden>
+  <textarea id="sd-text" rows="8" spellcheck="false" placeholder="Paste the script text here.&#10;&#10;NELL: I came back for the piano.&#10;ROSS: And?"></textarea>
+  <p class="help">Plain text and Fountain files open here. <b>PDF or Word?</b> Paste the text, or use the Scenewise app to open PDFs. <a href="/scenewise/guides/how-to-format-a-script/">Formatting tips</a></p>
+  <p class="help err" data-role="err" hidden></p>
+  <div class="row"><button type="button" class="btn primary" data-act="parse">Find the characters</button></div>
+
+  <div data-role="step2" hidden>
+    <p class="step"><span class="step-n">2</span>Check the characters</p>
+    <p class="help" data-role="summary"></p>
+    <div class="char-list" data-role="chars"></div>
+    <p class="sub-label">Preview</p>
+    <div class="feed preview" data-role="preview"></div>
+    <p class="help" data-role="preview-more"></p>
+
+    <p class="step"><span class="step-n">3</span>Details</p>
+    <div class="fields">
+      <label>Title<input class="input" data-f="title" maxlength="80" placeholder="Script title"></label>
+      <label>From <small>(optional)</small><input class="input" data-f="from" maxlength="80" placeholder="e.g. Jo at Starlight Talent, or Ms Patel, Year 11 Drama"></label>
+      <label>Prepared for <small>(optional)</small><input class="input" data-f="forName" maxlength="80" placeholder="The actor's name, shown on their copy"></label>
+      <label>Note <small>(optional)</small><textarea class="input" data-f="note" maxlength="600" rows="3" placeholder="e.g. Off-book for Act 1 by Friday 4 December."></textarea></label>
+    </div>
+    <p class="sub-label">Who is it for? <small>(optional)</small></p>
+    <div class="chips" data-role="parts" role="group" aria-label="Who it's for"></div>
+    <p class="help">Their part is picked for them when they open the link.</p>
+    <div class="fields">
+      <label>Password <small>(optional)</small><input class="input" data-f="password" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="60" placeholder="Send the password separately"></label>
+    </div>
+    <div class="row"><button type="button" class="btn primary block" data-act="create">Create link</button></div>
+  </div>
+
+  <div data-role="result" hidden>
+    <p class="step"><span class="step-n">4</span>Your link</p>
+    <p class="warn" data-role="big" hidden>This script makes a very long link, and many chat and email apps cut long links short. It's best sent as a file: download the .scenewise file and attach it. Actors open it in the Scenewise app, or paste its contents into the open page.</p>
+    <textarea class="linkbox" data-role="link" rows="3" readonly spellcheck="false" aria-label="Your link"></textarea>
+    <div class="stats"><span data-role="len"></span><span data-role="lockstate"></span></div>
+    <div class="row">
+      <button type="button" class="btn primary" data-act="copy"><span>Copy link</span></button>
+      <button type="button" class="btn" data-act="download">Download .scenewise file</button>
+      <a class="btn ghost" data-role="try" href="/scenewise/open/" target="_blank" rel="noopener">Open it to check</a>
+    </div>
+  </div>
+</div>
+  <noscript><p>This tool needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <aside class="plug" aria-label="The Scenewise app"><p><b>Your actors don't need anything to open the link.</b> With the Scenewise app it opens ready to rehearse, with the other parts read aloud and progress saved by scene. Without it, they can rehearse their first 6 lines in the browser.</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div><p class="terms">Free to download, unlock everything once for US$6.99. No subscription, no account, no ads. Works offline.</p></aside>
+  <div class="prose">
+<h2>How it works</h2>
+<ol>
+<li><b>Paste the script</b> and tap <b>Find the characters</b>. It uses the same script reader as the Scenewise app.</li>
+<li><b>Check the names.</b> If one person appears under two spellings (NELL and NELLIE), merge them. Rename anything that came out wrong.</li>
+<li><b>Add the details.</b> Who it's from, who it's prepared for (shown on their copy), and a note, like an off-book date or a call time.</li>
+<li><b>Create the link</b> and paste it into the cast chat, an email or a text. Make one per actor if you want each copy to show their name and pick their part.</li>
+</ol>
+<h2>What the actor sees</h2>
+<p>The link opens a page showing the title, who it's from, your note and the characters. With the Scenewise app, they tap once and the script opens ready to rehearse. Without it, they can rehearse their first 6 lines in the browser: it reads the other parts aloud and hides their lines.</p>
+<h2>Privacy and passwords</h2>
+<ul>
+<li><b>Nothing is uploaded.</b> The script is compressed and packed into the link, after the #. Browsers never send that part of a link to any server, so the script never reaches us.</li>
+<li><b>Anyone with the link can read the script</b>, so treat it like an attachment. For unreleased or confidential material, add a password.</li>
+<li><b>Passwords</b> encrypt the script in your browser (AES-GCM). Send the password a different way from the link. We can't recover a lost password, and neither can anyone else.</li>
+<li><b>Only send what you're allowed to share</b>, like sides from casting, your own writing, or a script your school or company has the rights to.</li>
+</ul>
+<h2>Long scripts</h2>
+<p>A short scene makes a link of a few thousand characters. A full-length play can run past 60,000, which some apps cut short. For those, download the <b>.scenewise file</b> and attach it to an email. On iPhone, tapping the file opens it in Scenewise.</p>
+</div>
+  <nav class="next-reads" aria-labelledby="more-h">
+    <h2 id="more-h">Guides that go with it</h2>
+    <ol class="playbill"><li><a href="/scenewise/guides/how-to-learn-lines-for-a-play/">How to learn lines for a play: a rehearsal timeline</a><p>From read-through to opening night: a week-by-week timeline, the off-book date, cue lines, calling for a line and line notes.</p></li><li><a href="/scenewise/guides/learning-lines-the-night-before/">Learning lines the night before an audition or self-tape</a><p>Sides the night before an audition or self-tape: how off book to be, what to learn first, an evening plan and why sleep matters.</p></li><li><a href="/scenewise/guides/how-to-format-a-script/">How to format a script so an app can read it</a><p>Names in capitals, NAME: line, directions in brackets, scene headings, and why scanned PDFs can&#x27;t be read.</p></li></ol>
+    <p><a href="/scenewise/guides/">All guides to learning lines</a></p>
+  </nav>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Scenewise for the actors you send to</h2>
+  <p>The app opens your links ready to rehearse: every other part read aloud, lines hidden in stages, progress saved by scene. Opening your links in the app is always free for your actors.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, unlock everything once for US$6.99. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+<template id="sw-badges"><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></template>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer. Also from the same maker: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a> (spacing and cut lists) and <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a> (knots).</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/sample.js" defer></script><script src="/scenewise/static/castlink.js" defer></script><script src="/scenewise/static/tools.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decking calculator: boards, last rip and lengths | Gapwise</title>
+<meta name="description" content="Free decking board calculator. Enter the deck width, board width and gap to get the boards across, the last rip or an even gap, and the lengths to buy.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/gapwise/decking-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gapwise">
+<meta property="og:title" content="Decking calculator: boards, last rip and lengths | Gapwise">
+<meta property="og:description" content="Free decking board calculator. Enter the deck width, board width and gap to get the boards across, the last rip or an even gap, and the lengths to buy.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/gapwise/decking-calculator/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/gapwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gapwise: even gaps and cut lists, worked out on site. Yellow balusters between two grey posts.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121316">
+<link rel="icon" type="image/png" href="/gapwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/gapwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/gapwise/static/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Decking board calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/gapwise/decking-calculator/"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/gapwise/"}, {"@type": "ListItem", "position": 2, "name": "Decking board calculator", "item": "https://wiseapps-dev.github.io/gapwise/decking-calculator/"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+  <nav class="nav" aria-label="Main"><a class="wide" href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a><a class="wide" href="/gapwise/picket-spacing-calculator/">Picket calculator</a><a href="/gapwise/guides/">Guides</a><a class="nav-cta" href="#get">Get the app</a></nav>
+</div></header>
+<main id="main">
+<section class="dark band"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/gapwise/">Home</a></li><li aria-current="page">Decking board calculator</li></ol></nav>
+  <div class="section-head"><div class="eyebrow">Free calculator</div><h1>Decking board calculator</h1><p class="answer">To lay deck boards, add one gap to the deck width and divide by the board width plus the gap, then round down for the full boards. The width left after those boards and their gaps is the rip for the last board. Or adjust the gap slightly so every board stays full width.</p></div>
+  <div class="calc" data-calc="deck" data-applink="#get">
+  <form class="calc-in" action="#" novalidate>
+    <div class="calc-row"><div class="seg" role="group" aria-label="Units"><button type="button" data-u="mm" aria-pressed="true">mm</button><button type="button" data-u="in" aria-pressed="false">inches</button></div><span class="layout">A board flush at the start</span></div>
+    <div class="flds"><div class="fld"><label for="f0">Deck width (across the boards)</label><span class="in"><input id="f0" data-f="0" inputmode="decimal" autocomplete="off" spellcheck="false" value="3600"><span class="u">mm</span></span></div><div class="fld"><label for="f1">Board width</label><span class="in"><input id="f1" data-f="1" inputmode="decimal" autocomplete="off" spellcheck="false" value="140"><span class="u">mm</span></span></div><div class="fld"><label for="f2">Gap between boards</label><span class="in"><input id="f2" data-f="2" inputmode="decimal" autocomplete="off" spellcheck="false" value="5"><span class="u">mm</span></span></div><div class="fld"><label for="f3">Board length (optional)</label><span class="in"><input id="f3" data-f="3" inputmode="decimal" autocomplete="off" spellcheck="false" value="5400" placeholder="optional"><span class="u">mm</span></span></div><div class="fld"><label for="f4">Deck length (along the boards, optional)</label><span class="in"><input id="f4" data-f="4" inputmode="decimal" autocomplete="off" spellcheck="false" value="4800" placeholder="optional"><span class="u">mm</span></span></div></div>
+    <div class="presets presets-2" role="group" aria-label="Last board"><button type="button" data-lay="rip" aria-pressed="true">Rip the last board</button><button type="button" data-lay="even" aria-pressed="false">Adjust the gap, no rip</button></div>
+    <p class="hint">Lengths to buy allow 3 mm per cut for the saw.</p>
+  </form>
+  <p class="vh" aria-live="polite" data-live></p>
+  <div class="calc-out"><noscript><p class="res-err">The calculator needs JavaScript. The formula and a worked example are below.</p></noscript></div>
+  <figure class="calc-fig">
+    <div class="sheet"><svg class="draw" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plan of the deck boards"></svg></div>
+    <figcaption>Plan, not to scale along the boards. The last board is picked out in yellow. It redraws as you type.</figcaption>
+  </figure>
+</div>
+</div></section>
+<section class="doc"><div class="wrap">
+  <div class="prose">
+<h2>Worked example: a 3.6 m wide deck</h2>
+<p>The deck is 3600 mm across the boards. The boards are 140 mm wide with 5 mm gaps, and the first board sits flush with the edge.</p>
+<pre><code>full boards (3600 + 5) ÷ (140 + 5)
+            = 24.9, round down to 24
+used        24 × (140 + 5) = 3480 mm
+last board  3600 − 3480 = 120 mm rip</code></pre>
+<p>That's 25 boards across, the last one ripped to 120 mm. If you'd rather not rip, 25 full boards fit with the gap closed up to (3600 − 25 × 140) ÷ 24 = 4.2 mm.</p>
+<h2>How many lengths to buy</h2>
+<p>Each board across is one row. With 5.4 m boards and a deck 2.4 m long, two rows come out of each board: 2 × 2400 plus 3 mm for the saw is 4803 mm. So 25 rows need 13 boards.</p>
+<p>Make the deck 2.7 m long and two rows no longer fit in a 5.4 m board once the saw takes its 3 mm, so you need all 25. Rows longer than a board use whole boards plus a cut piece, and the offcuts go into other rows. Stagger the joins and land each one on a joist.</p>
+<h2>Avoid a thin last board</h2>
+<p>A rip under half a board looks odd and can split. Either nudge the gap so every board stays full width, or rip the first and last boards to the same width: add the board width to the rip and halve it. A 20 mm rip on 140 mm boards becomes two 80 mm boards.</p>
+<p>Don't close the gap below what the board maker recommends. Boards need room for drainage and movement, so check the installation guide first.</p>
+<h2>Questions</h2><div class="faq"><details><summary>How many deck boards do I need across my deck?</summary><p>Add one gap to the deck width, divide by the board width plus the gap and round down for the full boards. If anything is left after the last gap, you need one more board, ripped to fit.</p></details><details><summary>What gap should I leave between deck boards?</summary><p>Use the gap in the board maker's installation guide. Gaps of around 3 mm to 6 mm are common, but hardwood, treated pine and composite boards each have their own recommendation.</p></details><details><summary>Where should the ripped board go?</summary><p>Most builders start with a full board on the edge people see most, often along the house or the front, and put the rip where it shows least. Or rip both edges evenly.</p></details><details><summary>Does it work in inches?</summary><p>Yes. Tap inches and type feet, inches and fractions, like 12' for the deck and 5 1/2 for the boards. Lengths to buy then allow 1/8 inch per cut.</p></details></div></div>
+  <aside class="related" aria-labelledby="rel-h"><h2 id="rel-h">Related</h2><ul class="links"><li><a href="/gapwise/picket-spacing-calculator/">Picket spacing calculator</a><span>The same edge-to-edge layout for pickets, battens and slats.</span></li><li><a href="/gapwise/stair-calculator/">Stair calculator</a><span>Risers, going and stringer for the steps down from the deck.</span></li><li><a href="/gapwise/baluster-spacing-calculator/">Baluster spacing calculator</a><span>Balusters for the deck railing, a gap at both posts.</span></li><li><a href="/gapwise/guides/how-to-plan-a-cut-list/">How to plan a cut list with the least waste</a><span>Plan a linear cut list by hand: stock lengths, saw kerf, the n or n-1 cuts rule, longest-first, mixing lengths and using offcuts. Worked examples.</span></li></ul><p class="hub"><a href="/gapwise/#calc-h">All Gapwise calculators &#8594;</a></p></aside>
+</div></section><section class="get" id="get" aria-labelledby="get-h"><div class="wrap"><div class="app-box">
+  <img src="/gapwise/static/img/apple-touch-icon.png" alt="Gapwise app icon" width="64" height="64">
+  <div><h2 id="get-h">Take the job on site with the Gapwise app</h2>
+  <p>Every mark from the post, stairs and decking, a cut list with saw kerf allowed for, and saved jobs that open with no signal. Millimetres or inches. Free to download, unlock everything once for US$7.99: no account, no subscription, no ads.</p>
+  <div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div></div>
+</div></div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-brand">
+    <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+    <p>Even spacing and cut lists for balusters, pickets and battens.</p>
+    <p>&#169; 2026 Gapwise. Made by a tradie.</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a>
+    <a href="/gapwise/balustrade-spacing-calculator/">Balustrade calculator (AU)</a>
+    <a href="/gapwise/picket-spacing-calculator/">Picket calculator</a>
+    <a href="/gapwise/stair-calculator/">Stair calculator</a>
+    <a href="/gapwise/decking-calculator/">Decking calculator</a>
+    <a href="/gapwise/guides/">Guides</a>
+    <a href="/gapwise/support/">Support</a>
+    <a href="/gapwise/privacy/">Privacy</a>
+  </nav>
+</div></footer>
+<div class="bar" id="bar" hidden>
+  <p><b>Gapwise app</b><span> Every mark, cut lists, works offline.</span></p>
+  <a class="bar-go" href="#get">Get the app</a>
+  <button type="button" class="bar-x" aria-label="Dismiss the app banner">&#215;</button>
+</div><script defer src="/gapwise/static/engine.js"></script><script defer src="/gapwise/static/tools.js"></script><script defer src="/gapwise/static/bar.js"></script>
+</body>
+</html>

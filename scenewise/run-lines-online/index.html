@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run Lines Online: Free Line Reader for Actors | Scenewise</title>
+<meta name="description" content="Run lines online for free. Paste a scene, pick your character, and your browser reads the other parts aloud while your lines stay hidden. No sign-up.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/run-lines-online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Run Lines Online: Free Line Reader for Actors | Scenewise">
+<meta property="og:description" content="Run lines online for free. Paste a scene, pick your character, and your browser reads the other parts aloud while your lines stay hidden. No sign-up.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/run-lines-online/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Run lines online", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/scenewise/run-lines-online/", "description": "Run lines online for free. Paste a scene, pick your character, and your browser reads the other parts aloud while your lines stay hidden. No sign-up."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/scenewise/"}, {"@type": "ListItem", "position": 2, "name": "Run lines online"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" aria-current="page" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench-head">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/scenewise/">Home</a></li><li aria-current="page">Run lines online</li></ol></nav>
+  <h1>Run lines online</h1>
+  <p class="lede">Run lines online by pasting a scene and picking your character. Your browser reads the other parts aloud and stops for yours, with your lines shown in full, with words hidden, as first letters or blank. Say each line out loud, then reveal it to check. Your first 6 lines are free, with no sign-up.</p>
+</div>
+<div class="bench">
+  <div class="tool" data-tool="run" data-applink="/scenewise/#app" data-free="6">
+  <div data-pane="paste">
+    <div class="tool-label"><label for="rl-text">Your script</label><button type="button" class="btn ghost sm" data-act="sample">Try the sample scene</button></div>
+    <textarea id="rl-text" rows="8" spellcheck="false" placeholder="NELL: I came back for the piano.&#10;ROSS: And?&#10;NELL: And it still knows the tune."></textarea>
+    <p class="help">Put each name in capitals before the line, like <i>NELL: I came back.</i> Stage directions go in brackets. <a href="/scenewise/guides/how-to-format-a-script/">Formatting tips</a></p>
+    <p class="help err" data-role="paste-err" hidden></p>
+    <div class="row"><button type="button" class="btn primary" data-act="parse">Find the characters</button></div>
+  </div>
+  <div data-pane="setup" hidden>
+    <div class="tool-label"><span class="script-title" data-role="script-title"></span><button type="button" class="btn ghost sm" data-act="edit">Edit text</button></div>
+    <div class="shared-info" data-role="shared" hidden></div>
+    <p class="help" data-role="setup-note" hidden></p>
+    <p class="sub-label">Who do you play?</p>
+    <div class="chips" data-role="chips" role="group" aria-label="Your character"></div>
+    <p class="sub-label">Your lines</p>
+    <div class="seg" role="group" aria-label="How much of your lines to show" data-seg="level"><button type="button" data-v="0" aria-pressed="false" title="Full text">Full</button><button type="button" data-v="1" aria-pressed="true" title="Some words hidden">Some</button><button type="button" data-v="2" aria-pressed="false" title="Most words hidden">Most</button><button type="button" data-v="3" aria-pressed="false" title="First letters only">Letters</button><button type="button" data-v="4" aria-pressed="false" title="Blank">Blank</button></div>
+    <p class="help" data-role="level-help"></p>
+    <p class="sub-label">Other parts</p>
+    <div class="seg" role="group" aria-label="How much of the other parts to read" data-seg="cue"><button type="button" data-v="full" aria-pressed="true" title="Read every other line in full">Whole lines</button><button type="button" data-v="last" aria-pressed="false" title="Read only the end of the line before yours">Just the cue</button></div>
+    <p class="sub-label">Voice speed</p>
+    <div class="seg" role="group" aria-label="Voice speed" data-seg="rate"><button type="button" data-v="0.85" aria-pressed="false" title="Slow">Slow</button><button type="button" data-v="1" aria-pressed="true" title="Normal">Normal</button><button type="button" data-v="1.2" aria-pressed="false" title="Fast">Fast</button></div>
+    <div class="row start-row"><button type="button" class="btn primary block" data-act="start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Start</span></button></div>
+    <p class="help">The free version runs your first 6 lines. Turn your sound on.</p>
+  </div>
+  <div data-pane="run" hidden>
+    <div class="run-top"><span data-role="progress"></span><button type="button" class="btn ghost sm" data-act="stop">Stop</button></div>
+    <div class="notice" data-role="nospeech" hidden>Your browser can't read aloud here, so the other parts appear on screen with a pause instead.</div>
+    <div class="feed" data-role="feed"></div>
+    <div class="dock" data-role="dock"></div>
+  </div>
+</div>
+  <noscript><p>This tool needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <aside class="plug" aria-label="The Scenewise app"><p><b>Want the whole script?</b> The Scenewise app reads every other character in its own voice, imports PDF, Word and Final Draft files, and saves your progress scene by scene.</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div><p class="terms">Free to download, unlock everything once for US$6.99. No subscription, no account, no ads. Works offline.</p></aside>
+  <div class="prose">
+<h2>How the line-runner works</h2>
+<ol>
+<li><b>Paste a scene</b> or tap <b>Try the sample scene</b>. The same parser as the app finds the characters, the scene headings and the stage directions.</li>
+<li><b>Pick your part</b> and how much of your lines to show: full text, some words hidden, most words hidden, first letters, or blank.</li>
+<li><b>Press Start.</b> Your browser reads the other characters' lines. When it's your turn, it stops. Say your line out loud, tap <b>Reveal</b> to check, then <b>Next</b>.</li>
+</ol>
+<p>It uses your browser's built-in speech, so the voices depend on your device. If your browser can't speak, the other lines show on screen with a pause instead. Words in brackets are shown but never read aloud or hidden.</p>
+<h2>What's free and what's in the app</h2>
+<p>The online version runs your first 6 lines of any script, as often as you like. The Scenewise app runs the whole thing, with a separate voice for every character, PDF, Word and Final Draft import, a typed check, saved scripts and a "learnt" score for every scene. It also works with no signal.</p>
+<h2>Running lines on your own</h2>
+<p>A line-runner is one way to rehearse alone. The guide to <a href="/scenewise/guides/how-to-run-lines-without-a-scene-partner/">running lines without a scene partner</a> covers recording your cues, the cover-card method and how to stop yourself learning someone else's line readings. If your script won't split into characters, see <a href="/scenewise/guides/how-to-format-a-script/">how to format a script</a>.</p>
+</div>
+  <nav class="next-reads" aria-labelledby="more-h">
+    <h2 id="more-h">Guides that go with it</h2>
+    <ol class="playbill"><li><a href="/scenewise/guides/how-to-run-lines-without-a-scene-partner/">How to run lines without a scene partner</a><p>Six ways to run lines alone, from recording your cues to the cover card, plus the mistakes that waste solo practice.</p></li><li><a href="/scenewise/guides/learning-lines-the-night-before/">Learning lines the night before an audition or self-tape</a><p>Sides the night before an audition or self-tape: how off book to be, what to learn first, an evening plan and why sleep matters.</p></li><li><a href="/scenewise/guides/how-to-format-a-script/">How to format a script so an app can read it</a><p>Names in capitals, NAME: line, directions in brackets, scene headings, and why scanned PDFs can&#x27;t be read.</p></li></ol>
+    <p><a href="/scenewise/guides/">All guides to learning lines</a></p>
+  </nav>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Learn the whole part with Scenewise</h2>
+  <p>Import your script or sides, pick your part, and your phone reads every other character while your lines fade from full text to first letters to a blank page.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, unlock everything once for US$6.99. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+<template id="sw-badges"><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></template>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer. Also from the same maker: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a> (spacing and cut lists) and <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a> (knots).</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/sample.js" defer></script><script src="/scenewise/static/castlink.js" defer></script><script src="/scenewise/static/tools.js" defer></script>
+</body>
+</html>

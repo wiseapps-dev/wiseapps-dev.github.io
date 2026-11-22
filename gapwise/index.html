@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gapwise: baluster spacing app and free calculator</title>
+<meta name="description" content="Work out even baluster spacing as you type, with a live drawing. The Gapwise app adds every mark, cut lists with kerf and saved jobs. Works offline.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/gapwise/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gapwise">
+<meta property="og:title" content="Gapwise: baluster spacing app and free calculator">
+<meta property="og:description" content="Work out even baluster spacing as you type, with a live drawing. The Gapwise app adds every mark, cut lists with kerf and saved jobs. Works offline.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/gapwise/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/gapwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gapwise: even gaps and cut lists, worked out on site. Yellow balusters between two grey posts.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121316">
+<link rel="icon" type="image/png" href="/gapwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/gapwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/gapwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Gapwise", "operatingSystem": "iOS", "applicationCategory": "UtilitiesApplication", "description": "Even spacing, stair, decking and cut list calculator for balusters, pickets, battens, stairs, deck boards and timber. Works offline, metric and imperial.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to download. One optional in-app purchase, Gapwise Pro, unlocks everything once for US$7.99."}, "url": "https://wiseapps-dev.github.io/gapwise/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+  <nav class="nav" aria-label="Main"><a class="wide" href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a><a class="wide" href="/gapwise/picket-spacing-calculator/">Picket calculator</a><a href="/gapwise/guides/">Guides</a><a class="nav-cta" href="#get">Get the app</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <h1>Even baluster spacing, <em>worked out.</em></h1>
+    <p class="lead">To space balusters evenly, work out the count first, then the exact gap, then mark every baluster from the post face. Type the length between your posts and the baluster width into the calculator below. The numbers and the drawing update as you type, and every gap stays under the limit you pick.</p>
+    <div class="badges"><div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div><a class="btn-line" href="#calculator">Work out your gap &#8594;</a></div>
+    <ul class="facts"><li>Free to download</li><li>One-time Pro unlock, no subscription</li><li>Works offline</li><li>mm and inches</li></ul>
+  </div>
+  <div class="phones"><div class="phone a"><img src="/gapwise/static/img/shot-spacing.webp" width="390" height="844" alt="The Gapwise app's spacing screen: 14 balusters between posts with a 117.5 mm gap"></div><div class="phone b"><img src="/gapwise/static/img/shot-cut.webp" width="390" height="844" loading="lazy" alt="The Gapwise cut list, part of Pro: three 6 m lengths to buy with 3.3% waste"></div></div>
+</div></section>
+
+<section id="calculator" aria-labelledby="tool-h"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Free tool</div><h2 id="tool-h">Baluster spacing calculator</h2><p>Enter the length between posts and the baluster width to get the equal gap, the count and the first marks. The app's one-time Pro unlock gives you every mark and saves the job.</p></div>
+  <div class="calc" data-calc="between" data-applink="#app">
+  <form class="calc-in" action="#" novalidate>
+    <div class="calc-row">
+      <div class="seg" role="group" aria-label="Units"><button type="button" data-u="mm" aria-pressed="true">mm</button><button type="button" data-u="in" aria-pressed="false">inches</button></div>
+      <span class="layout">Gap at both ends</span>
+    </div>
+    <div class="flds"><div class="fld"><label for="f0">Length between posts</label><span class="in"><input id="f0" data-f="0" inputmode="decimal" autocomplete="off" spellcheck="false" value="2400"><span class="u">mm</span></span></div><div class="fld"><label for="f1">Baluster width</label><span class="in"><input id="f1" data-f="1" inputmode="decimal" autocomplete="off" spellcheck="false" value="42"><span class="u">mm</span></span></div><div class="fld"><label for="f2">Largest gap</label><span class="in"><input id="f2" data-f="2" inputmode="decimal" autocomplete="off" spellcheck="false" value="125"><span class="u">mm</span></span></div></div>
+    <div class="presets" role="group" aria-label="Gap limit presets"><button type="button" data-p="au" aria-pressed="true">AU under 125 mm</button><button type="button" data-p="nzuk" aria-pressed="false">NZ/UK under 100 mm</button><button type="button" data-p="us" aria-pressed="false">US under 4&quot;</button></div><p class="hint">Presets keep every gap under the limit. Check your local rules.</p>
+  </form>
+  <p class="vh" aria-live="polite" data-live></p>
+  <div class="calc-out"><noscript><p class="res-err">The calculator needs JavaScript. The formula and a worked example are below.</p></noscript></div>
+  <figure class="calc-fig">
+    <div class="sheet"><svg class="draw" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation drawing of the run"></svg></div>
+    <figcaption>Elevation, not to scale. Balusters between two posts, with a gap at both ends. It redraws as you type.</figcaption>
+  </figure>
+</div>
+</div></section>
+
+<section class="dark" id="app" aria-labelledby="app-h"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Gapwise app</div><h2 id="app-h">What the app adds to this free calculator</h2><p>Spacing things evenly, and cutting lengths without waste. Built by a tradie who was sick of doing them on a scrap of timber.</p></div>
+  <div class="grid3"><div class="card"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2v16H3zM9 7h2v13H9zM13 7h2v13h-2zM19 4h2v16h-2z"/></svg></div><h3>Marks</h3><p>Every mark from the first post, not just the first four. Millimetres, or inches to 1/32&quot;.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20v6H2zm2 2v2h6v-2zm8 0v2h4v-2zm6 0v2h2v-2z"/></svg></div><h3>Cut list</h3><p>Which lengths to buy, with saw kerf allowed for and the least waste. It uses your offcuts first.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18v4H3zm2-2V9h2v6zm4 0V5h2v10zm4 0V9h2v6zm4 0V5h2v10z"/></svg></div><h3>Layouts</h3><p>Between posts, edge to edge, or centres for downlights. Plus stairs with code presets, and deck boards with the last rip.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7.6 4 3.7 5.8 1 8.7L12 20 23 8.7C20.3 5.8 16.4 4 12 4z"/></svg></div><h3>On site</h3><p>Save a job and open it again with no signal. Share a result to a text, an email or the crew chat.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.2 15.5L6.5 12.2l1.4-1.4 2.9 2.9 5.3-5.3 1.4 1.4z"/></svg></div><h3>Price</h3><p>Free to download, unlock everything once for US$7.99. No account, no subscription, no ads.</p></div><div class="card get-card"><h3>Get it</h3><p>Free on iPhone first, then Android.</p><div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div></div></div>
+</div></section>
+
+<section aria-labelledby="calc-h"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Free tools</div><h2 id="calc-h">Free calculators</h2><p>Each one works in millimetres or inches and shows the formula it uses.</p></div>
+  <div class="card tbl-card"><table class="spec"><caption class="vh">The free calculators</caption><thead><tr><th scope="col">Calculator</th><th scope="col">Layout</th><th scope="col">Formula</th><th scope="col">Limit</th></tr></thead><tbody><tr><th scope="row"><a href="/gapwise/baluster-spacing-calculator/">Baluster spacing calculator</a></th><td data-l="Layout">Between posts, a gap at both ends</td><td data-l="Formula" class="m">(L − n × w) ÷ (n + 1)</td><td data-l="Limit">Your largest gap, or the 125 mm, 100 mm and 4&quot; presets</td></tr><tr><th scope="row"><a href="/gapwise/balustrade-spacing-calculator/">Balustrade spacing calculator (Australia)</a></th><td data-l="Layout">Between posts, a gap at both ends</td><td data-l="Formula" class="m">(L − n × w) ÷ (n + 1)</td><td data-l="Limit">Every gap under 125 mm</td></tr><tr><th scope="row"><a href="/gapwise/picket-spacing-calculator/">Picket spacing calculator</a></th><td data-l="Layout">Edge to edge, a picket at both ends</td><td data-l="Formula" class="m">(L − n × w) ÷ (n − 1)</td><td data-l="Limit">Your largest gap</td></tr><tr><th scope="row"><a href="/gapwise/stair-calculator/">Stair calculator</a></th><td data-l="Layout">A straight flight, floor to floor</td><td data-l="Formula" class="m">R = H ÷ n, run = (n − 1) × G</td><td data-l="Limit">AU, US, UK, NZ and Spanish riser and going limits</td></tr><tr><th scope="row"><a href="/gapwise/decking-calculator/">Decking calculator</a></th><td data-l="Layout">Boards across a deck, a gap between each</td><td data-l="Formula" class="m">rip = W − n × (w + g)</td><td data-l="Limit">Your gap, or adjusted so no board is ripped</td></tr></tbody></table></div><p class="spec-key">L is the length, w is the item or board width, n is the number of items, risers or full boards, H is the floor-to-floor rise, G is the going, W is the deck width and g is the gap.</p>
+</div></section>
+
+<section aria-labelledby="guides-h"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Guides</div><h2 id="guides-h">Do it right the first time</h2><p>Plain-English guides with the formulas and worked examples.</p></div>
+  <div class="grid2"><a class="card" href="/gapwise/guides/how-to-space-balusters-evenly/"><h3>How to space balusters evenly</h3><p>Baluster spacing formula with worked examples in mm and inches. Get the count, the exact gap and marks from the post, and stay under 125 mm or 4 inches.</p><span class="more">Read the guide &#8594;</span></a><a class="card" href="/gapwise/guides/balustrade-gap-rules/"><h3>Balustrade gap rules: 125 mm, 4 inch and 100 mm explained</h3><p>Balustrade spacing rules in Australia, NZ, the US and UK: the 125 mm, 100 mm and 4 inch sphere tests, barrier heights, and worked examples.</p><span class="more">Read the guide &#8594;</span></a><a class="card" href="/gapwise/guides/how-to-space-fence-pickets-evenly/"><h3>How to space fence pickets evenly</h3><p>Picket and paling spacing made simple: the edge-to-edge formula, target gap vs max gap, shrinkage, and worked examples in millimetres and inches.</p><span class="more">Read the guide &#8594;</span></a><a class="card" href="/gapwise/guides/how-to-plan-a-cut-list/"><h3>How to plan a cut list with the least waste</h3><p>Plan a linear cut list by hand: stock lengths, saw kerf, the n or n-1 cuts rule, longest-first, mixing lengths and using offcuts. Worked examples.</p><span class="more">Read the guide &#8594;</span></a></div>
+  <p class="hub"><a href="/gapwise/guides/">All spacing and cut list guides &#8594;</a></p>
+</div></section>
+
+<section class="faq-sec" aria-labelledby="faq-h"><div class="wrap"><div class="narrow">
+  <div class="section-head"><h2 id="faq-h">Questions</h2></div>
+  <div class="faq"><details><summary>Is it a subscription?</summary><p>No. Gapwise is free to download, and one optional in-app purchase, Gapwise Pro (US$7.99, once), unlocks everything. There are no ads and no account.</p></details><details><summary>What is free, and what does Pro add?</summary><p>Free: the gap, count and centres for any run with the first 4 marks, stairs with the pass or fail check, and decking with the last board, in millimetres or inches. Pro, a one-time unlock: every mark, the cut list, the lengths to buy for a deck, saved jobs, and copy and share.</p></details><details><summary>Does it work offline?</summary><p>Yes. All the maths runs on your phone, so it works in a basement, on a roof or out bush.</p></details><details><summary>Does it make my balustrade compliant?</summary><p>No app can do that. The presets keep every gap under the sphere size you choose, but building rules vary by place and change over time. Check yours with your certifier, building surveyor or inspector.</p></details><details><summary>Is there an Android version?</summary><p>The iPhone version comes first. Android follows a few weeks later.</p></details><details><summary>Can I use inches?</summary><p>Yes. Tap &quot;in&quot; and every field takes feet, inches and fractions, like 4&#x27; 6 1/2&quot;.</p></details></div>
+</div></div></section>
+<section class="get" id="get" aria-labelledby="get-h"><div class="wrap"><div class="app-box">
+  <img src="/gapwise/static/img/apple-touch-icon.png" alt="Gapwise app icon" width="64" height="64">
+  <div><h2 id="get-h">Take the job on site with the Gapwise app</h2>
+  <p>Every mark from the post, stairs and decking, a cut list with saw kerf allowed for, and saved jobs that open with no signal. Millimetres or inches. Free to download, unlock everything once for US$7.99: no account, no subscription, no ads.</p>
+  <div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div></div>
+</div></div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-brand">
+    <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+    <p>Even spacing and cut lists for balusters, pickets and battens.</p>
+    <p>&#169; 2026 Gapwise. Made by a tradie.</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a>
+    <a href="/gapwise/balustrade-spacing-calculator/">Balustrade calculator (AU)</a>
+    <a href="/gapwise/picket-spacing-calculator/">Picket calculator</a>
+    <a href="/gapwise/stair-calculator/">Stair calculator</a>
+    <a href="/gapwise/decking-calculator/">Decking calculator</a>
+    <a href="/gapwise/guides/">Guides</a>
+    <a href="/gapwise/support/">Support</a>
+    <a href="/gapwise/privacy/">Privacy</a>
+  </nav>
+</div></footer>
+<script defer src="/gapwise/static/engine.js"></script><script defer src="/gapwise/static/calc.js"></script>
+</body>
+</html>
