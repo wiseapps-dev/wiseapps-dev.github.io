@@ -74,7 +74,7 @@
 
   function showEnd() {
     var all = round.length;
-    var msg = score === all ? 'Every one right. You know your knots.' : score >= all - 1 ? 'Nearly all of them. Have a look at the one you missed.' : 'Worth another look: each knot below has step-by-step diagrams.';
+    var msg = score === all ? 'Every one right. You know your knots.' : score >= all - 1 ? 'Nearly all of them. Have a look at the one you missed.' : 'Worth another look: each knot below links to its page.';
     play.innerHTML =
       '<div class="qend"><h3 id="qend" tabindex="-1">You named ' + score + ' of ' + all + ' knots</h3><p>' + msg + '</p>' +
       (missed.length ? '<ul class="qmissed">' + missed.map(function (id) { return '<li><a href="' + esc(href(id)) + '">' + esc(byId[id].name) + '</a></li>'; }).join('') + '</ul>' : '') +

@@ -36,7 +36,7 @@ a:hover { text-decoration-color: var(--signal); }
 .small { font-size: .9rem; color: var(--ink-2); }
 /* the tracked uppercase label */
 .runhead, .chips li, .pill, .plate dt, .specs dt, .catnav a, .chapter > h2, .chapter > h3, .count, .phone figcaption,
-.turn span, .qn, .qstatus, .folio, .stick b, .foot nav a, .more, .upd, .caution b, .refs-note {
+.turn span, .qn, .qstatus, .folio, .stick b, .foot nav a, .more, .upd, .caution b, .refs-note, .lockfeat b {
   font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-stretch: 100%; line-height: 1.5;
 }
 
@@ -183,7 +183,7 @@ a:hover { text-decoration-color: var(--signal); }
 /* ---- the call to action ---- */
 .get { background: var(--black); color: var(--on-d); padding-block: 4.5rem; border-top: 3px solid var(--signal); }
 .getin { display: grid; gap: 2rem; align-items: center; }
-.get h2 { color: #fff; }
+.get h2, .locked h3 { color: #fff; }
 .get p { color: var(--on-d2); max-width: 40rem; }
 .getphone { display: none; }
 @media (min-width: 820px) { .getin { grid-template-columns: 1fr auto; gap: 4rem; } .getphone { display: block; width: 220px; } }
@@ -227,6 +227,16 @@ a:hover { text-decoration-color: var(--signal); }
 
 .mnote { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin: 2.6rem 0; padding: 1.5rem 1.7rem; background: var(--black); color: var(--on-d2); }
 .mnote p { margin: 0; flex: 1 1 22rem; }
+/* Pro knot: finished drawing, locked panel */
+.done { background: var(--white); } .done img { max-height: 30rem; }
+.partial { margin: 0 0 1rem; font-weight: 600; }
+.locked { margin-top: 1.2rem; padding: 1.6rem 1.6rem 1.8rem; background: var(--black); color: var(--on-d2); border-top: 6px solid var(--signal); }
+.lockwarn { margin: 0 0 1.4rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule-d); color: #fff; font-weight: 600; font-size: 1.05rem; }
+.lockno { display: flex; gap: .5rem; list-style: none; margin: 0 0 1rem; padding: 0; }
+.lockno li { padding: .2rem .5rem; border: 1px dashed var(--rule-d); color: var(--on-d3); font-weight: 800; font-stretch: 75%; font-size: 1.5rem; }
+.lockfeat { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .6rem 2rem; }
+.lockfeat b { display: block; color: var(--signal-d); }
+@media (min-width: 760px) { .lockfeat { grid-template-columns: 1fr 1fr; } }
 .duo { display: grid; gap: 1.2rem; margin-top: 2.6rem; }
 @media (min-width: 900px) { .duo { grid-template-columns: 1.15fr 1fr; align-items: start; } }
 .card { background: var(--white); border: 1px solid var(--rule); padding: clamp(1.2rem, 3vw, 2rem); }
