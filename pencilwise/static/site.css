@@ -75,8 +75,8 @@ main h2:not(.cta-h):not(.h3) { padding-bottom: .18em; background: linear-gradien
 .hero-tabs input:focus-visible + label { outline: 3px solid #2f7cf6; outline-offset: 2px; }
 .hero-panels { flex-basis: 100%; margin-top: 6px; }
 .hp { display: none; margin: 0; background: var(--paper); border-radius: 26px; overflow: hidden; box-shadow: inset 0 0 0 1.5px var(--rule); }
-#h-us:checked ~ .hero-panels .hp-us, #h-uk:checked ~ .hero-panels .hp-uk, #h-au-nsw:checked ~ .hero-panels .hp-au-nsw,
-#h-de:checked ~ .hero-panels .hp-de, #h-fr:checked ~ .hero-panels .hp-fr, #h-us-cursive:checked ~ .hero-panels .hp-us-cursive { display: block; }
+#h-us:checked ~ .hero-panels .hp-us, #h-uk-precursive:checked ~ .hero-panels .hp-uk-precursive, #h-au-nsw:checked ~ .hero-panels .hp-au-nsw,
+#h-de-grund:checked ~ .hero-panels .hp-de-grund, #h-fr-cursive:checked ~ .hero-panels .hp-fr-cursive, #h-us-cursive:checked ~ .hero-panels .hp-us-cursive { display: block; }
 .hero-dia { width: 100%; height: auto; aspect-ratio: 11 / 10; max-height: 440px; }
 .hp figcaption { padding: 12px 18px 16px; display: grid; color: var(--ink2); font-size: .95rem; }
 .hp figcaption b { color: var(--ink); font-size: 1.05rem; }

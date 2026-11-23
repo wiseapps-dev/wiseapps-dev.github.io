@@ -6,12 +6,17 @@
  *   Styles.get(id)                      one style
  *   Styles.defaultFor('de-AT')          the style for a device language/region
  *   Styles.glyph(id, 'a')               { ch, w, strokes, src, any } with strokes parsed and slanted
- *   Styles.alphabet(id)                 { upper, lower, digits } in the style's own alphabet order
+ *   Styles.alphabet(id, lang)           { upper, lower, digits } in the style's own alphabet order
+ *                                       (lang: the child's language, used by School print)
+ *   Styles.langOf(id, lang)             the language of the style's letters, words and voice
  *   Styles.has(id, ch)                  can the style draw this character (diacritics are composed)
  *   Styles.layout(id, text, gap)        glyphs placed along a line, for names and worksheets
  *
- * Letter shapes are original drawings that follow each model's published formation rules; the
- * models are described generically and none of them is endorsed. Sources: LICENSES/THIRD_PARTY.md.
+ * Letter shapes are original drawings. The US, UK and Australian (NSW & ACT) styles, the German
+ * Grundschrift and French school cursive follow those models' published formation rules; School
+ * print is a common print with the letters of German, French, Spanish, Italian, Dutch, Polish,
+ * Portuguese or Swedish. The models are described generically and none of them is endorsed.
+ * Sources: LICENSES/THIRD_PARTY.md.
  */
 (function (root, factory) {
   const api = factory(root);
@@ -38,25 +43,16 @@
       opt: { round: 0.84, capRound: 0.84, I: 'plain', T: 'across-first' }, any: 'TEFHIJKXY' },
     { id: 'au-nsw', kind: 'print', lang: 'en', region: 'AU', slant: 5,
       opt: { round: 0.82, capRound: 0.84, k: 'loop', y: 'u', q: 'flick', I: 'plain' }, any: '' },
-    { id: 'de', kind: 'print', lang: 'de', region: 'DE', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', T: 'across-first', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
     { id: 'de-grund', kind: 'precursive', lang: 'de', region: 'DE', slant: 0, set: 'deGrund', pro: true,
       opt: { round: 0.86, capRound: 0.86, I: 'plain', T: 'across-first', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
-    { id: 'fr', kind: 'print', lang: 'fr', region: 'FR', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
     { id: 'fr-cursive', kind: 'cursive', lang: 'fr', region: 'FR', slant: 10, set: 'frCursive', pro: true, any: 'TEFHKXY' },
-    { id: 'es', kind: 'print', lang: 'es', region: 'ES', slant: 0,
+    // School print: one common continental print (single-storey a and g, t with a foot, a 1 with an
+    // up-stroke, a crossed 7) with the letters of the child's language. The first builds had eight
+    // print styles here (German, French, Spanish, Italian, Dutch, Polish, Portuguese, Swedish) whose
+    // letters were drawn the same; it is one style now, and not presented as any country's model.
+    // Germany and France keep their own distinct styles: the Grundschrift and French school cursive.
+    { id: 'school', kind: 'print', lang: null, langs: ['de', 'fr', 'es', 'it', 'nl', 'pl', 'pt-PT', 'sv'], region: 'EU', slant: 0,
       opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
-    { id: 'it', kind: 'print', lang: 'it', region: 'IT', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
-    { id: 'nl', kind: 'print', lang: 'nl', region: 'NL', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag' }, any: 'TEFHKXY' },
-    { id: 'pl', kind: 'print', lang: 'pl', region: 'PL', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
-    { id: 'pt', kind: 'print', lang: 'pt-PT', region: 'PT', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
-    { id: 'sv', kind: 'print', lang: 'sv', region: 'SE', slant: 0,
-      opt: { round: 0.86, capRound: 0.86, t: 'foot', I: 'plain', one: 'flag' }, any: 'TEFHKXY' },
   ];
 
   // Alphabets in each language's own order (capitals; lowercase follows). ß has no school capital.
@@ -72,6 +68,8 @@
     sv: 'ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ',
   };
   const EXTRA_LOWER = { de: 'ß' };
+  // Style ids of the first builds, merged into School print: old id -> the letters' language.
+  const LEGACY = { de: 'de', fr: 'fr', es: 'es', it: 'it', nl: 'nl', pl: 'pl', pt: 'pt-PT', sv: 'sv' };
   const DIGITS = '0123456789';
 
   // Default style for a device language and region.
@@ -83,7 +81,7 @@
       if (['GB', 'IE', 'NZ', 'ZA', 'IN', 'SG', 'HK', 'MT'].includes(r)) return 'uk';
       return 'us';
     }
-    const byLang = { de: 'de', fr: 'fr', es: 'es', it: 'it', nl: 'nl', pl: 'pl', pt: 'pt', sv: 'sv' };
+    const byLang = { de: 'school', fr: 'school', es: 'school', it: 'school', nl: 'school', pl: 'school', pt: 'school', sv: 'school' };
     return byLang[l] || 'us';
   }
 
@@ -188,9 +186,21 @@
     return g;
   }
 
-  function alphabet(id) {
+  // The language of a style's letters, words and voice: fixed for most styles; for School print
+  // the child's chosen language (a tag such as 'pl' or 'pt-BR'), else the first of its languages.
+  function langOf(id, want) {
     const d = byId[id];
-    const lang = d ? d.lang : 'en';
+    if (!d) return 'en';
+    if (d.lang) return d.lang;
+    const w = String(want || '').replace('_', '-');
+    const l = w.split('-')[0].toLowerCase();
+    const hit = d.langs.find((x) => x === w || x.split('-')[0] === l);
+    return hit || d.langs[0];
+  }
+
+  function alphabet(id, want) {
+    const d = byId[id];
+    const lang = d ? langOf(id, want) : 'en';
     const up = Array.from(ALPHA[lang] || ALPHA.en);
     const lower = up.map((c) => c.toLowerCase()).concat(Array.from(EXTRA_LOWER[lang] || ''));
     return { upper: up, lower, digits: Array.from(DIGITS) };
@@ -303,7 +313,7 @@
 
   const list = () => DEFS.map((d) => Object.assign({}, d));
   const get = (id) => (byId[id] ? Object.assign({}, byId[id]) : null);
-  const forLang = (lang) => DEFS.filter((d) => d.lang === lang || d.lang.split('-')[0] === String(lang).split('-')[0]).map((d) => d.id);
+  const forLang = (lang) => DEFS.filter((d) => (d.lang ? [d.lang] : d.langs).some((x) => x === lang || x.split('-')[0] === String(lang).split('-')[0])).map((d) => d.id);
 
-  return { list, get, glyph, alphabet, has, layout, defaultFor, forLang, BASE, ALPHA };
+  return { list, get, glyph, alphabet, langOf, has, layout, defaultFor, forLang, BASE, ALPHA, LEGACY };
 });
