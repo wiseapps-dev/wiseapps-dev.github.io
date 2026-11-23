@@ -236,6 +236,7 @@ tr.off .pname::before { background: var(--rule); }
 .foot-nav a:hover { color: var(--ink); }
 .foot-also { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 20px; margin: 8px 0 0; }
 .foot-also a { color: var(--mist); }
+.foot-copy { grid-column: 1 / -1; margin: -8px 0 0; }
 .stk { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10; display: flex; align-items: center; gap: 12px; background: var(--raise); border: 1px solid var(--rule); border-radius: 16px; padding: 10px 10px 10px 16px; box-shadow: 0 8px 28px rgba(5, 6, 20, 0.6); }
 .stk[hidden] { display: none; }
 .stk span { flex: 1; font-size: 15px; }

@@ -92,6 +92,7 @@ a.store:hover { background: var(--navy-2); }
 .foot-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; align-content: start; }
 .foot-nav a { font: 700 19px/1.2 var(--cond); text-transform: uppercase; letter-spacing: .03em; text-decoration: none; padding: 4px 0; }
 .foot-also { grid-column: 1 / -1; margin: 8px 0 0; padding-top: 18px; border-top: 2px solid #26385c; font-size: 14px; }
+.foot-copy { grid-column: 1 / -1; margin: -12px 0 0; font-size: 14px; }
 @media (max-width: 760px) { .foot-in { grid-template-columns: 1fr; } }
 
 /* page frame */

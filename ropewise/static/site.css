@@ -328,7 +328,9 @@ a:hover { text-decoration-color: var(--signal); }
 .foot nav a { color: var(--on-d); text-decoration: none; }
 .foot nav a:hover { color: #fff; text-decoration: underline; }
 .copy { margin: 0; padding-top: 1.2rem; border-top: 1px solid var(--rule-d); color: var(--on-d3); }
-@media (min-width: 860px) { .footin { grid-template-columns: 1fr auto; } .copy { grid-column: 1 / -1; } }
+.foot-more { margin: 0; }
+.foot-more a { color: var(--on-d); }
+@media (min-width: 860px) { .footin { grid-template-columns: 1fr auto; } .copy, .foot-more { grid-column: 1 / -1; } }
 
 /* ---- mobile app bar on knot pages (site.js) ---- */
 .stick { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: flex; align-items: center; gap: .8rem;

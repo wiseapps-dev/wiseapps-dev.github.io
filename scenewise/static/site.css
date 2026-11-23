@@ -44,7 +44,7 @@ h3 { font-size:1.15rem; font-weight:650; line-height:1.3; }
 .foot ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:.5rem 1.6rem; }
 .foot a { color:var(--house-2); text-decoration:none; }
 .foot a:hover { color:var(--house); text-decoration:underline; }
-.foot-note { color:var(--house-3); font-size:.875rem; max-width:60ch; }
+.foot-note { color:var(--house-3); font-size:.875rem; }
 
 /* store buttons are plain text (the official badges are artwork), plus the other big pill actions */
 .store { display:flex; flex-wrap:wrap; gap:.6rem; }
