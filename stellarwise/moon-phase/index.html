@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moon phase today and moon calendar for any month</title>
+<meta name="description" content="Today’s Moon phase for your city: how much is lit, its age, moonrise and moonset, and the next full Moon. Plus a moon phase calendar for any month.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/moon-phase/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Moon phase today and moon calendar for any month">
+<meta property="og:description" content="Today’s Moon phase for your city: how much is lit, its age, moonrise and moonset, and the next full Moon. Plus a moon phase calendar for any month.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/moon-phase/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/stellarwise/"}, {"@type": "ListItem", "position": 2, "name": "Moon phase today"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/">Planets tonight</a><a href="/stellarwise/moon-phase/" aria-current="page">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs wrap no-print" aria-label="Breadcrumb"><a href="/stellarwise/">Home</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Moon phase today</span></nav>
+<header class="lead wrap">
+  <h1>Moon phase today</h1>
+  <p class="lede answer">The Moon goes from new to full and back in about 29.5 days. Below is today’s Moon for your city, drawn the way it looks from there, with how much of it is lit, its age and the next full and new Moon. Pick any month for a moon phase calendar.</p>
+</header>
+<section class="tool wrap moon-tool" data-tool="moon" aria-label="Moon phase">
+  <div class="moon-now">
+    <canvas data-moon width="240" height="240" role="img" aria-label="Today’s Moon"></canvas>
+    <div>
+      <div class="field place" data-place><label for="pl-moon">Seen from</label><input id="pl-moon" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-moon-list" placeholder="Type a city"><ul id="pl-moon-list" class="sugg" role="listbox" hidden></ul></div>
+      <div class="moon-facts" aria-live="polite" data-moon-facts><noscript><p class="nojs">Turn on JavaScript to see today’s Moon. Or use the <a href="/stellarwise/full-moon-dates/">full moon tables</a>, which work without it.</p></noscript></div>
+    </div>
+  </div>
+  <div class="cal" data-cal hidden>
+    <div class="cal-head"><button type="button" class="ghost" data-cal-prev aria-label="Previous month">‹</button><h2 class="h3" data-cal-title aria-live="polite">Month</h2><button type="button" class="ghost" data-cal-next aria-label="Next month">›</button></div>
+    <ol class="cal-grid" data-cal-grid></ol>
+  </div>
+  <aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">The Moon in your pocket</h2><p>Stellarwise shows the Moon’s phase, rise and set and where it is in the sky, drawn as it looks from where you are. Hold up your phone and it points to it.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download. One optional unlock, Stellarwise Pro, US$5.99 once. No account, no subscription, no ads.</p></div></aside>
+</section>
+<div class="wrap prose-wrap"><article class="prose">
+  <h2>The eight phases</h2>
+  <p>Half of the Moon is always lit by the Sun. As the Moon goes round the Earth we see more or less of that lit half: new Moon, waxing crescent, first quarter, waxing gibbous, full Moon, waning gibbous, last quarter and waning crescent. Waxing means growing, waning means shrinking.</p>
+  <p>The lit side always faces the Sun. From Europe and North America a waxing Moon is lit on the right; from Australia, South Africa and Argentina it is lit on the left. Near the equator a crescent lies on its back. The calendar above draws the Moon the right way round for the place you choose.</p>
+  <h2>Full moon dates</h2>
+  <ul><li><a href="/stellarwise/full-moon-dates/2026/">Full moon dates 2026</a></li><li><a href="/stellarwise/full-moon-dates/2027/">Full moon dates 2027</a></li><li><a href="/stellarwise/full-moon-dates/2028/">Full moon dates 2028</a></li><li><a href="/stellarwise/full-moon-dates/2029/">Full moon dates 2029</a></li></ul>
+  <p>Read more in <a href="/stellarwise/guides/moon-phases-explained/">moon phases explained</a>.</p>
+</article></div>
+<div class="wrap"><div class="end no-print"><p>The Moon, planets and stars, worked out on your phone.</p><a class="btn" href="/stellarwise/#app">Get Stellarwise</a></div></div>
+<div class="stk no-print" data-stk hidden><span>The Moon in your pocket</span><a class="btn" href="/stellarwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">Also by the same developer: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>, <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>, <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>, <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a> and <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>. © 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/events.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/stars.js" defer></script><script src="/stellarwise/static/sky/constellations.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planets visible tonight: where and when to look</title>
+<meta name="description" content="See which planets are visible tonight from your city: when each is highest, which way to face and how bright. Free, in your browser, no sign-up.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/planets-tonight/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Planets visible tonight: where and when to look">
+<meta property="og:description" content="See which planets are visible tonight from your city: when each is highest, which way to face and how bright. Free, in your browser, no sign-up.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/planets-tonight/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/stellarwise/"}, {"@type": "ListItem", "position": 2, "name": "Planets visible tonight"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/" aria-current="page">Planets tonight</a><a href="/stellarwise/moon-phase/">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs wrap no-print" aria-label="Breadcrumb"><a href="/stellarwise/">Home</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Planets visible tonight</span></nav>
+<header class="lead wrap">
+  <h1>Planets visible tonight</h1>
+  <p class="lede answer">Choose your city to see which planets are up tonight, when each is highest and which way to face. Venus, Mars, Jupiter and Saturn are easy to see with the naked eye, and Mercury is visible low in twilight. Planets shine steadily and sit near the path the Sun takes across the sky.</p>
+</header>
+<section class="tool wrap" aria-label="Planets tonight">
+  <div class="sky" data-tool="tonight" data-kind="planets">
+  <div class="sky-ctl">
+    <div class="field place" data-place><label for="pl-planets">Seen from</label><input id="pl-planets" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-planets-list" placeholder="Type a city"><ul id="pl-planets-list" class="sugg" role="listbox" hidden></ul></div>
+    <div class="field when"><label for="tm-planets">Time <output data-time-label for="tm-planets">tonight</output></label>
+      <input id="tm-planets" type="range" min="0" max="72" step="1" value="0" data-time></div>
+  </div>
+  <figure class="chart">
+    <canvas data-chart width="600" height="600" role="img" aria-label="A chart of the whole sky over the chosen place"></canvas>
+    <noscript><p class="nojs">Turn on JavaScript to draw tonight’s sky. Everything is worked out in your browser.</p></noscript>
+    <figcaption>The whole sky, horizon to horizon. Straight up is the middle, north is at the top and east is on the left, as it looks when you hold the chart over your head. Planets are gold.</figcaption>
+  </figure>
+  <div class="sky-up">
+    <div class="up" aria-live="polite" data-up></div>
+    
+  </div>
+</div>
+  <div class="tbl" data-planet-table hidden>
+    <table class="stack"><caption class="vh">Planets tonight</caption><thead><tr><th scope="col">Planet</th><th scope="col">When</th><th scope="col">Highest</th><th scope="col">Where to look</th><th scope="col">Brightness</th></tr></thead><tbody></tbody></table>
+  </div>
+  <aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">Find it with your phone</h2><p>In Stellarwise, choose a planet and an arrow leads you to it. Hold the phone up and the names line up with the sky, even with no signal.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download. One optional unlock, Stellarwise Pro, US$5.99 once. No account, no subscription, no ads.</p></div></aside>
+</section>
+<div class="wrap prose-wrap"><article class="prose">
+  <h2>How to read the list</h2>
+  <ul>
+    <li><b>When:</b> evening means it is up after dark and sets during the night; before dawn means it rises late and is best in the morning; all night means it is up from dusk to dawn.</li>
+    <li><b>Highest:</b> the time in the night when the planet is highest, which is when you see it through the least air.</li>
+    <li><b>Where to look:</b> the direction (north, south-east and so on) and the height above the horizon in degrees. Your fist held at arm’s length covers about 10 degrees.</li>
+    <li><b>Brightness:</b> the magnitude. Smaller is brighter: Venus is around −4, Jupiter around −2, the brightest stars around 0, and the faintest stars you see from a town around 4.</li>
+  </ul>
+  <p>Uranus and Neptune are listed too, but you need binoculars for Uranus and a telescope for Neptune. Planets close to the Sun are lost in its glare, so a planet can be above the horizon and still not visible.</p>
+  <p>Read <a href="/stellarwise/guides/planet-or-star/">how to tell a planet from a star</a>, or see <a href="/stellarwise/meteor-showers/">the next meteor showers</a>.</p>
+</article></div>
+<div class="wrap"><div class="end no-print"><p>Point your phone at the sky and know what you see.</p><a class="btn" href="/stellarwise/#app">Get Stellarwise</a></div></div>
+<div class="stk no-print" data-stk hidden><span>Find planets with your phone</span><a class="btn" href="/stellarwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">Also by the same developer: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>, <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>, <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>, <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a> and <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>. © 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/events.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/stars.js" defer></script><script src="/stellarwise/static/sky/constellations.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

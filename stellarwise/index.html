@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Star and planet finder app that works offline | Stellarwise</title>
+<meta name="description" content="See tonight’s sky for your city, then point your phone to find planets, stars and the Moon. Works offline, no account, no subscription.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Star and planet finder app that works offline | Stellarwise">
+<meta property="og:description" content="See tonight’s sky for your city, then point your phone to find planets, stars and the Moon. Works offline, no account, no subscription.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Stellarwise", "alternateName": "Stellarwise: Star Map & Planets", "applicationCategory": "EducationalApplication", "operatingSystem": "iOS, Android", "url": "https://wiseapps-dev.github.io/stellarwise/", "description": "An offline star, planet and Moon finder: tonight’s sky, point-to-find, Moon phases, meteor showers and eclipses. Free to download, no account.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to download. Optional one-time in-app purchase, Stellarwise Pro, US$5.99: camera view, any date and time, Messier objects, alerts, posters and an observing log."}, "inLanguage": ["en", "de", "fr", "es", "it", "nl", "pl", "pt-PT", "sv"], "screenshot": "https://wiseapps-dev.github.io/stellarwise/static/img/shot-find.webp"}</script>
+</head>
+<body class="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/">Planets tonight</a><a href="/stellarwise/moon-phase/">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <h1>What’s up in the sky tonight</h1>
+    <p class="lede answer">Stellarwise is a star, planet and Moon finder for iPhone and Android. Point your phone at the sky to see what you are looking at, or find any planet with an arrow. Every position is worked out on the phone, so it works offline. Free to download, with no account.</p>
+    <div class="sky" data-tool="tonight" data-kind="home">
+  <div class="sky-ctl">
+    <div class="field place" data-place><label for="pl-home">Seen from</label><input id="pl-home" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-home-list" placeholder="Type a city"><ul id="pl-home-list" class="sugg" role="listbox" hidden></ul></div>
+    <div class="field when"><label for="tm-home">Time <output data-time-label for="tm-home">tonight</output></label>
+      <input id="tm-home" type="range" min="0" max="72" step="1" value="0" data-time></div>
+  </div>
+  <figure class="chart">
+    <canvas data-chart width="600" height="600" role="img" aria-label="A chart of the whole sky over the chosen place"></canvas>
+    <noscript><p class="nojs">Turn on JavaScript to draw tonight’s sky. Everything is worked out in your browser.</p></noscript>
+    <figcaption>The whole sky, horizon to horizon. Straight up is the middle, north is at the top and east is on the left, as it looks when you hold the chart over your head. Planets are gold.</figcaption>
+  </figure>
+  <div class="sky-up">
+    <div class="up" aria-live="polite" data-up></div>
+    <p><a class="more" href="/stellarwise/planets-tonight/">Planet times for the whole night</a></p>
+  </div>
+</div>
+    <div class="hero-cta no-print" id="app">
+      <p>Hold your phone up and this chart moves with it, so you know which bright dot is Jupiter.</p>
+      <div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div>
+      <p class="fine">Free to download. One optional unlock, Stellarwise Pro, US$5.99 once. No account, no subscription, no ads.</p>
+    </div>
+  </div>
+  <div class="horizon" aria-hidden="true"></div>
+</section>
+
+<section class="feature wrap" aria-labelledby="f1">
+  <figure class="shot "><img src="/stellarwise/static/img/shot-find.webp" alt="Stellarwise pointing mode: an arrow leads to Jupiter, with Mars and Regulus nearby" width="600" height="1298" loading="lazy" decoding="async"><figcaption>Point your phone, follow the arrow</figcaption></figure>
+  <div class="f-text">
+    <h2 id="f1">Point your phone to find it</h2>
+    <p>Choose <i>Jupiter</i>, <i>Sirius</i> or the Moon and an arrow leads you there. The compass is corrected for magnetic declination with the World Magnetic Model, so it points to true north.</p>
+    <p>Phone compasses are usually right to within about 5 degrees, and less near metal. Stellarwise shows how sure it is, how to calibrate with a figure 8, and lets you line it up on the Moon or a bright planet.</p>
+    <p><a class="more" href="/stellarwise/guides/phone-compass-accuracy/">Why phone compasses drift</a></p>
+  </div>
+</section>
+
+<section class="feature flip wrap" aria-labelledby="f2">
+  <figure class="shot "><img src="/stellarwise/static/img/shot-camera.webp" alt="Stellarwise camera view: names of Jupiter, Mars and Regulus drawn over a dusk sky above trees" width="600" height="1298" loading="lazy" decoding="async"><figcaption>The camera view, a Pro feature. The picture here is an illustration</figcaption></figure>
+  <div class="f-text">
+    <h2 id="f2">One purchase, no subscription</h2>
+    <p>Free: tonight’s sky for your place or any of 3,700 cities, the Sun, Moon and planets with rise and set times, 88 constellations, search, point-to-find and red night mode.</p>
+    <p>Stellarwise Pro, US$5.99 once, adds the camera view with names over the real sky, any date and time, the 110 Messier objects, alerts for meteor showers, eclipses and full Moons, star-map posters and an observing log.</p>
+    <p>No account, no analytics, no ads, and the app makes no network calls. Your location is optional and stays on your phone.</p>
+  </div>
+</section>
+
+<section class="feature wrap" aria-labelledby="f3">
+  <figure class="shot "><img src="/stellarwise/static/img/shot-night.webp" alt="Stellarwise in red night mode: Orion, Sirius and Gemini drawn in red on black" width="600" height="1298" loading="lazy" decoding="async"><figcaption>Red night mode</figcaption></figure>
+  <div class="f-text">
+    <h2 id="f3">Kind to dark-adapted eyes</h2>
+    <p>Red night mode turns the whole app red on black, so a glance at the phone doesn’t undo twenty minutes of getting used to the dark.</p>
+    <p>A sky calendar plans the nights worth going out for: Moon phases, meteor showers with the rate you might really see from your place, eclipses, oppositions and close pairings of the Moon and planets.</p>
+    <p class="safety" role="note"><b>Eye safety.</b> Never look at the Sun without proper eclipse glasses, and never point binoculars, a camera or a telescope at it without a proper solar filter on the front.</p>
+  </div>
+</section>
+
+<section class="freebies wrap" aria-labelledby="free">
+  <div>
+    <h2 id="free">Free sky tools</h2>
+    <p>They run in your browser with the same astronomy code as the app. Nothing you type is sent anywhere.</p>
+    <ul class="tools-list"><li><a href="/stellarwise/planets-tonight/"><span class="ti"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8" fill="currentColor"/><ellipse cx="20" cy="20" rx="16" ry="5" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-18 20 20)"/></svg></span><span class="tt">Planets visible tonight</span><span class="td">Which planets are up from your city, when they are highest and which way to face.</span></a></li><li><a href="/stellarwise/moon-phase/"><span class="ti"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M20 8a12 12 0 0 1 0 24a7 12 0 0 0 0-24z" fill="currentColor"/></svg></span><span class="tt">Moon phase today</span><span class="td">Today’s Moon drawn as it looks from your city, and a calendar for any month.</span></a></li><li><a href="/stellarwise/full-moon-dates/"><span class="ti"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="12" fill="currentColor"/></svg></span><span class="tt">Full moon dates</span><span class="td">Every full Moon from 2026 to 2029, with names, supermoons and eclipses.</span></a></li><li><a href="/stellarwise/star-map/"><span class="ti"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 16l6 4 9-5M18 20l2 8" fill="none" stroke="currentColor" stroke-width="1.2"/><g fill="currentColor"><circle cx="12" cy="16" r="1.6"/><circle cx="18" cy="20" r="1.6"/><circle cx="27" cy="15" r="1.6"/><circle cx="20" cy="28" r="1.6"/></g></svg></span><span class="tt">Printable star map</span><span class="td">The whole sky for any date, time and place, to print or save as a picture.</span></a></li><li><a href="/stellarwise/meteor-showers/"><span class="ti"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 8l18 18M14 6l14 14M6 15l12 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/><circle cx="29" cy="29" r="3" fill="currentColor"/></svg></span><span class="tt">Meteor shower calendar</span><span class="td">Peak nights, and how many meteors you might really see from your place.</span></a></li></ul>
+  </div>
+  <div class="guides-mini">
+    <h2 class="h3">Guides</h2>
+    <ul><li><a href="/stellarwise/guides/planet-or-star/">How to tell a planet from a star</a></li><li><a href="/stellarwise/guides/moon-phases-explained/">Moon phases explained</a></li><li><a href="/stellarwise/guides/how-to-watch-a-meteor-shower/">How to watch a meteor shower</a></li><li><a href="/stellarwise/guides/solar-eclipse-safety/">How to watch a solar eclipse safely</a></li><li><a href="/stellarwise/guides/phone-compass-accuracy/">Why your phone’s compass is off</a></li></ul>
+    <p><a class="more" href="/stellarwise/guides/">All stargazing guides</a></p>
+  </div>
+</section>
+
+<div class="wrap"><aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">Stellarwise for your phone</h2><p>Tonight’s sky, point-to-find, the Moon, planets, meteor showers and eclipses, worked out on your phone with no signal. In English, German, French, Spanish, Italian, Dutch, Polish, Portuguese and Swedish.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download. One optional unlock, Stellarwise Pro, US$5.99 once. No account, no subscription, no ads.</p></div></aside></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">Also by the same developer: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>, <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>, <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>, <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a> and <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>. © 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/events.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/stars.js" defer></script><script src="/stellarwise/static/sky/constellations.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

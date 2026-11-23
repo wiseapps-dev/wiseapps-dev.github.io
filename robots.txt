@@ -5,3 +5,5 @@ Sitemap: https://wiseapps-dev.github.io/benchwise/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/scenewise/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/ropewise/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/closetwise/sitemap.xml
+Sitemap: https://wiseapps-dev.github.io/pencilwise/sitemap.xml
+Sitemap: https://wiseapps-dev.github.io/stellarwise/sitemap.xml
