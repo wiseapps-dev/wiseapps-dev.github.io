@@ -322,7 +322,9 @@
     const moon = body('moon', date, loc, f);
     const sun = body('sun', date, loc, f);
     const angle = A.MoonPhase(f.t);
-    const prevNew = A.SearchMoonPhase(0, A.MakeTime(new Date(f.date.getTime() - 31 * 864e5)), 31);
+    // the last new Moon, searching backwards from the date (a forward search from a month ago finds the
+    // new Moon before that in the first day and a half after a new Moon, giving an age of about 30 days)
+    const prevNew = A.SearchMoonPhase(0, f.t, -32);
     const age = prevNew ? (f.date - prevNew.date) / 864e5 : null;
     const quarters = [];
     let mq = A.SearchMoonQuarter(f.t);
