@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Sitemap: https://wiseapps-dev.github.io/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/gapwise/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/benchwise/sitemap.xml
 Sitemap: https://wiseapps-dev.github.io/scenewise/sitemap.xml

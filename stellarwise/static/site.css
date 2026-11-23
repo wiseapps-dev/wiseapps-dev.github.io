@@ -293,3 +293,10 @@ body.stk-on .foot { padding-bottom: 110px; }
   .mappage .print-img { display: block; width: 100%; max-width: none; height: auto; }
   @page { margin: 10mm; }
 }
+
+/* ---- moon on any date */
+.date-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; max-width: 760px; margin-bottom: 28px; }
+.date-form .place { max-width: none; margin: 0; }
+.md-map { margin: 14px 0 0; }
+.md-again { margin-top: 28px; max-width: 68ch; }
+.md-again p { color: var(--mist); }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>https://wiseapps-dev.github.io/sitemap-home.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/gapwise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/benchwise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/scenewise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/ropewise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/closetwise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/pencilwise/sitemap.xml</loc></sitemap>
+  <sitemap><loc>https://wiseapps-dev.github.io/stellarwise/sitemap.xml</loc></sitemap>
+</sitemapindex>

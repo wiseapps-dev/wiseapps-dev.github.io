@@ -30,6 +30,8 @@
     }[mode];
     const vals = (st.unit === 'in' ? defaults.in : defaults.mm).slice();
     if (st.preset === 'au' && st.unit === 'mm') vals[2] = '125';
+    if (st.preset === 'nzuk' && st.unit === 'mm') vals[2] = '100';
+    if (root.dataset.w && st.unit === 'mm') vals[1] = root.dataset.w; // e.g. 41 mm spindles on the UK page
 
     const form = root.querySelector('.calc-in');
     const inputs = Array.from(root.querySelectorAll('input[data-f]'));
@@ -37,8 +39,9 @@
     const sheet = root.querySelector('.sheet');
     const svg = root.querySelector('svg.draw');
     const live = root.querySelector('[data-live]');
-    const items = between ? 'balusters' : 'pickets';
-    const item = between ? 'baluster' : 'picket';
+    const item = root.dataset.item || (between ? 'baluster' : 'picket'); // 'spindle' on the UK page
+    const items = item + 's';
+    const post = root.dataset.post || 'post';
     let last = null;
     let liveTimer = 0;
 
@@ -93,11 +96,11 @@
         <p class="res-l">Equal gap</p>
         <p class="res-big"><span>${big}</span>${st.unit === 'mm' ? '<small>mm</small>' : ''}</p>
         <dl class="res-stats">
-          <div><dt>${between ? 'Balusters' : 'Pickets'}</dt><dd>${r.n}</dd></div>
+          <div><dt>${items.charAt(0).toUpperCase() + items.slice(1)}</dt><dd>${r.n}</dd></div>
           <div><dt>Centres</dt><dd>${esc(fmtFine(r.centres))}</dd></div>
           <div><dt>Every gap</dt><dd>${r.limitOk ? `${p ? 'under' : 'at most'} ${esc(fmtFine(v))}` : 'over the limit'}</dd></div>
         </dl>
-        <p class="res-l res-ml">Marks from the ${between ? 'post face' : 'start'} to the left edge of each ${item}, in ${st.unit === 'in' ? 'inches' : 'mm'}</p>
+        <p class="res-l res-ml">Marks from the ${between ? post + ' face' : 'start'} to the left edge of each ${item}, in ${st.unit === 'in' ? 'inches' : 'mm'}</p>
         <ol class="marks">${shown.map((it) => `<li><i>${it.i}</i>${esc(fmtMark(it.left))}</li>`).join('')}${
           r.n > SHOW_MARKS ? `<li class="locked"><i>${SHOW_MARKS + 1} to ${r.n}</i>in the app</li>` : ''}</ol>
         <a class="cta" href="${href}">${cta}</a>`;
@@ -259,7 +262,7 @@
       g += `<text class="note dimnote" x="${W - 10}" y="${H - 9}" text-anchor="end">${st.unit === 'in' ? 'Inches' : 'mm'}</text>`;
       svg.innerHTML = g;
       svg.setAttribute('aria-label', r.n
-        ? `Elevation: ${r.n} ${items} over ${fmtFine(L)}, equal gaps of ${fmtFine(r.gap)}${between ? ' including at both posts' : ''}.`
+        ? `Elevation: ${r.n} ${items} over ${fmtFine(L)}, equal gaps of ${fmtFine(r.gap)}${between ? ' including at both ' + post + 's' : ''}.`
         : `Elevation: ${fmtFine(L)} opening, no ${items} needed.`);
     }
 

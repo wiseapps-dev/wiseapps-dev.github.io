@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moon phase on any date: find your birthday moon</title>
+<meta name="description" content="What was the Moon’s phase on your birthday or any date from 1900 to 2100? See how much was lit, its age, and when the same phase comes back.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/moon-phase-on-date/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Moon phase on any date: find your birthday moon">
+<meta property="og:description" content="What was the Moon’s phase on your birthday or any date from 1900 to 2100? See how much was lit, its age, and when the same phase comes back.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/moon-phase-on-date/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/stellarwise/"}, {"@type": "ListItem", "position": 2, "name": "Moon phase on any date"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Moon phase on any date", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "description": "The Moon’s phase, illumination and age on any date from 1900 to 2100, and the years the same phase falls on that date again.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/stellarwise/moon-phase-on-date/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/">Planets tonight</a><a href="/stellarwise/moon-phase/" aria-current="page">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs wrap no-print" aria-label="Breadcrumb"><a href="/stellarwise/">Home</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Moon phase on any date</span></nav>
+<header class="lead wrap">
+  <h1>Moon phase on any date</h1>
+  <p class="lede answer">Enter a date, such as a birthday or a wedding day, to see the Moon’s phase that night: its name, how much of it was lit, its age and how it looked. It works for any date from 1900 to 2100, and shows the years the same phase falls on that date again.</p>
+</header>
+<section class="tool wrap moon-tool" data-tool="moondate" aria-label="Moon phase on a date">
+  <form class="date-form" data-md-form novalidate>
+    <div class="field"><label for="md-date">Date</label><input id="md-date" type="date" name="date" min="1900-01-01" max="2100-12-31" required></div>
+    <div class="field"><label for="md-time">Time</label><input id="md-time" type="time" name="time" value="21:00"></div>
+    <div class="field place" data-place><label for="pl-md">Place</label><input id="pl-md" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-md-list" placeholder="Type a city"><ul id="pl-md-list" class="sugg" role="listbox" hidden></ul></div>
+  </form>
+  <div class="moon-now">
+    <canvas data-moon width="240" height="240" role="img" aria-label="The Moon on the chosen date"></canvas>
+    <div>
+      <div class="moon-facts" aria-live="polite" data-md-facts><noscript><p class="nojs">Turn on JavaScript to see the Moon on any date. Everything is worked out in your browser.</p></noscript></div>
+      <p class="md-map"><a class="more" data-md-map href="/stellarwise/star-map/">Make a star map of this night</a></p>
+    </div>
+  </div>
+  <div class="md-again" data-md-again hidden></div>
+  <aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">Every night, not just one</h2><p>Stellarwise shows the Moon’s phase, rise and set for your place, and Pro opens the sky on any date and time, with star-map posters of a night that matters to you.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download. One optional unlock, Stellarwise Pro, US$5.99 once. No account, no subscription, no ads.</p></div></aside>
+</section>
+<div class="wrap prose-wrap"><article class="prose">
+  <h2>How it works</h2>
+  <p>The phase comes from where the Moon and Sun are in the sky at the date and time you choose, worked out with the same astronomy code as the Stellarwise app. The age is the number of days since the last new Moon, and a whole cycle from new Moon to new Moon takes about 29.5 days.</p>
+  <p>The time matters a little: the lit part changes by up to about 5 percentage points in 12 hours. If you know the hour, enter it with the place, so the date and time are read in that place’s time zone. With no time, 9 pm is used.</p>
+  <h2>Why the same phase comes back</h2>
+  <p>A calendar year is about 11 days longer than 12 lunar cycles, so the phase on a date shifts by about 11 days a year. After 19 years, 235 lunar cycles take almost exactly 19 calendar years (the Metonic cycle), so the Moon on a birthday looks almost the same at ages 19, 38, 57 and 76.</p>
+  <h2>Which way round it is lit</h2>
+  <p>From the Northern Hemisphere a waxing Moon is lit on the right and a waning Moon on the left. From the Southern Hemisphere it is the other way round. The drawing follows the place you choose. Read <a href="/stellarwise/guides/moon-phases-explained/">moon phases explained</a> for why.</p>
+  <p>Make a <a href="/stellarwise/star-map/">printable star map</a> of the same night, see <a href="/stellarwise/moon-phase/">today’s Moon phase</a>, or look up the <a href="/stellarwise/full-moon-dates/">full moon dates</a> for the coming years.</p>
+</article></div>
+<div class="wrap"><div class="end no-print"><p>The Moon, planets and stars, worked out on your phone.</p><a class="btn" href="/stellarwise/#app">Get Stellarwise</a></div></div>
+<div class="stk no-print" data-stk hidden><span>The Moon in your pocket</span><a class="btn" href="/stellarwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/moon-phase-on-date/">Moon phase on any date</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">Also by the same developer: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>, <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>, <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>, <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>, <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a> and <a href="https://wiseapps-dev.github.io/">more small apps</a>. © 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

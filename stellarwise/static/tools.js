@@ -335,6 +335,74 @@
     today();
   }
 
+  /* ---------------- the Moon on any date (a birthday, say) ---------------- */
+  function initMoonDate(el) {
+    var form = $('[data-md-form]', el), big = $('[data-moon]', el), facts = $('[data-md-facts]', el), again = $('[data-md-again]', el), mapA = $('[data-md-map]', el);
+    var dateIn = form.elements.date, timeIn = form.elements.time, A = Sky.A;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var q = query();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(q.date || '')) dateIn.value = q.date;
+    else { var p0 = Sky.partsIn(new Date(), place.tz); dateIn.value = p0.y + '-' + pad(p0.m) + '-' + pad(p0.d); }
+    if (/^\d{2}:\d{2}$/.test(q.time || '')) timeIn.value = q.time;
+    var lower = function (k) { return k === 'new' || k === 'full' ? PHASE[k].charAt(0).toLowerCase() + PHASE[k].slice(1) : PHASE[k].toLowerCase(); };
+    var dayMonth = new Intl.DateTimeFormat('en', { month: 'long', day: 'numeric', timeZone: 'UTC' });
+    var exists = function (y, m, d) { return new Date(Date.UTC(y, m - 1, d)).getUTCDate() === d; };
+    var list = function (xs) { return xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1]; };
+    function read() {
+      var a = (dateIn.value || '').split('-').map(Number), b = (timeIn.value || '21:00').split(':').map(Number);
+      if (a.length !== 3 || !(a[0] >= 1900 && a[0] <= 2100) || !(a[1] >= 1 && a[1] <= 12) || !exists(a[0], a[1], a[2])) return null;
+      return { y: a[0], m: a[1], d: a[2], h: b[0] || 0, mi: b[1] || 0 };
+    }
+    function moonAt(y, P) {
+      var t = Sky.fromLocal(y, P.m, P.d, P.h, P.mi, place.tz), T = A.MakeTime(t), ang = A.MoonPhase(T);
+      return { t: t, T: T, ang: ang, ill: A.Illumination(A.Body.Moon, T).phase_fraction, key: Sky.phaseKey(ang) };
+    }
+    function draw() {
+      var P = read();
+      if (!P) { facts.innerHTML = '<p>Choose a date from 1900 to 2100.</p>'; again.hidden = true; return; }
+      var M = moonAt(P.y, P), t = M.t;
+      // the last new Moon: start the search a little before it, never as far back as the one before
+      var back = M.ang / 10 + 1, prevNew = A.SearchMoonPhase(0, A.MakeTime(new Date(t.getTime() - back * 864e5)), back + 1);
+      var age = prevNew ? (t - prevNew.date) / 864e5 : null;
+      var nextFull = A.SearchMoonPhase(180, M.T, 32), nextNew = A.SearchMoonPhase(0, M.T, 32);
+      var north = place.lat >= 0;
+      moonDisc(big, M.ill, litSide(M.ang));
+      big.setAttribute('aria-label', PHASE[M.key] + ', ' + Math.round(M.ill * 100) + '% lit, drawn as seen from the ' + (north ? 'Northern' : 'Southern') + ' Hemisphere');
+      facts.innerHTML = '<p class="phase">' + PHASE[M.key] + '</p>' +
+        '<p>' + Math.round(M.ill * 100) + '% lit' + (age == null ? '' : ', ' + age.toFixed(1) + ' days since new Moon') + '</p>' +
+        '<p>' + esc(fmt(t, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) + ', ' + fTime(t) + ' in ' + place.name) + '</p>' +
+        (nextFull ? '<p>Next full Moon: ' + esc(fDayY(nextFull.date)) + '</p>' : '') +
+        (nextNew ? '<p>Next new Moon: ' + esc(fDayY(nextNew.date)) + '</p>' : '') +
+        '<p><i>Drawn as seen from the ' + (north ? 'Northern' : 'Southern') + ' Hemisphere.</i></p>';
+      if (mapA) mapA.setAttribute('href', mapA.getAttribute('href').split('?')[0] + '?date=' + P.y + '-' + pad(P.m) + '-' + pad(P.d) + '&time=' + pad(P.h) + ':' + pad(P.mi));
+      // the same phase on the same date in other years: from this year on, and every 19 years from the date
+      var dm = dayMonth.format(new Date(Date.UTC(2000, P.m - 1, P.d))); // 2000 has a 29 February
+      var from = Math.max(P.y + 1, Sky.partsIn(new Date(), place.tz).y), same = [];
+      for (var y = from; y <= 2100 && same.length < 4; y++) if (exists(y, P.m, P.d) && moonAt(y, P).key === M.key) same.push(y);
+      var meton = [];
+      for (var k = 1; k <= 4 && P.y + 19 * k <= 2100; k++) {
+        if (!exists(P.y + 19 * k, P.m, P.d)) continue;
+        var m19 = moonAt(P.y + 19 * k, P);
+        meton.push((P.y + 19 * k) + ' (' + Math.round(m19.ill * 100) + '% lit)');
+      }
+      again.innerHTML = '<h2 class="h3">When this Moon comes back</h2>' +
+        (same.length ? '<p>The same phase (' + esc(lower(M.key)) + ') falls on ' + esc(dm) + ' again in ' + list(same) + '.</p>' : '') +
+        (meton.length ? '<p>Almost the same Moon every 19 years: ' + esc(list(meton)) + '.</p>' : '');
+      again.hidden = !(same.length || meton.length);
+    }
+    form.addEventListener('input', draw);
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    listeners.push(draw);
+    redrawers.push(draw);
+    draw();
+  }
+
+  function query() {
+    var q = {};
+    try { new URLSearchParams(location.search).forEach(function (v, k) { q[k] = v; }); } catch (e) { /* no URLSearchParams */ }
+    return q;
+  }
+
   /* ---------------- meteor showers from the place ---------------- */
   function initMeteors(el) {
     var years = $$('tr[data-year]', el).map(function (tr) { return +tr.getAttribute('data-year'); });
@@ -364,6 +432,9 @@
     var p0 = Sky.partsIn(new Date(), place.tz);
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
     dateIn.value = p0.y + '-' + pad(p0.m) + '-' + pad(p0.d);
+    var q = query();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(q.date || '') && q.date >= '1900-01-01' && q.date <= '2100-12-31') dateIn.value = q.date;
+    if (/^\d{2}:\d{2}$/.test(q.time || '')) timeIn.value = q.time;
     var url = null, img = null, pending = 0;
     function when() {
       var a = (dateIn.value || '').split('-').map(Number), b = (timeIn.value || '21:00').split(':').map(Number);
@@ -417,6 +488,7 @@
   var redrawers = [];
   $$('[data-tool=tonight]').forEach(initTonight);
   $$('[data-tool=moon]').forEach(initMoon);
+  $$('[data-tool=moondate]').forEach(initMoonDate);
   $$('[data-tool=meteors]').forEach(initMeteors);
   $$('[data-tool=starmap]').forEach(initStarMap);
   var redraw = function () { redrawers.forEach(function (fn) { fn(); }); };

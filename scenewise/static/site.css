@@ -97,6 +97,7 @@ h3 { font-size:1.15rem; font-weight:650; line-height:1.3; }
   .next { padding:.6rem 1.1rem; }
   .status { grid-column:1 / -1; grid-row:2; min-height:2.8em; }
   .who { padding-left:4ch; }
+  .ln::before { inset:-.7rem -1rem; } /* the glow stays inside a phone screen: no sideways scroll */
 }
 .after-demo { max-width:40rem; margin:clamp(2rem, 5vw, 3rem) auto 0; padding:0 1.25rem; }
 .lede { font-size:clamp(1.125rem, 1.7vw, 1.25rem); line-height:1.55; color:var(--house); margin:0 0 1.4rem; }
