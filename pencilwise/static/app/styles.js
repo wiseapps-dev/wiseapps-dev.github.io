@@ -12,10 +12,12 @@
  *   Styles.has(id, ch)                  can the style draw this character (diacritics are composed)
  *   Styles.layout(id, text, gap)        glyphs placed along a line, for names and worksheets
  *
- * Letter shapes are original drawings. The US, UK and Australian (NSW & ACT) styles, the German
- * Grundschrift and French school cursive follow those models' published formation rules; School
- * print is a common print with the letters of German, French, Spanish, Italian, Dutch, Polish,
- * Portuguese or Swedish. The models are described generically and none of them is endorsed.
+ * Most letter shapes are original drawings: the US, UK and Australian (NSW & ACT) styles, the
+ * German Grundschrift and French school cursive follow those models' published formation rules;
+ * School print is a common print with the letters of German, French, Spanish, Italian, Dutch,
+ * Polish, Portuguese or Swedish. The other Australian states, New Zealand and Spanish school
+ * cursive are drawn from openly licensed fonts of those models (styles/fitted.js, SIL OFL 1.1,
+ * made by app/tools/fit). Each style is "in the style of" its model; none is endorsed.
  * Sources: LICENSES/THIRD_PARTY.md.
  */
 (function (root, factory) {
@@ -26,12 +28,15 @@
   'use strict';
   const G = typeof module === 'object' && module.exports ? require('./glyphs.js') : root.Glyphs;
   const sets = () => (typeof module === 'object' && module.exports
-    ? { print: require('./styles/print.js'), precursive: require('./styles/precursive.js'), cursive: require('./styles/cursive.js') }
+    ? { print: require('./styles/print.js'), precursive: require('./styles/precursive.js'), cursive: require('./styles/cursive.js'), fitted: require('./styles/fitted.js') }
     : root.StyleSets || {});
 
   // Each style: kind (print | precursive | cursive), lang (alphabet and voice), region, slant in
   // degrees, the letter options for its print set, and which characters may be written in any order
-  // (models disagree, so the checker doesn't insist).
+  // (models disagree, so the checker doesn't insist). loose: characters whose stroke order and
+  // direction the model's sources don't settle: shown one way, any order and direction accepted.
+  // set 'fitted': letters drawn from an openly licensed font of that model (styles/fitted.js,
+  // SIL OFL 1.1), already at the font's own slant.
   const DEFS = [
     { id: 'us', kind: 'print', lang: 'en', region: 'US', slant: 0,
       opt: { round: 1, capRound: 1 }, any: '' },
@@ -43,9 +48,20 @@
       opt: { round: 0.84, capRound: 0.84, I: 'plain', T: 'across-first' }, any: 'TEFHIJKXY' },
     { id: 'au-nsw', kind: 'print', lang: 'en', region: 'AU', slant: 5,
       opt: { round: 0.82, capRound: 0.84, k: 'loop', y: 'u', q: 'flick', I: 'plain' }, any: '' },
+    // The other Australian states' beginners' print, from the AU School Handwriting fonts. Victoria
+    // (also WA and NT) has an Arrows version that settles every first stroke; Queensland, South
+    // Australia and Tasmania don't, so the letters the state charts write differently are loose.
+    { id: 'au-vic', kind: 'print', lang: 'en', region: 'AU', slant: 0, set: 'fitted', pro: true, fallback: 'au-nsw', any: '' },
+    { id: 'au-qld', kind: 'print', lang: 'en', region: 'AU', slant: 0, set: 'fitted', pro: true, fallback: 'au-nsw', any: '', loose: 'EIJMN057' },
+    { id: 'au-sa', kind: 'print', lang: 'en', region: 'AU', slant: 0, set: 'fitted', pro: true, fallback: 'au-nsw', any: '', loose: 'EIJMN057' },
+    { id: 'au-tas', kind: 'print', lang: 'en', region: 'AU', slant: 0, set: 'fitted', pro: true, fallback: 'au-nsw', any: '', loose: 'EIJMN057' },
+    // New Zealand's sloped print, from Playwrite NZ's unjoined letters; no arrows source either.
+    { id: 'nz', kind: 'print', lang: 'en', region: 'NZ', slant: 0, set: 'fitted', pro: true, fallback: 'au-nsw', any: '', loose: 'EIJMN057' },
     { id: 'de-grund', kind: 'precursive', lang: 'de', region: 'DE', slant: 0, set: 'deGrund', pro: true,
       opt: { round: 0.86, capRound: 0.86, I: 'plain', T: 'across-first', one: 'flag', seven: 'bar' }, any: 'TEFHKXY' },
     { id: 'fr-cursive', kind: 'cursive', lang: 'fr', region: 'FR', slant: 10, set: 'frCursive', pro: true, any: 'TEFHKXY' },
+    // Spanish school cursive, from Playwrite ES: joined lowercase, print capitals and numbers.
+    { id: 'es-cursive', kind: 'cursive', lang: 'es', region: 'ES', slant: 0, set: 'fitted', pro: true, fallback: 'school', any: 'TEFHIKXY', loose: 'x' },
     // School print: one common continental print (single-storey a and g, t with a foot, a 1 with an
     // up-stroke, a crossed 7) with the letters of the child's language. The first builds had eight
     // print styles here (German, French, Spanish, Italian, Dutch, Polish, Portuguese, Swedish) whose
@@ -136,7 +152,8 @@
     const d = byId[id];
     const S = sets();
     let set;
-    if (d.kind === 'print') set = S.print.printSet(d.opt);
+    if (d.set === 'fitted') set = S.fitted.get(id);
+    else if (d.kind === 'print') set = S.print.printSet(d.opt);
     else if (d.set === 'slanted' || d.set === 'ukPrecursive' || d.set === 'deGrund') set = S.precursive.make(d.set, d.opt);
     else set = S.cursive.make(d.set, d.opt);
     rawCache[id] = set;
@@ -151,6 +168,7 @@
     if (!d) return null;
     const set = rawSet(id);
     let src = set[ch];
+    let slant = d.slant;
     let w;
     let strokes;
     if (src) {
@@ -167,21 +185,29 @@
       const upper = b !== b.toLowerCase();
       const cx = (box.x0 + box.x1) / 2;
       strokes = strokes.concat(markStrokes(mark, cx, upper, box, w, b));
-      src = { w, s: strokes, composed: true };
+      src = { w, s: strokes, composed: true, j: base.j };
+    } else if (d.fallback && rawSet(d.fallback)[ch]) {
+      // a letter the style's font doesn't cover (ß): the closest drawn style's
+      src = rawSet(d.fallback)[ch];
+      w = src.w;
+      strokes = src.s.slice();
+      slant = byId[d.fallback].slant;
     } else {
       return null;
     }
-    const m = d.slant ? G.matrix.slant(d.slant) : null;
+    const m = slant ? G.matrix.slant(slant) : null;
     const parsed = strokes.map((s) => {
       const p = G.parse(s);
       return m ? G.transformStroke(p, m) : p;
     });
-    const anyOrder = (d.any || '').includes(ch.toUpperCase()) && ch === ch.toUpperCase() && ch !== ch.toLowerCase();
+    const loose = !!d.loose && d.loose.includes(BASE[ch] ? BASE[ch][0] : ch);
+    const anyOrder = loose || ((d.any || '').includes(ch.toUpperCase()) && ch === ch.toUpperCase() && ch !== ch.toLowerCase());
     // A slanted letter leans right above the baseline and left below it: widen the box to fit.
     const box = G.bbox(parsed);
     const x0 = Math.min(0, box.x0 - 6);
     const w2 = Math.max(w, box.x1 + 6) - x0;
-    const g = { ch, style: id, w: w2, x0, strokes: parsed, src: strokes, any: anyOrder, box };
+    const g = { ch, style: id, w: w2, x0, strokes: parsed, src: strokes, any: anyOrder, loose, box };
+    if (src.j) g.join = src.j;
     cache[key] = g;
     return g;
   }
@@ -231,6 +257,8 @@
       if (info.entry && e[1] > 40 && e[1] < 65) { info.exit = e; info.high = true; }
       info.exitDir = norm([e[0] - last[2][0], e[1] - last[2][1]]);
       info.st = st;
+      // Letters from a joined font are placed as the font places them (fitted.js: j).
+      if (info.entry && g.join) { info.adv = g.join[0]; info.inX = g.join[1]; }
     }
     joinCache[key] = info;
     return info;
@@ -267,6 +295,25 @@
     return Object.assign({}, g, { strokes, joined: true });
   }
 
+  // A low exit and the next letter's entry rise from the same point: the exit stops where the
+  // entry starts, so the join is drawn once.
+  function trimExit(g, at) {
+    let si = -1, best = -Infinity;
+    g.strokes.forEach((st, i) => { if (!st.dot && st.segs.length) { const e = st.segs[st.segs.length - 1][3]; if (e[0] > best) { best = e[0]; si = i; } } });
+    if (si < 0) return g;
+    const segs = g.strokes[si].segs;
+    let k = -1, d = 8;
+    for (let i = Math.floor(segs.length * 0.6); i < segs.length; i++) {
+      const q = segs[i][0];
+      const di = Math.hypot(q[0] - at[0], q[1] - at[1]);
+      if (di < d) { d = di; k = i; }
+    }
+    if (k <= 0) return g;
+    const strokes = g.strokes.slice();
+    strokes[si] = Object.assign({}, strokes[si], { segs: segs.slice(0, k) });
+    return Object.assign({}, g, { strokes });
+  }
+
   // Glyphs placed left to right; a space is a fixed gap. Unknown characters are skipped. In
   // cursive styles, lowercase letters join (see joinInfo).
   function layout(id, text, gap) {
@@ -284,7 +331,14 @@
       const info = cursive ? joinInfo(g) : null;
       const pe = prev && prev.info && prev.info.exit;
       if (prev && !pe && info && info.entry) ix -= sp + 6; // after a print capital: close up, unjoined
-      if (pe && info && info.entry && !prev.info.high) {
+      if (pe && info && info.entry && prev.info.adv != null && info.inX != null) {
+        // a joined font: the next letter's origin is the previous one's advance; after a high
+        // exit, the entry is replaced by a bridge from the exit, as the font's connectors do
+        ix = prev.item.x + prev.info.adv + info.inX;
+        const b = prev.info.high ? bridgeTo(info, pe[1]) : null;
+        if (b) g = bridged(g, info, b.k, { p: [prev.item.x + pe[0] - ix, pe[1]], dir: prev.info.exitDir });
+        else prev.item.g = trimExit(prev.item.g, [ix - prev.item.x, 100]);
+      } else if (pe && info && info.entry && !prev.info.high) {
         ix = prev.item.x + pe[0] - entryAt(info, pe[1]);
       } else if (pe && info && info.entry && prev.info.high) {
         const b = bridgeTo(info, pe[1]);
