@@ -10,7 +10,13 @@
     { id: 'au', label: 'AU under 125 mm', mm: 125 },
     { id: 'nzuk', label: 'NZ/UK under 100 mm', mm: 100 },
     { id: 'us', label: 'US under 4"', mm: 101.6 },
+    // single-country pages: the same sphere sizes under their own labels
+    { id: 'nz', label: 'NZ under 100 mm', mm: 100 },
+    { id: 'ca', label: 'Canada under 100 mm', mm: 100 },
+    { id: 'pool', label: 'Pool fence under 100 mm', mm: 100 },
   ];
+  // the limit field for a preset, in the unit on screen
+  const presetVal = (p, unit) => (unit === 'in' ? (p.id === 'us' ? '4' : E.fmtFraction(p.mm / E.MM_PER_IN, 32)) : String(p.mm));
   const SHOW_MARKS = 4;
   const r1 = (n) => String(Math.round(n * 10) / 10);
 
@@ -31,7 +37,9 @@
     const vals = (st.unit === 'in' ? defaults.in : defaults.mm).slice();
     if (st.preset === 'au' && st.unit === 'mm') vals[2] = '125';
     if (st.preset === 'nzuk' && st.unit === 'mm') vals[2] = '100';
+    if (['nz', 'ca', 'pool'].includes(st.preset)) vals[2] = presetVal(PRESETS.find((x) => x.id === st.preset), st.unit);
     if (root.dataset.w && st.unit === 'mm') vals[1] = root.dataset.w; // e.g. 41 mm spindles on the UK page
+    if (root.dataset.vals) root.dataset.vals.split('|').forEach((v, i) => { if (v) vals[i] = v; }); // a page's own example, in its unit
 
     const form = root.querySelector('.calc-in');
     const inputs = Array.from(root.querySelectorAll('input[data-f]'));
@@ -278,14 +286,14 @@
           if (isFinite(mm)) vals[i] = st.unit === 'in' ? E.fmtFraction(mm / E.MM_PER_IN, 32) : E.fmtMM(mm, 0.5);
         }
         const p = PRESETS.find((x) => x.id === st.preset);
-        if (p) vals[2] = p.id === 'us' && st.unit === 'in' ? '4' : st.unit === 'in' ? E.fmtFraction(p.mm / E.MM_PER_IN, 32) : String(p.mm);
+        if (p) vals[2] = presetVal(p, st.unit);
         sync(); calc();
       }
       const pr = e.target.closest('[data-p]');
       if (pr) {
         const p = PRESETS.find((x) => x.id === pr.dataset.p);
         st.preset = p.id;
-        vals[2] = p.id === 'us' && st.unit === 'in' ? '4' : st.unit === 'in' ? E.fmtFraction(p.mm / E.MM_PER_IN, 32) : String(p.mm);
+        vals[2] = presetVal(p, st.unit);
         sync(); calc();
       }
     });

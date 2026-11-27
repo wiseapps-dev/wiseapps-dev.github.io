@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stair baluster spacing calculator: balusters per tread</title>
+<meta name="description" content="How many balusters per stair tread? Enter the going and baluster width to get the gap for 1, 2 or 3 per tread, under the US, AU, NZ or UK limit.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/gapwise/stair-baluster-spacing-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gapwise">
+<meta property="og:title" content="Stair baluster spacing calculator: balusters per tread">
+<meta property="og:description" content="How many balusters per stair tread? Enter the going and baluster width to get the gap for 1, 2 or 3 per tread, under the US, AU, NZ or UK limit.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/gapwise/stair-baluster-spacing-calculator/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/gapwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gapwise: even gaps and cut lists, worked out on site. Yellow balusters between two grey posts.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121316">
+<link rel="icon" type="image/png" href="/gapwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/gapwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/gapwise/static/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Stair baluster spacing calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/gapwise/stair-baluster-spacing-calculator/"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/gapwise/"}, {"@type": "ListItem", "position": 2, "name": "Stair baluster spacing calculator", "item": "https://wiseapps-dev.github.io/gapwise/stair-baluster-spacing-calculator/"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+  <nav class="nav" aria-label="Main"><a class="wide" href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a><a class="wide" href="/gapwise/picket-spacing-calculator/">Picket calculator</a><a href="/gapwise/guides/">Guides</a><a class="nav-cta" href="#get">Get the app</a></nav>
+</div></header>
+<main id="main">
+<section class="dark band"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/gapwise/">Home</a></li><li aria-current="page">Stair baluster spacing calculator</li></ol></nav>
+  <div class="section-head"><div class="eyebrow">Free calculator</div><h1>Stair baluster spacing calculator</h1><p class="answer">On a stair, balusters usually stand two or three to a tread. With n balusters evenly spaced on each tread, the clear gap is the going (the tread run, nosing to nosing) divided by n, minus the baluster width. Enter your going and the narrowest baluster width to see how many per tread keep the gap under your limit.</p></div>
+  <div class="calc" data-calc="tread" data-applink="#get">
+  <form class="calc-in" action="#" novalidate>
+    <div class="calc-row"><div class="seg" role="group" aria-label="Units"><button type="button" data-u="mm" aria-pressed="true">mm</button><button type="button" data-u="in" aria-pressed="false">inches</button></div><span class="layout">Balusters on each tread</span></div>
+    <div class="flds"><div class="fld"><label for="f0">Going (tread run, nosing to nosing)</label><span class="in"><input id="f0" data-f="0" inputmode="decimal" autocomplete="off" spellcheck="false" value="250"><span class="u">mm</span></span></div><div class="fld"><label for="f1">Baluster width (narrowest)</label><span class="in"><input id="f1" data-f="1" inputmode="decimal" autocomplete="off" spellcheck="false" value="41"><span class="u">mm</span></span></div><div class="fld"><label for="f2">Largest gap</label><span class="in"><input id="f2" data-f="2" inputmode="decimal" autocomplete="off" spellcheck="false" value="100"><span class="u">mm</span></span></div></div>
+    <div class="presets" role="group" aria-label="Gap limit presets"><button type="button" data-p="usstair" aria-pressed="false">US stairs under 4 3/8&quot;</button><button type="button" data-p="au" aria-pressed="false">AU under 125 mm</button><button type="button" data-p="nzuk" aria-pressed="false">NZ/UK under 100 mm</button></div>
+    <p class="hint">Presets keep every gap under the limit. Or type your own largest gap. Check your local rules.</p>
+  </form>
+  <p class="vh" aria-live="polite" data-live></p>
+  <div class="calc-out"><noscript><p class="res-err">The calculator needs JavaScript. The formula and a worked example are below.</p></noscript></div>
+  <figure class="calc-fig">
+    <div class="sheet"><svg class="draw" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Side view of three treads with their balusters"></svg></div>
+    <figcaption>Side view of three treads. The going and the balusters are to scale; the step height is only an illustration. It redraws as you type.</figcaption>
+  </figure>
+</div>
+</div></section>
+<section class="doc"><div class="wrap">
+  <div class="prose">
+<h2>The sum for one tread</h2>
+<p>Balusters on a stair usually stand two or three to a tread, evenly spaced so the pattern repeats up the flight. With <b>n</b> balusters on each tread, the centres are the going divided by n, and the clear gap is the centres minus the baluster width:</p>
+<pre><code>centres = going ÷ n
+gap     = going ÷ n − baluster width
+largest going for n = n × (limit + baluster width)</code></pre>
+<p>The gap between upright balusters is measured level, so the slope of the stair doesn't change it. The going is the level distance from one nosing to the next, not the depth of the tread board, which overhangs the riser below.</p>
+<h2>Worked examples</h2>
+<ul>
+<li><b>US, 10 inch treads, 1 1/4 inch balusters:</b> two per tread give 10 ÷ 2 − 1 1/4 = 3 3/4 inches, under 4 3/8. Two per tread works for a going under 11 1/4 inches; deeper than that, use three.</li>
+<li><b>England, 250 mm going, 41 mm spindles:</b> two per tread give 125 − 41 = 84 mm, under 100 mm. Two work for a going under about 282 mm.</li>
+<li><b>Australia, 250 mm going, 42 mm balusters:</b> one per tread leaves 208 mm, far over 125 mm. Two give 83 mm.</li>
+</ul>
+<h2>The limits in each preset</h2>
+<div class="tbl"><table>
+<thead><tr><th>Preset</th><th>On the stair</th><th>Also</th></tr></thead>
+<tbody>
+<tr><td><b>US</b><br><small>IRC 2018 R312.1.3</small></td><td>Openings on the open side of stairs must stop a 4 3/8 inch sphere</td><td>The triangle under the bottom rail must stop a 6 inch sphere; guards elsewhere 4 inches</td></tr>
+<tr><td><b>AU</b><br><small>NCC 2022 Housing Provisions 11.3.4(4)</small></td><td>Openings must stop a 125 mm sphere, measured above the nosing line of the treads</td><td>The same 125 mm on landings and decks</td></tr>
+<tr><td><b>NZ</b><br><small>F4/AS1 1.2.1</small></td><td>Openings anywhere over the barrier's height must stop a 100 mm sphere (housing)</td><td>The triangle formed by the riser, tread and bottom rail must stop a 150 mm sphere</td></tr>
+<tr><td><b>UK</b><br><small>Approved Document K 1.39 (England)</small></td><td>Where children under five may be, a 100 mm sphere must not pass through the guarding</td><td>Guarding shouldn't be easy to climb</td></tr>
+</tbody></table></div>
+<p class="note">This is a summary to help you plan, not building advice, and the calculator doesn't check that your work meets the rules. Rules vary by place and building type, change over time and are adopted on different dates. Check your local building code and your inspector, certifier or building control body before you build.</p>
+<p>To space balusters along a landing or a level run between two posts, use the <a href="/gapwise/baluster-spacing-calculator/">baluster spacing calculator</a>. To set out the stair itself, use the <a href="/gapwise/stair-calculator/">stair calculator</a>.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://bouldercolorado.gov/media/1481/download" rel="nofollow noopener">City of Boulder, Colorado: residential guards guide, quoting IRC 2018 R312</a></li><li><a href="https://www.abcb.gov.au/system/files/ncc/abcb-housing-provisions-2022-20230501b.pdf" rel="nofollow noopener">ABCB Housing Provisions Standard 2022 (NCC 2022), Part 11.3</a></li><li><a href="https://building.govt.nz/assets/Uploads/f4-safety-from-falling-3rd-edition-amendment2-rp.pdf" rel="nofollow noopener">MBIE: Acceptable Solution F4/AS1, 3rd edition, amendment 2</a></li><li><a href="https://assets.publishing.service.gov.uk/media/60d5bdcde90e07716f516cfd/Approved_Document_K.pdf" rel="nofollow noopener">Approved Document K, 2013 edition (England)</a></li></ul>
+<h2>Questions</h2><div class="faq"><details><summary>How many balusters per stair tread?</summary><p>Usually two or three. Divide the going by the number per tread and take off the baluster width: that's the gap, and it must be under your limit. Deeper treads and thinner balusters need three.</p></details><details><summary>Which width do I use for turned spindles?</summary><p>The narrowest part. A turned or tapered baluster leaves its widest gap where it is thinnest, and that is the gap the sphere test catches.</p></details><details><summary>Do I measure along the handrail?</summary><p>No. The gap between upright balusters is measured level, so use the going, the level distance from nosing to nosing.</p></details></div></div>
+  <aside class="related" aria-labelledby="rel-h"><h2 id="rel-h">Related</h2><ul class="links"><li><a href="/gapwise/deck-baluster-spacing-calculator/">Deck baluster spacing calculator (US)</a><span>Every gap under the IRC 4 inch sphere.</span></li><li><a href="/gapwise/spindle-spacing-calculator/">Spindle spacing calculator (UK)</a><span>Every gap kept under the 100 mm sphere rule.</span></li><li><a href="/gapwise/balustrade-spacing-calculator-nz/">Balustrade spacing calculator (NZ)</a><span>Every gap under the F4/AS1 100 mm sphere.</span></li><li><a href="/gapwise/stair-calculator/">Stair calculator</a><span>Risers, going and stringer, checked against AU, US, UK, NZ and Spanish limits.</span></li></ul><p class="hub"><a href="/gapwise/#calc-h">All Gapwise calculators &#8594;</a></p></aside>
+</div></section><section class="get" id="get" aria-labelledby="get-h"><div class="wrap"><div class="app-box">
+  <img src="/gapwise/static/img/apple-touch-icon.png" alt="Gapwise app icon" width="64" height="64" loading="lazy" decoding="async">
+  <div><h2 id="get-h">Take the job on site with the Gapwise app</h2>
+  <p>Every mark from the post, stairs and decking, a cut list with saw kerf allowed for, and saved jobs that open with no signal. Millimetres or inches. Free to download, with one optional unlock: no account, no subscription, no ads.</p>
+  <div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div></div>
+</div></div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-brand">
+    <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+    <p>Even spacing and cut lists for balusters, pickets and battens.</p>
+    <p>&#169; 2026 Gapwise. Made by a tradie.</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a>
+    <a href="/gapwise/balustrade-spacing-calculator/">Balustrade calculator (AU)</a>
+    <a href="/gapwise/spindle-spacing-calculator/">Spindle calculator (UK)</a>
+    <a href="/gapwise/picket-spacing-calculator/">Picket calculator</a>
+    <a href="/gapwise/stair-calculator/">Stair calculator</a>
+    <a href="/gapwise/decking-calculator/">Decking calculator</a>
+    <a href="/gapwise/stair-baluster-spacing-calculator/">Balusters per tread</a>
+    <a href="/gapwise/equal-spacing-calculator/">Equal spacing calculator</a>
+    <a href="/gapwise/guides/">Guides</a>
+    <a href="/gapwise/support/">Support</a>
+    <a href="/gapwise/privacy/">Privacy</a>
+  </nav>
+  <p class="foot-more">More from Wise Apps: <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+</div></footer>
+<div class="bar" id="bar" hidden>
+  <p><b>Gapwise app</b><span> Every mark, cut lists, works offline.</span></p>
+  <a class="bar-go" href="#get">Get the app</a>
+  <button type="button" class="bar-x" aria-label="Dismiss the app banner">&#215;</button>
+</div><script defer src="/gapwise/static/engine.js"></script><script defer src="/gapwise/static/tools.js"></script><script defer src="/gapwise/static/bar.js"></script>
+</body>
+</html>

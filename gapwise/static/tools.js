@@ -397,6 +397,246 @@
     calc();
   }
 
+  /* ================================================================ BALUSTERS PER TREAD */
+  // n balusters evenly spaced on each tread: centres = going / n, clear gap = going / n - width.
+  // The gap between upright balusters is measured level, so the stair's slope doesn't change it.
+  const TREAD_PRESETS = {
+    usstair: { mm: 111.125, label: 'US stairs under 4 3/8"', inch: '4 3/8' },
+    au: { mm: 125, label: 'AU under 125 mm' },
+    nzuk: { mm: 100, label: 'NZ/UK under 100 mm' },
+  };
+  function initTread(root) {
+    let preset = root.dataset.preset || (usLocale ? 'usstair' : /^en-(NZ|GB|IE)/i.test(lang) ? 'nzuk' : 'au');
+    let last = null;
+    const ui = setup(root, 3, { mm: ['250', '41', '100'], in: ['10', '1 1/4', '4 3/8'] }, calc);
+    const { st, vals } = ui;
+    const m = (s) => `<span class="m">${esc(s)}</span>`;
+    const pv = (p) => (st.unit === 'in' ? (p.inch || E.fmtFraction(p.mm / E.MM_PER_IN, 32)) : String(p.mm));
+    if (preset && TREAD_PRESETS[preset]) vals[2] = pv(TREAD_PRESETS[preset]);
+
+    function calc() {
+      const G = ui.read(0, false);
+      const w = ui.read(1, true);
+      const p = TREAD_PRESETS[preset];
+      const lim = p ? p.mm : ui.read(2, false);
+      root.querySelectorAll('[data-p]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.p === preset)));
+      const width = w === '' ? 0 : w;
+      let r;
+      if (!(G > 0)) r = { ok: false, error: 'Enter the going (the level depth of one tread, nosing to nosing).' };
+      else if (!(lim > 0)) r = { ok: false, error: 'Enter the largest gap allowed.' };
+      else if (width >= G) r = { ok: false, error: 'The baluster is as wide as the whole tread.' };
+      else {
+        const margin = p ? (st.unit === 'in' ? 0.4 : 0.05) : 0;
+        const ok = (n) => G / n - width <= lim - margin + 1e-9;
+        let n = Math.max(1, Math.ceil(G / (lim - margin + width) - 1e-9));
+        while (!ok(n)) n++;
+        if (n * width > G) r = { ok: false, error: 'Those balusters are too wide to fit under the limit on one tread.' };
+        else {
+          const rows = [];
+          for (let k = 1; k <= Math.max(4, n + 1); k++) {
+            const gap = G / k - width;
+            if (gap < 0) break;
+            rows.push({ k, gap, centres: G / k, ok: ok(k) });
+          }
+          r = { ok: true, n, G, w: width, lim, strict: !!p, gap: G / n - width, centres: G / n, rows,
+                maxGoing: n * (lim - margin + width) };
+        }
+      }
+      last = { r };
+      render();
+      ui.draw();
+    }
+
+    function render() {
+      const { r } = last;
+      if (!r.ok) { ui.out.innerHTML = `<p class="res-err">${esc(r.error)}</p>`; ui.say(r.error); return; }
+      const word = r.strict ? 'under' : 'at most';
+      const rows = r.rows.map((x) => `<li class="${x.ok ? 'ok' : 'no'}"><b class="mk" aria-hidden="true">${x.ok ? '✓' : '✗'}</b><span>${x.k} per tread: gap ${m(ui.fine(x.gap))}, centres ${m(ui.fine(x.centres))}${x.ok ? '' : ' <b>too wide</b>'}</span></li>`).join('');
+      ui.out.innerHTML = `
+        <p class="res-l">Balusters per tread</p>
+        <p class="res-big"><span>${r.n}</span></p>
+        <dl class="res-stats">
+          <div><dt>Gap</dt><dd>${esc(ui.fine(r.gap))}</dd></div>
+          <div><dt>Centres</dt><dd>${esc(ui.fine(r.centres))}</dd></div>
+          <div><dt>Every gap</dt><dd>${word} ${esc(ui.fine(r.lim))}</dd></div>
+        </dl>
+        <ul class="res-checks" aria-label="Gaps for each number of balusters per tread">${rows}</ul>
+        <p class="res-line">${r.n} per tread keeps the gap ${word} the limit on a going up to ${m(ui.fine(r.maxGoing))}.</p>
+        <p class="hint">Use the narrowest width of a turned or tapered baluster: that is where the gap is widest. The triangle under the bottom rail has its own rule.</p>
+        <a class="cta" href="${ui.href}">Space the balusters on the landing too, in the Gapwise app</a>`;
+      ui.say(`${r.n} balusters per tread, gap ${ui.fine(r.gap)}, centres ${ui.fine(r.centres)}.`);
+    }
+
+    // Side elevation of three steps, the balusters on each tread at the same centres, and the handrail.
+    ui.draw = function draw() {
+      if (!ui.sheet || !ui.svg) return;
+      const { W, H } = ui.size();
+      if (!last || !last.r.ok) {
+        ui.svg.innerHTML = `<text class="note" x="${W / 2}" y="${H / 2}" text-anchor="middle">Enter the numbers to draw the treads.</text>`;
+        ui.svg.setAttribute('aria-label', 'No drawing: the numbers need fixing.');
+        return;
+      }
+      const { r } = last;
+      const act = st.active == null ? 2 : st.active;
+      const steps = 3;
+      const riser = r.G * 0.7; // drawn rise: an illustration, not the real riser
+      const mx = 24, yF = H - 70, top = 70;
+      const s = Math.min((W - 2 * mx) / (steps * r.G), (yF - top) / ((steps + 1) * riser + r.G * 0.9));
+      const G = r.G * s, R = riser * s, bw = Math.max(r.w * s, 1.2), rail = r.G * 0.9 * s;
+      const x0 = (W - steps * G) / 2;
+      let g = ground(W, yF);
+      let d = `M${r1(x0)} ${r1(yF)}`;
+      for (let i = 0; i < steps; i++) d += `V${r1(yF - (i + 1) * R)}H${r1(x0 + (i + 1) * G)}`;
+      d += `V${r1(yF)}Z`;
+      g += `<path class="obj" d="${d}"/>`;
+      // balusters: centred in their share of each tread
+      const bal = [];
+      for (let i = 0; i < steps; i++) {
+        const yT = yF - (i + 1) * R;
+        for (let k = 0; k < r.n; k++) {
+          const cx = x0 + i * G + (k + 0.5) * (G / r.n);
+          bal.push({ x: cx - bw / 2, yT, i, k });
+        }
+      }
+      // handrail, parallel to the pitch, a fixed height above the nosings
+      const railAt = (x) => yF - R - ((x - x0) / G) * R - rail;
+      const xa = x0 - 6, xb = x0 + steps * G + 6;
+      const a = bal[0], b = bal[1];
+      const yTopGap = a && b ? railAt(a.x + bw) + 4 : 0;
+      if (b && act === 2) g += rc(a.x + bw, yTopGap, b.x - a.x - bw, b.yT - yTopGap, 'tint');
+      bal.forEach((q) => { g += rc(q.x, railAt(q.x + bw / 2), bw, q.yT - railAt(q.x + bw / 2), act === 1 && q.i === steps - 1 && q.k === r.n - 1 ? 'obj on' : 'obj'); });
+      g += `<polygon class="obj" points="${r1(xa)},${r1(railAt(xa) - 7)} ${r1(xb)},${r1(railAt(xb) - 7)} ${r1(xb)},${r1(railAt(xb))} ${r1(xa)},${r1(railAt(xa))}"/>`;
+      // the gap, dimensioned between the first two balusters, halfway up
+      if (b) g += hdim(a.x + bw, b.x, (yTopGap + b.yT) / 2 + 8, ui.dim(r.gap), act === 2, null, null, W);
+      g += hdimBelow(x0, x0 + G, yF + 34, ui.dim(r.G), act === 0, yF - R + 4, W);
+      g += `<text class="note" x="10" y="${H - 9}">${esc(`${r.n} per tread at ${ui.fine(r.centres)} centres`)}</text>`;
+      g += `<text class="note dimnote" x="${W - 10}" y="${H - 9}" text-anchor="end">${st.unit === 'in' ? 'Inches' : 'mm'}</text>`;
+      ui.svg.innerHTML = g;
+      ui.svg.setAttribute('aria-label', `Side view of three treads with ${r.n} balusters on each, ${ui.fine(r.centres)} apart, leaving gaps of ${ui.fine(r.gap)}. The step height is drawn for illustration only.`);
+    };
+
+    root.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-p]');
+      if (b && TREAD_PRESETS[b.dataset.p]) { preset = b.dataset.p; vals[2] = pv(TREAD_PRESETS[preset]); ui.sync(); calc(); }
+      if (e.target.closest('[data-u]') && TREAD_PRESETS[preset]) { vals[2] = pv(TREAD_PRESETS[preset]); ui.sync(); calc(); }
+    });
+    ui.inputs[2].addEventListener('input', () => { if (preset) { preset = null; calc(); } });
+    ui.sync();
+    calc();
+  }
+
+  /* ================================================================ EQUAL SPACING */
+  // Engine.spacing() with a count: a gap at both ends, an item at both ends, or half a space at each end.
+  const EVEN_MARKS = 4;
+  function initEven(root) {
+    let layout = root.dataset.layout || 'between';
+    let last = null;
+    const ui = setup(root, 2, { mm: ['2400', '20', '6'], in: ['96', '3/4', '6'] }, calc);
+    const { st, vals } = ui;
+    const m = (s) => `<span class="m">${esc(s)}</span>`;
+    const WORD = { between: 'Gap at both ends', flush: 'Item flush at both ends', centres: 'Half a space at each end' };
+
+    function calc() {
+      const L = ui.read(0, false);
+      const w = ui.read(1, true);
+      const cs = vals[2].trim();
+      const count = /^\d+$/.test(cs) ? +cs : NaN;
+      const bad = cs !== '' && !(count >= 1);
+      ui.inputs[2].parentElement.classList.toggle('bad', bad);
+      ui.inputs[2].setAttribute('aria-invalid', String(bad));
+      root.querySelectorAll('[data-lay]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lay === layout)));
+      const r = !(count >= 1) ? { ok: false, error: 'Enter how many items, as a whole number.' }
+        : E.spacing({ mode: layout, rule: 'count', length: L, width: w === '' ? 0 : w, count });
+      last = { r, L, w: w === '' ? 0 : w };
+      render();
+      ui.draw();
+    }
+
+    function render() {
+      const { r, w } = last;
+      if (!r.ok) { ui.out.innerHTML = `<p class="res-err">${esc(r.error)}</p>`; ui.say(r.error); return; }
+      const toCentre = r.mode === 'centres' || !(w > 0);
+      const shown = r.items.slice(0, EVEN_MARKS);
+      const mk = (it) => (toCentre ? it.centre : it.left);
+      const fmtMark = (mm) => (st.unit === 'in' ? E.fmtFraction(mm / E.MM_PER_IN, 16) : E.fmtMM(mm, 1));
+      const endTxt = r.mode === 'between' ? 'End gaps' : r.mode === 'flush' ? 'Ends' : 'End spaces';
+      const endVal = r.mode === 'flush' ? 'flush' : esc(ui.fine(r.endGap));
+      ui.out.innerHTML = `
+        <p class="res-l">${r.mode === 'centres' ? 'Centres' : 'Equal gap'}</p>
+        <p class="res-big"><span>${esc(ui.fine(r.mode === 'centres' ? r.centres : r.gap).replace(/ mm$/, ''))}</span>${st.unit === 'mm' ? '<small>mm</small>' : ''}</p>
+        <dl class="res-stats">
+          <div><dt>Items</dt><dd>${r.n}</dd></div>
+          <div><dt>${r.mode === 'centres' ? 'Gap' : 'Centres'}</dt><dd>${esc(ui.fine(r.mode === 'centres' ? r.gap : r.centres))}</dd></div>
+          <div><dt>${endTxt}</dt><dd>${endVal}</dd></div>
+        </dl>
+        <p class="res-l res-ml">Marks from the start to the ${toCentre ? 'centre' : 'left edge'} of each item, in ${st.unit === 'in' ? 'inches' : 'mm'}</p>
+        <ol class="marks">${shown.map((it) => `<li><i>${it.i}</i>${esc(fmtMark(mk(it)))}</li>`).join('')}${
+          r.n > EVEN_MARKS ? `<li class="locked"><i>${EVEN_MARKS + 1} to ${r.n}</i>in the app</li>` : ''}</ol>
+        ${r.warnings.map((x) => `<p class="res-warn">${esc(x)}</p>`).join('')}
+        <a class="cta" href="${ui.href}">Every mark, saved for the job, in the Gapwise app</a>`;
+      ui.say(`${r.n} items, ${r.mode === 'centres' ? 'centres ' + ui.fine(r.centres) : 'equal gap ' + ui.fine(r.gap)}.`);
+    }
+
+    ui.draw = function draw() {
+      if (!ui.sheet || !ui.svg) return;
+      const { W, H } = ui.size();
+      if (!last || !last.r.ok) {
+        ui.svg.innerHTML = `<text class="note" x="${W / 2}" y="${H / 2}" text-anchor="middle">Enter the numbers to draw the layout.</text>`;
+        ui.svg.setAttribute('aria-label', 'No drawing: the numbers need fixing.');
+        return;
+      }
+      const { r, L, w } = last;
+      const act = st.active == null ? 2 : st.active;
+      const mx = 26, BREAK = 30, K = 3, M = 2;
+      const yTop = 86, yBot = H - 96;
+      const usable = W - 2 * mx;
+      let s = usable / L;
+      let broken = false, leftEnd = L, rightStart = L;
+      if (r.n > K + M + 2 && r.centres * s < 12) {
+        broken = true;
+        leftEnd = r.items[K - 1].right + r.gap / 2;
+        rightStart = r.items[r.n - M].left - r.gap / 2;
+        s = (usable - BREAK) / (leftEnd + (L - rightStart));
+      }
+      const X = (mm) => (!broken || mm <= leftEnd ? mx + mm * s : mx + leftEnd * s + BREAK + (mm - rightStart) * s);
+      const shown = broken ? r.items.filter((it) => it.i <= K || it.i > r.n - M) : r.items;
+      // the board or wall the items sit on
+      let g = rc(X(0), yBot - 8, X(L) - X(0), 8, 'post');
+      if (broken) {
+        g += `<rect x="${r1(X(leftEnd) + 1)}" y="${yTop - 10}" width="${BREAK - 2}" height="${r1(yBot - yTop + 20)}" class="blank"/>`;
+        g += breakLine(X(leftEnd) + 2, yTop - 10, yBot + 10) + breakLine(X(leftEnd) + BREAK - 2, yTop - 10, yBot + 10);
+      }
+      shown.forEach((it) => {
+        const on = act === 1 && it.i === r.n;
+        if (w > 0) g += rc(X(it.left), yTop, X(it.right) - X(it.left), yBot - 8 - yTop, on ? 'obj on' : 'obj');
+        else g += `<circle cx="${r1(X(it.centre))}" cy="${r1((yTop + yBot) / 2)}" r="5" class="${on ? 'obj on' : 'obj'}"/>` + ln(X(it.centre), yTop, X(it.centre), yBot - 8, 'pitch');
+      });
+      const a = r.items[0];
+      if (r.mode === 'centres' || !(w > 0)) {
+        if (r.n > 1) g += hdim(X(a.centre), X(r.items[1].centre), yTop - 22, ui.dim(r.centres), act === 2, yTop - 3, yTop - 3, W);
+        g += hdim(X(0), X(a.centre), yTop - 50, ui.dim(a.centre), act === 0, yBot - 8, yTop - 3, W);
+      } else {
+        if (r.n > 1) g += hdim(X(a.right), X(r.items[1].left), yTop - 22, ui.dim(r.gap), act === 2, yTop - 3, yTop - 3, W);
+        if (r.mode === 'between') g += hdim(X(0), X(a.left), yTop - 50, ui.dim(r.endGap), act === 0, yBot - 8, yTop - 3, W);
+      }
+      g += hdimBelow(X(0), X(L), yBot + 34, ui.dim(L), act === 0, yBot + 4, W);
+      const note = `${r.n} at ${ui.fine(r.centres)} centres, ${WORD[r.mode].toLowerCase()}`;
+      g += `<text class="note" x="10" y="${H - 9}">${esc(note)}</text>`;
+      g += `<text class="note dimnote" x="${W - 10}" y="${H - 9}" text-anchor="end">${st.unit === 'in' ? 'Inches' : 'mm'}</text>`;
+      ui.svg.innerHTML = g;
+      ui.svg.setAttribute('aria-label', `Layout: ${note}, over ${ui.long(L)}.`);
+    };
+
+    root.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-lay]');
+      if (b && WORD[b.dataset.lay]) { layout = b.dataset.lay; calc(); }
+    });
+    ui.sync();
+    calc();
+  }
+
   document.querySelectorAll('[data-calc="stairs"]').forEach(initStairs);
   document.querySelectorAll('[data-calc="deck"]').forEach(initDeck);
+  document.querySelectorAll('[data-calc="tread"]').forEach(initTread);
+  document.querySelectorAll('[data-calc="even"]').forEach(initEven);
 })();

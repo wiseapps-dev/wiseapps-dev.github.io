@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equal spacing calculator: gaps, centres and marks</title>
+<meta name="description" content="Space anything evenly: shelves, hooks, frames, holes or downlights. Enter the length, item width and count for the gap, centres and every mark.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/gapwise/equal-spacing-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gapwise">
+<meta property="og:title" content="Equal spacing calculator: gaps, centres and marks">
+<meta property="og:description" content="Space anything evenly: shelves, hooks, frames, holes or downlights. Enter the length, item width and count for the gap, centres and every mark.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/gapwise/equal-spacing-calculator/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/gapwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gapwise: even gaps and cut lists, worked out on site. Yellow balusters between two grey posts.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121316">
+<link rel="icon" type="image/png" href="/gapwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/gapwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/gapwise/static/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Equal spacing calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/gapwise/equal-spacing-calculator/"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/gapwise/"}, {"@type": "ListItem", "position": 2, "name": "Equal spacing calculator", "item": "https://wiseapps-dev.github.io/gapwise/equal-spacing-calculator/"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+  <nav class="nav" aria-label="Main"><a class="wide" href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a><a class="wide" href="/gapwise/picket-spacing-calculator/">Picket calculator</a><a href="/gapwise/guides/">Guides</a><a class="nav-cta" href="#get">Get the app</a></nav>
+</div></header>
+<main id="main">
+<section class="dark band"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/gapwise/">Home</a></li><li aria-current="page">Equal spacing calculator</li></ol></nav>
+  <div class="section-head"><div class="eyebrow">Free calculator</div><h1>Equal spacing calculator</h1><p class="answer">To space items evenly, first decide how the ends work: a gap at both ends, an item flush at both ends, or half a space at each end, as for downlights. Then enter the length, the item width and how many you want. The calculator gives the gap, the centres and the marks from the start.</p></div>
+  <div class="calc" data-calc="even" data-applink="#get">
+  <form class="calc-in" action="#" novalidate>
+    <div class="calc-row"><div class="seg" role="group" aria-label="Units"><button type="button" data-u="mm" aria-pressed="true">mm</button><button type="button" data-u="in" aria-pressed="false">inches</button></div><span class="layout">Any items in a row</span></div>
+    <div class="flds"><div class="fld"><label for="f0">Length</label><span class="in"><input id="f0" data-f="0" inputmode="decimal" autocomplete="off" spellcheck="false" value="2400"><span class="u">mm</span></span></div><div class="fld"><label for="f1">Item width (optional)</label><span class="in"><input id="f1" data-f="1" inputmode="decimal" autocomplete="off" spellcheck="false" value="20" placeholder="optional"><span class="u">mm</span></span></div><div class="fld"><label for="f2">How many items</label><span class="in"><input id="f2" data-f="2" inputmode="numeric" autocomplete="off" spellcheck="false" value="6"><span class="u0">items</span></span></div></div>
+    <div class="presets" role="group" aria-label="How the ends work"><button type="button" data-lay="between" aria-pressed="true">Gap at both ends</button><button type="button" data-lay="flush" aria-pressed="false">Item at both ends</button><button type="button" data-lay="centres" aria-pressed="false">Half a space at each end</button></div>
+    <p class="hint">Leave the width blank for points, like holes, hooks or light centres.</p>
+  </form>
+  <p class="vh" aria-live="polite" data-live></p>
+  <div class="calc-out"><noscript><p class="res-err">The calculator needs JavaScript. The formula and a worked example are below.</p></noscript></div>
+  <figure class="calc-fig">
+    <div class="sheet"><svg class="draw" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elevation of the items in a row"></svg></div>
+    <figcaption>Elevation, not to scale. It redraws as you type.</figcaption>
+  </figure>
+</div>
+</div></section>
+<section class="doc"><div class="wrap">
+  <div class="prose">
+<h2>Three ways to set out the ends</h2>
+<ul>
+<li><b>Gap at both ends:</b> items between two fixed edges, like balusters between posts, shelves between a floor and a ceiling, or frames on a wall. n items make n + 1 gaps: <code>gap = (L − n × w) ÷ (n + 1)</code>.</li>
+<li><b>Item at both ends:</b> the first and last items flush with the ends, like fence pickets, battens or slats. n items make n − 1 gaps: <code>gap = (L − n × w) ÷ (n − 1)</code>.</li>
+<li><b>Half a space at each end:</b> the way downlights, joists from a centre line or holes on a rail are often set out. The centres are <code>L ÷ n</code>, and the first sits half a space in.</li>
+</ul>
+<h2>Worked examples</h2>
+<ul>
+<li><b>Six hooks on a 1200 mm board</b>, 20 mm wide, a gap at both ends: centres (1200 + 20) ÷ 7 = 174.3 mm, gap 154.3 mm. Marks to the left edge of each hook: 154.3, 328.6, 502.9, 677.1.</li>
+<li><b>Four downlights in a 3600 mm room</b>, half a space at each end: centres 900 mm, the first 450 mm from the wall, then 1350, 2250 and 3150.</li>
+<li><b>Three 500 mm frames on a 2400 mm wall</b>, a gap at both ends: (2400 − 1500) ÷ 4 = 225 mm between the frames and at each end.</li>
+</ul>
+<h2>Mark from one end</h2>
+<p>Work out each mark from the start (item i starts at a fixed multiple of the centres), and measure every mark from the same end with one tape hook. Stepping a rounded gap along adds the rounding up: 12 steps of a gap rounded by half a millimetre end up 6 mm out. The calculator works every mark from the start.</p>
+<p>Spacing balusters to a code limit? The <a href="/gapwise/baluster-spacing-calculator/">baluster spacing calculator</a> finds the count for you. Pickets and battens? Try the <a href="/gapwise/picket-spacing-calculator/">picket spacing calculator</a>.</p>
+<h2>Questions</h2><div class="faq"><details><summary>How do I space things evenly on a wall?</summary><p>Measure the space, decide whether you want a gap at both ends, then take the total width of the items away from the length and divide by the number of gaps (one more than the items). Mark every item from the same end.</p></details><details><summary>What does centres mean?</summary><p>Centre to centre: the distance from the middle of one item to the middle of the next. It's the gap plus one item width, and it is the easiest number to mark out with.</p></details><details><summary>How do I space downlights evenly?</summary><p>Divide the room length by the number of lights for the centres, and put the first one half that distance from the wall. Do the same across the room for a grid.</p></details></div></div>
+  <aside class="related" aria-labelledby="rel-h"><h2 id="rel-h">Related</h2><ul class="links"><li><a href="/gapwise/baluster-spacing-calculator/">Baluster spacing calculator</a><span>Your own limit, or the 125 mm, 100 mm and 4 inch presets.</span></li><li><a href="/gapwise/picket-spacing-calculator/">Picket fence spacing calculator</a><span>Pickets flush at both ends, equal gaps.</span></li><li><a href="/gapwise/decking-calculator/">Decking calculator</a><span>Deck boards across a deck, the last rip and the lengths to buy.</span></li></ul><p class="hub"><a href="/gapwise/#calc-h">All Gapwise calculators &#8594;</a></p></aside>
+</div></section><section class="get" id="get" aria-labelledby="get-h"><div class="wrap"><div class="app-box">
+  <img src="/gapwise/static/img/apple-touch-icon.png" alt="Gapwise app icon" width="64" height="64" loading="lazy" decoding="async">
+  <div><h2 id="get-h">Take the job on site with the Gapwise app</h2>
+  <p>Every mark from the post, stairs and decking, a cut list with saw kerf allowed for, and saved jobs that open with no signal. Millimetres or inches. Free to download, with one optional unlock: no account, no subscription, no ads.</p>
+  <div class="store-badges"><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>iPhone</b></span></span><span class="store-badge soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg><span><small>Coming soon for</small><b>Android</b></span></span></div></div>
+</div></div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-brand">
+    <a class="logo" href="/gapwise/"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect x="3" y="6" width="5" height="20" rx="1"/><rect x="13.5" y="6" width="5" height="20" rx="1"/><rect x="24" y="6" width="5" height="20" rx="1"/></svg><span>Gapwise</span></a>
+    <p>Even spacing and cut lists for balusters, pickets and battens.</p>
+    <p>&#169; 2026 Gapwise. Made by a tradie.</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="/gapwise/baluster-spacing-calculator/">Baluster calculator</a>
+    <a href="/gapwise/balustrade-spacing-calculator/">Balustrade calculator (AU)</a>
+    <a href="/gapwise/spindle-spacing-calculator/">Spindle calculator (UK)</a>
+    <a href="/gapwise/picket-spacing-calculator/">Picket calculator</a>
+    <a href="/gapwise/stair-calculator/">Stair calculator</a>
+    <a href="/gapwise/decking-calculator/">Decking calculator</a>
+    <a href="/gapwise/stair-baluster-spacing-calculator/">Balusters per tread</a>
+    <a href="/gapwise/equal-spacing-calculator/">Equal spacing calculator</a>
+    <a href="/gapwise/guides/">Guides</a>
+    <a href="/gapwise/support/">Support</a>
+    <a href="/gapwise/privacy/">Privacy</a>
+  </nav>
+  <p class="foot-more">More from Wise Apps: <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+</div></footer>
+<div class="bar" id="bar" hidden>
+  <p><b>Gapwise app</b><span> Every mark, cut lists, works offline.</span></p>
+  <a class="bar-go" href="#get">Get the app</a>
+  <button type="button" class="bar-x" aria-label="Dismiss the app banner">&#215;</button>
+</div><script defer src="/gapwise/static/engine.js"></script><script defer src="/gapwise/static/tools.js"></script><script defer src="/gapwise/static/bar.js"></script>
+</body>
+</html>

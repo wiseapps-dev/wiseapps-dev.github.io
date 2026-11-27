@@ -144,7 +144,7 @@ a.card p { flex: 1; }
 .in.bad { border-color: var(--bad); }
 .in input { flex: 1; min-width: 0; width: 100%; margin: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; padding: 10px 6px 10px 12px; outline: none; }
 .in input::placeholder { color: var(--ink-3); font-size: 15px; font-weight: 500; opacity: 1; }
-.in .u { padding-right: 12px; font-size: 14px; color: var(--ink-3); }
+.in .u, .in .u0 { padding-right: 12px; font-size: 14px; color: var(--ink-3); }
 .presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
 .presets button { border: 1.5px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 650; line-height: 1.3; color: var(--ink-2); cursor: pointer; }
 .presets button:hover { border-color: var(--ink-3); }
