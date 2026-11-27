@@ -181,3 +181,21 @@ main h2:not(.cta-h):not(.h3) { padding-bottom: .18em; background: linear-gradien
 .nf-links { line-height: 2; }
 .nf-fig { max-width: 300px; margin-top: 18px; background: var(--paper); border-radius: 22px; overflow: hidden; }
 @media print { .no-print, .mast, .foot { display: none !important; } body { background: #fff; } }
+/* worksheets: downloads, style cards, the maker */
+.dlist { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 12px; }
+.dlist li { display: grid; gap: 10px; padding: 16px 18px; background: var(--paper); border-radius: var(--r); box-shadow: inset 0 0 0 1.5px var(--rule); }
+@media (min-width: 760px) { .dlist li { grid-template-columns: 1fr auto; align-items: center; } }
+.dls { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn.dl { flex-direction: column; min-height: 54px; padding: 6px 18px; line-height: 1.2; }
+.btn.dl small { font-weight: 400; font-size: .8rem; opacity: .85; }
+.scards { list-style: none; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.scards a { display: grid; grid-template-columns: 64px 1fr; grid-template-rows: auto 1fr; column-gap: 14px; height: 100%; padding: 14px; background: var(--paper); border-radius: var(--r); text-decoration: none; box-shadow: inset 0 0 0 1.5px var(--rule); }
+.scards a:hover { box-shadow: inset 0 0 0 3px var(--violet); }
+.scards svg { grid-row: span 2; width: 64px; border-radius: 10px; }
+.scards b { color: var(--ink); line-height: 1.25; } .scards span { color: var(--ink2); font-size: .9rem; line-height: 1.35; }
+.sgrid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.sheet-form fieldset.what { display: grid; gap: 0; }
+.sheet-form fieldset.what .rad { min-height: 36px; }
+.sheet-form input[name=word] { font: inherit; font-size: 1.1rem; padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--rule); background: #fff; color: var(--ink); min-height: 48px; width: 100%; }
+.ofl { font-size: .9rem; color: var(--ink2); }
+.ws-form [hidden] { display: none; }

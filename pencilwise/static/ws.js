@@ -11,6 +11,17 @@
   var guess = window.Worksheet.paperFor((navigator.languages && navigator.languages[0]) || navigator.language || 'en-US');
   var pr = form.querySelector('input[name=paper][value=' + guess + ']');
   if (pr) pr.checked = true;
+  // The document info names Wise Apps as creator and producer. The info object is the last one before
+  // the cross-reference table, so only the startxref offset moves.
+  function brand(bytes) {
+    var s = '';
+    for (var i = 0; i < bytes.length; i += 8192) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
+    s = s.replace('/Creator (Pencilwise) /Producer (Pencilwise)', '/Creator (Wise Apps) /Producer (Wise Apps)');
+    s = s.replace(/startxref\n\d+\n/, 'startxref\n' + (s.lastIndexOf('endobj\nxref\n') + 7) + '\n');
+    var out = new Uint8Array(s.length);
+    for (var j = 0; j < s.length; j++) out[j] = s.charCodeAt(j) & 255;
+    return out;
+  }
   function rowSVG(style, text, mode) {
     var lay = window.Styles.layout(style, text, 14);
     var w = Math.max(lay.width + 40, 640);
@@ -45,7 +56,7 @@
     if (!name) { msg.textContent = 'Type a name first.'; return; }
     var style = form.elements.style.value;
     var r = window.Worksheet.build({ style: style, title: name, rows: window.Worksheet.nameRows(style, name), paper: paper() });
-    var url = URL.createObjectURL(new Blob([r.bytes], { type: 'application/pdf' }));
+    var url = URL.createObjectURL(new Blob([brand(r.bytes)], { type: 'application/pdf' }));
     var a = document.createElement('a');
     a.href = url;
     var slug = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[łŁ]/g, 'l').replace(/ß/g, 'ss').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
