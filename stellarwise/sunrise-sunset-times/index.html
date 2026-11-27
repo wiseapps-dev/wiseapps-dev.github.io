@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunrise and sunset times, twilight and dark sky hours</title>
+<meta name="description" content="Sunrise and sunset times for any city and month, with first and last light, day length and the hours when the sky is dark enough for stargazing.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/sunrise-sunset-times/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Sunrise and sunset times, twilight and dark sky hours">
+<meta property="og:description" content="Sunrise and sunset times for any city and month, with first and last light, day length and the hours when the sky is dark enough for stargazing.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/sunrise-sunset-times/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/stellarwise/"}, {"@type": "ListItem", "position": 2, "name": "Sunrise, sunset and dark sky times"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Sunrise, sunset and dark sky times", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/stellarwise/sunrise-sunset-times/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/">Planets tonight</a><a href="/stellarwise/moon-phase/">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs wrap no-print" aria-label="Breadcrumb"><a href="/stellarwise/">Home</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Sunrise, sunset and dark sky times</span></nav>
+<header class="lead wrap">
+  <h1>Sunrise, sunset and dark sky times</h1>
+  <p class="lede answer">Choose your city to see sunrise and sunset for every day of the month, with first and last light (civil twilight), the length of the day, and the hours when the sky is properly dark for stargazing, when the Sun is more than 18 degrees below the horizon. It all runs in your browser.</p>
+</header>
+<section class="tool wrap" data-tool="sun" aria-label="Sunrise and sunset times">
+  <div class="tz-row"><div class="field place" data-place><label for="pl-sun">City</label><input id="pl-sun" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-sun-list" placeholder="Type a city"><ul id="pl-sun-list" class="sugg" role="listbox" hidden></ul></div></div>
+  <div class="sum moon-facts" data-mt-sum aria-live="polite"><noscript><p class="nojs">Turn on JavaScript to work out the times for your city. Everything is worked out in your browser and nothing is sent anywhere.</p></noscript></div>
+  <div class="cal-head"><button type="button" class="ghost" data-mt-prev aria-label="Previous month">‹</button><h2 class="h3" data-mt-title aria-live="polite">This month</h2><button type="button" class="ghost" data-mt-next aria-label="Next month">›</button></div>
+  <div class="tbl" hidden><table class="stack month sun"><caption class="vh">First light and more for each day of the month</caption><thead><tr><th scope="col">Date</th><th scope="col">First light</th><th scope="col">Sunrise</th><th scope="col">Sunset</th><th scope="col">Last light</th><th scope="col">Day length</th><th scope="col">Dark sky</th></tr></thead><tbody></tbody></table></div>
+  <p class="tz-note" data-tz-note></p>
+  <aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">Plan the dark hours</h2><p>Stellarwise shows tonight’s sky for your place, when each planet is up and where to look, and keeps the screen red so your eyes stay used to the dark.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download, with one optional unlock. No account, no subscription, no ads.</p></div></aside>
+</section>
+<div class="wrap prose-wrap"><article class="prose">
+  <h2>What the columns mean</h2>
+  <ul>
+    <li><b>Sunrise and sunset:</b> when the top edge of the Sun meets a level horizon, allowing for the way the air bends light near the horizon. Hills, buildings and your height change what you actually see by a few minutes.</li>
+    <li><b>First light and last light:</b> civil twilight, when the Sun is 6 degrees below the horizon. Before first light and after last light you need lights to read outside.</li>
+    <li><b>Dark sky:</b> from the end of astronomical twilight in the evening to its start next morning, when the Sun is more than 18 degrees down and adds no light to the sky. Faint stars and the Milky Way show most clearly then, if the Moon is down too.</li>
+  </ul>
+  <p>Close to midsummer, places far from the equator (London, Edinburgh, Stockholm, Dunedin) don’t get properly dark at all: the column says “No full darkness”. Inside the Arctic and Antarctic circles the Sun can stay up, or down, all day.</p>
+  <p>The times come from the same astronomy code as the Stellarwise app and match timeanddate.com’s tables to the minute in our checks. For the Moon, see <a href="/stellarwise/moonrise-moonset/">moonrise and moonset times</a>; for what’s up after dark, see <a href="/stellarwise/planets-tonight/">planets visible tonight</a>.</p>
+</article></div>
+<nav class="rel wrap no-print" aria-label="More sky tools"><h2 class="h3">More sky tools</h2><ul><li><a href="/stellarwise/moonrise-moonset/">Moonrise and moonset times</a><span>Every day of the month</span></li><li><a href="/stellarwise/planets-tonight/">Planets visible tonight</a><span>Where and when to look</span></li><li><a href="/stellarwise/meteor-showers/">Meteor shower calendar</a><span>Peak nights and rates</span></li></ul><p><a class="more" href="/stellarwise/">All free sky tools</a></p></nav>
+<div class="wrap"><div class="end no-print"><p>Tonight’s sky on your phone, even with no signal.</p><a class="btn" href="/stellarwise/#app">Get Stellarwise</a></div></div>
+<div class="stk no-print" data-stk hidden><span>Tonight’s sky on your phone</span><a class="btn" href="/stellarwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/moon-phase-on-date/">Moon phase on any date</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/moon-phases-2027/">Moon phases 2027</a>
+    <a href="/stellarwise/moonrise-moonset/">Moonrise and moonset</a>
+    <a href="/stellarwise/sunrise-sunset-times/">Sunrise and sunset</a>
+    <a href="/stellarwise/solar-eclipse-2027/">Solar eclipse 2027</a>
+    <a href="/stellarwise/astronomy-calendar-2027/">Astronomy calendar 2027</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+  <p class="foot-copy">© 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

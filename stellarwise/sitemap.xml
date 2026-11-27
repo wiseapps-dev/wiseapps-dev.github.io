@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wiseapps-dev.github.io/stellarwise/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/planets-tonight/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/moon-phase/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/moon-phase-on-date/</loc><lastmod>2026-11-23</lastmod></url>
@@ -11,6 +11,12 @@
   <url><loc>https://wiseapps-dev.github.io/stellarwise/full-moon-dates/2029/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/star-map/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/meteor-showers/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/moon-phases-2027/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/moon-phases-2028/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/moonrise-moonset/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/sunrise-sunset-times/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/solar-eclipse-2027/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://wiseapps-dev.github.io/stellarwise/astronomy-calendar-2027/</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/guides/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/guides/planet-or-star/</loc><lastmod>2026-11-22</lastmod></url>
   <url><loc>https://wiseapps-dev.github.io/stellarwise/guides/moon-phases-explained/</loc><lastmod>2026-11-22</lastmod></url>

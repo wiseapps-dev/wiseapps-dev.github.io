@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moonrise and moonset times for your city, any month</title>
+<meta name="description" content="When does the Moon rise tonight? Moonrise and moonset times for any city, every day of the month, with when it is highest and how much is lit.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/stellarwise/moonrise-moonset/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stellarwise">
+<meta property="og:title" content="Moonrise and moonset times for your city, any month">
+<meta property="og:description" content="When does the Moon rise tonight? Moonrise and moonset times for any city, every day of the month, with when it is highest and how much is lit.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/stellarwise/moonrise-moonset/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/stellarwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stellarwise: a chart of tonight's whole sky, with the planets in gold">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#171a3f">
+<script>document.documentElement.className='js'</script>
+<link rel="preload" href="/stellarwise/static/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/stellarwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/stellarwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/stellarwise/static/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/stellarwise/"}, {"@type": "ListItem", "position": 2, "name": "Moon phase today", "item": "https://wiseapps-dev.github.io/stellarwise/moon-phase/"}, {"@type": "ListItem", "position": 3, "name": "Moonrise and moonset times"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Moonrise and moonset times", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/stellarwise/moonrise-moonset/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast no-print"><div class="wrap mast-in">
+  <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+  <nav class="nav" aria-label="Main"><a href="/stellarwise/planets-tonight/">Planets tonight</a><a href="/stellarwise/moon-phase/" aria-current="page">Moon phase</a><a href="/stellarwise/star-map/">Star map</a></nav>
+  <a class="mast-cta" href="/stellarwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<nav class="crumbs wrap no-print" aria-label="Breadcrumb"><a href="/stellarwise/">Home</a><span class="sep" aria-hidden="true">›</span><a href="/stellarwise/moon-phase/">Moon phase today</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Moonrise and moonset times</span></nav>
+<header class="lead wrap">
+  <h1>Moonrise and moonset times</h1>
+  <p class="lede answer">Choose your city to see when the Moon rises and sets on every day of the month, when it is highest in the sky and how much of it is lit. The Moon rises about 50 minutes later each day, so some days have no moonrise or no moonset at all. It all runs in your browser.</p>
+</header>
+<section class="tool wrap" data-tool="moonrs" aria-label="Moonrise and moonset times">
+  <div class="tz-row"><div class="field place" data-place><label for="pl-mrs">City</label><input id="pl-mrs" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pl-mrs-list" placeholder="Type a city"><ul id="pl-mrs-list" class="sugg" role="listbox" hidden></ul></div></div>
+  <div class="sum moon-facts" data-mt-sum aria-live="polite"><noscript><p class="nojs">Turn on JavaScript to work out the times for your city. Everything is worked out in your browser and nothing is sent anywhere.</p></noscript></div>
+  <div class="cal-head"><button type="button" class="ghost" data-mt-prev aria-label="Previous month">‹</button><h2 class="h3" data-mt-title aria-live="polite">This month</h2><button type="button" class="ghost" data-mt-next aria-label="Next month">›</button></div>
+  <div class="tbl" hidden><table class="stack month moonrs"><caption class="vh">Moonrise and more for each day of the month</caption><thead><tr><th scope="col">Date</th><th scope="col">Moonrise</th><th scope="col">Moonset</th><th scope="col">Highest</th><th scope="col">At 9 pm</th></tr></thead><tbody></tbody></table></div>
+  <p class="tz-note" data-tz-note></p>
+  <aside class="cta no-print" aria-label="Get the Stellarwise app"><div class="cta-in"><h2 class="cta-h">Find the Moon in the sky</h2><p>Stellarwise shows where the Moon is right now, drawn as it looks from your place, and an arrow leads you to it.</p><div class="stores"><span class="store soon"><small>Coming soon for</small><b>iPhone</b></span><span class="store soon"><small>Coming soon for</small><b>Android</b></span></div><p class="fine">Free to download, with one optional unlock. No account, no subscription, no ads.</p></div></aside>
+</section>
+<div class="wrap prose-wrap"><article class="prose">
+  <h2>Reading the table</h2>
+  <ul>
+    <li><b>Moonrise and moonset</b> are when the top edge of the Moon crosses a level horizon. A dash means it doesn’t happen that day: the Moon rises about 50 minutes later each day, so once a month the rise slips past midnight into the next day.</li>
+    <li><b>Highest</b> is when the Moon crosses the meridian, due south from the Northern Hemisphere or due north from the Southern Hemisphere, with its height in degrees. That is when you see it through the least air.</li>
+    <li><b>At 9 pm</b> gives the phase and how much of the disc is lit that evening.</li>
+  </ul>
+  <p>A full Moon rises around sunset and sets around sunrise; a new Moon rises and sets with the Sun, so it is lost in the glare. A first-quarter Moon is highest around sunset, and a last-quarter Moon around sunrise.</p>
+  <p>See <a href="/stellarwise/moon-phases-2027/">every Moon phase of 2027</a>, today’s <a href="/stellarwise/moon-phase/">Moon phase</a>, or <a href="/stellarwise/sunrise-sunset-times/">sunrise and sunset times</a>.</p>
+</article></div>
+<nav class="rel wrap no-print" aria-label="More Moon tools"><h2 class="h3">More Moon tools</h2><ul><li><a href="/stellarwise/moon-phases-2027/">Moon phases 2027</a><span>Every phase, in your time zone</span></li><li><a href="/stellarwise/sunrise-sunset-times/">Sunrise and sunset times</a><span>With dark sky hours</span></li><li><a href="/stellarwise/moon-phase-on-date/">Moon phase on any date</a><span>A birthday or any night</span></li></ul><p><a class="more" href="/stellarwise/moon-phase/">Moon phase today</a></p></nav>
+<div class="wrap"><div class="end no-print"><p>The Moon, planets and stars, worked out on your phone.</p><a class="btn" href="/stellarwise/#app">Get Stellarwise</a></div></div>
+<div class="stk no-print" data-stk hidden><span>The Moon in your pocket</span><a class="btn" href="/stellarwise/#app">Get the app</a><button type="button" class="stk-x" aria-label="Dismiss">×</button></div>
+
+</main>
+<footer class="foot no-print"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="wordmark" href="/stellarwise/"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 24a13 13 0 0 1 26 0"/><path d="M1.5 24h29"/><path d="M16 5.5v6M13 8.5h6" stroke-width="2"/><circle cx="23.5" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg><span>Stellarwise</span></a>
+    <p>An offline star, planet and Moon finder for iPhone and Android. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/stellarwise/planets-tonight/">Planets visible tonight</a>
+    <a href="/stellarwise/moon-phase/">Moon phase today</a>
+    <a href="/stellarwise/moon-phase-on-date/">Moon phase on any date</a>
+    <a href="/stellarwise/full-moon-dates/">Full moon dates</a>
+    <a href="/stellarwise/star-map/">Printable star map</a>
+    <a href="/stellarwise/meteor-showers/">Meteor shower calendar</a>
+    <a href="/stellarwise/moon-phases-2027/">Moon phases 2027</a>
+    <a href="/stellarwise/moonrise-moonset/">Moonrise and moonset</a>
+    <a href="/stellarwise/sunrise-sunset-times/">Sunrise and sunset</a>
+    <a href="/stellarwise/solar-eclipse-2027/">Solar eclipse 2027</a>
+    <a href="/stellarwise/astronomy-calendar-2027/">Astronomy calendar 2027</a>
+    <a href="/stellarwise/guides/">Stargazing guides</a>
+    <a href="/stellarwise/support/">Support</a>
+    <a href="/stellarwise/privacy/">Privacy</a>
+    <a href="/stellarwise/terms/">Terms</a>
+  </nav>
+  <p class="foot-also">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+  <p class="foot-copy">© 2026 Stellarwise.</p>
+</div></footer>
+<script src="/stellarwise/static/site.js" defer></script><script src="/stellarwise/static/sky/vendor/astronomy.js" defer></script><script src="/stellarwise/static/sky/sky.js" defer></script><script src="/stellarwise/static/sky/render.js" defer></script><script src="/stellarwise/static/sky/cities.js" defer></script><script src="/stellarwise/static/tools.js" defer></script>
+</body>
+</html>

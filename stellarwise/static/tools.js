@@ -485,12 +485,122 @@
     draw();
   }
 
+  /* ---------------- month tables: sunrise and sunset, moonrise and moonset ---------------- */
+  // A month of rise and set times for the chosen place, worked out in the browser.
+  function monthTool(el, rowsFor, summary) {
+    var head = $('[data-mt-title]', el), body = $('tbody', el), sum = $('[data-mt-sum]', el), ym = null;
+    function render() {
+      var now = new Date();
+      if (!ym) { var p = Sky.partsIn(now, place.tz); ym = { y: p.y, m: p.m }; }
+      var days = new Date(Date.UTC(ym.y, ym.m, 0)).getUTCDate(), nowP = Sky.partsIn(now, place.tz), html = '';
+      for (var dd = 1; dd <= days; dd++) {
+        var isToday = nowP.y === ym.y && nowP.m === ym.m && nowP.d === dd;
+        html += '<tr' + (isToday ? ' class="today"' : '') + '>' + rowsFor(ym.y, ym.m, dd) + '</tr>';
+      }
+      body.innerHTML = html;
+      head.textContent = new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(ym.y, ym.m - 1, 15))) + ', ' + place.name;
+      if (sum) sum.innerHTML = summary(now);
+      $$('[data-tz-note]', el).forEach(function (n) { n.textContent = 'Times for ' + place.name + ' (' + place.tz.replace(/_/g, ' ') + '), worked out in your browser.'; });
+      el.querySelector('.tbl').hidden = false;
+    }
+    $('[data-mt-prev]', el).addEventListener('click', function () { ym = ym.m === 1 ? { y: ym.y - 1, m: 12 } : { y: ym.y, m: ym.m - 1 }; render(); });
+    $('[data-mt-next]', el).addEventListener('click', function () { ym = ym.m === 12 ? { y: ym.y + 1, m: 1 } : { y: ym.y, m: ym.m + 1 }; render(); });
+    listeners.push(function () { ym = null; render(); });
+    render();
+  }
+  var dash = '<span aria-label="none">–</span>';
+  var tOr = function (t) { return t ? esc(fTime(t)) : dash; };
+  var dayCell = function (y, m, dd) { return '<th scope="row">' + esc(fmt(Sky.fromLocal(y, m, dd, 12, 0, place.tz), { weekday: 'short', day: 'numeric', month: 'short' })) + '</th>'; };
+  var hm = function (ms) { var mi = Math.round(ms / 60000); return Math.floor(mi / 60) + ' h ' + (mi % 60 < 10 ? '0' : '') + (mi % 60) + ' min'; };
+
+  function initSun(el) {
+    var memo = {};
+    function day(y, m, dd) {
+      var t = Sky.fromLocal(y, m, dd, 12, 0, place.tz), k = place.lat + ',' + place.lon + ',' + t.getTime();
+      return memo[k] || (memo[k] = Sky.sunTimes(t, place, place.tz));
+    }
+    // the next local day (works across the end of a month: fromLocal takes day 32 as the 1st)
+    function after(y, m, dd) { var p = Sky.partsIn(new Date(Sky.fromLocal(y, m, dd, 12, 0, place.tz).getTime() + 864e5), place.tz); return day(p.y, p.m, p.d); }
+    function len(s) { return s.always === 'up' ? '24 h' : s.always === 'down' ? '0 h' : s.rise && s.set ? hm(s.set - s.rise) : dash; }
+    function dark(s, next) {
+      if (s.astroDusk && next.astroDawn) return esc(fTime(s.astroDusk)) + ' to ' + esc(fTime(next.astroDawn));
+      if (s.always === 'down' && !s.astroDusk) return 'All night';
+      return 'No full darkness';
+    }
+    monthTool(el, function (y, m, dd) {
+      var s = day(y, m, dd), nx = after(y, m, dd);
+      return dayCell(y, m, dd) +
+        '<td data-label="First light">' + tOr(s.civilDawn) + '</td>' +
+        '<td data-label="Sunrise">' + (s.always === 'up' ? 'Up all day' : s.always === 'down' ? 'Not up' : tOr(s.rise)) + '</td>' +
+        '<td data-label="Sunset">' + (s.always ? dash : tOr(s.set)) + '</td>' +
+        '<td data-label="Last light">' + tOr(s.civilDusk) + '</td>' +
+        '<td data-label="Day length">' + len(s) + '</td>' +
+        '<td data-label="Dark sky">' + dark(s, nx) + '</td>';
+    }, function (now) {
+      var p = Sky.partsIn(now, place.tz), s = day(p.y, p.m, p.d), nx = after(p.y, p.m, p.d);
+      if (s.always === 'up') return '<p class="phase">The Sun doesn’t set today</p><p>It is above the horizon all day and night in ' + esc(place.name) + '.</p>';
+      if (s.always === 'down') return '<p class="phase">The Sun doesn’t rise today</p><p>It stays below the horizon all day in ' + esc(place.name) + '.</p>';
+      return '<p class="phase">Sunrise ' + tOr(s.rise) + ', sunset ' + tOr(s.set) + '</p>' +
+        '<p>Today in ' + esc(place.name) + ': ' + len(s) + ' of daylight. First light ' + tOr(s.civilDawn) + ', last light ' + tOr(s.civilDusk) + '.</p>' +
+        '<p>' + (s.astroDusk && nx.astroDawn ? 'Properly dark for stargazing from ' + esc(fTime(s.astroDusk)) + ' to ' + esc(fTime(nx.astroDawn)) + ' tomorrow.' : 'The sky doesn’t get fully dark tonight: the Sun stays less than 18° below the horizon.') + '</p>';
+    });
+  }
+
+  function initMoonRS(el) {
+    monthTool(el, function (y, m, dd) {
+      var t = Sky.fromLocal(y, m, dd, 12, 0, place.tz), r = Sky.riseSetDay('moon', t, place, place.tz);
+      var mi = Sky.moonInfo(Sky.fromLocal(y, m, dd, 21, 0, place.tz), place);
+      return dayCell(y, m, dd) +
+        '<td data-label="Moonrise">' + (r.always === 'up' ? 'Up all day' : r.always === 'down' ? 'Not up' : tOr(r.rise)) + '</td>' +
+        '<td data-label="Moonset">' + (r.always ? dash : tOr(r.set)) + '</td>' +
+        '<td data-label="Highest">' + (r.transit ? esc(fTime(r.transit)) + ' <small>' + Math.round(r.transitAlt) + '°</small>' : dash) + '</td>' +
+        '<td data-label="At 9 pm">' + esc(PHASE[mi.key]) + ', ' + Math.round(mi.illum * 100) + '% lit</td>';
+    }, function (now) {
+      var rs = Sky.nextRiseSet('moon', now, place, 1.5), mi = Sky.moonInfo(now, place);
+      return '<p class="phase">' + esc(PHASE[mi.key]) + ', ' + Math.round(mi.illum * 100) + '% lit</p>' +
+        '<p>' + (rs.always === 'up' ? 'Up all day and night in ' + esc(place.name) + '.' : rs.always === 'down' ? 'Below the horizon all day in ' + esc(place.name) + '.' :
+          'In ' + esc(place.name) + ': ' + [rs.rise ? 'next moonrise ' + esc(timeAndDay(rs.rise, now)) : '', rs.set ? 'next moonset ' + esc(timeAndDay(rs.set, now)) : ''].filter(Boolean).join(', ') + '.') + '</p>';
+    });
+  }
+
+  /* ---------------- the solar eclipse of 2 August 2027 from any place ---------------- */
+  function initEclipse(el) {
+    var out = $('[data-ecl]', el), A = Sky.A;
+    var peak = Date.parse(el.getAttribute('data-peak'));
+    function render() {
+      var e;
+      try { e = A.SearchLocalSolarEclipse(A.MakeTime(new Date(peak - 8 * 864e5)), new A.Observer(place.lat, place.lon, 0)); } catch (x) { e = null; }
+      var seen = e && Math.abs(e.peak.time.date - peak) < 2 * 864e5 && (e.peak.altitude > 0 || e.partial_begin.altitude > 0 || e.partial_end.altitude > 0);
+      if (!seen) {
+        out.innerHTML = '<p class="phase">Not visible from ' + esc(place.name) + '</p><p>The Moon’s shadow misses ' + esc(place.name) + ', or the Sun is below the horizon there during the eclipse. It is seen from Europe, North and East Africa and the Middle East.</p>';
+        return;
+      }
+      var tot = e.kind === 'total' && e.total_begin;
+      var low = e.peak.altitude < 10;
+      var secs = tot ? Math.round((e.total_end.time.date - e.total_begin.time.date) / 5000) * 5 : 0; // to 5 s: see the note on the page
+      out.innerHTML = '<p class="phase">' + (tot ? 'Total eclipse in ' : 'Partial eclipse in ') + esc(place.name) + '</p>' +
+        '<p>' + (tot ? 'The Moon covers the whole Sun for <b>about ' + (secs >= 60 ? Math.floor(secs / 60) + ' min ' : '') + (secs % 60 < 10 && secs >= 60 ? '0' : '') + (secs % 60) + ' s</b>, from ' + esc(fTime(e.total_begin.time.date)) + ' to ' + esc(fTime(e.total_end.time.date)) + '.' :
+          'The Moon covers <b>' + Math.round(e.obscuration * 100) + '%</b> of the Sun at the maximum.') + '</p>' +
+        '<ul class="ecl-times">' +
+        '<li><span>Begins</span><b>' + (e.partial_begin.altitude > 0 ? esc(fTime(e.partial_begin.time.date)) : 'before sunrise') + '</b></li>' +
+        '<li><span>Maximum</span><b>' + esc(fTime(e.peak.time.date)) + '</b></li>' +
+        '<li><span>Ends</span><b>' + (e.partial_end.altitude > 0 ? esc(fTime(e.partial_end.time.date)) : 'after sunset') + '</b></li>' +
+        '<li><span>Sun’s height at maximum</span><b>' + Math.round(e.peak.altitude) + '°</b></li></ul>' +
+        '<p class="tz-note">' + esc(fDayY(e.peak.time.date)) + ', ' + esc(place.name) + ' time (' + esc(place.tz.replace(/_/g, ' ')) + ').' + (low ? ' The Sun is low: you need a clear view of the horizon.' : '') + '</p>';
+    }
+    listeners.push(render);
+    render();
+  }
+
   var redrawers = [];
   $$('[data-tool=tonight]').forEach(initTonight);
   $$('[data-tool=moon]').forEach(initMoon);
   $$('[data-tool=moondate]').forEach(initMoonDate);
   $$('[data-tool=meteors]').forEach(initMeteors);
   $$('[data-tool=starmap]').forEach(initStarMap);
+  $$('[data-tool=sun]').forEach(initSun);
+  $$('[data-tool=moonrs]').forEach(initMoonRS);
+  $$('[data-tool=eclipse]').forEach(initEclipse);
   var redraw = function () { redrawers.forEach(function (fn) { fn(); }); };
   if (d.fonts && d.fonts.load) Promise.all([d.fonts.load('500 16px Jost'), d.fonts.load('italic 400 16px Jost')]).then(redraw, function () { /* system font */ });
   var rt = 0;

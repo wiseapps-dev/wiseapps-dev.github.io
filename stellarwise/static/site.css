@@ -301,3 +301,12 @@ body.stk-on .foot { padding-bottom: 110px; }
 .md-map { margin: 14px 0 0; }
 .md-again { margin-top: 28px; max-width: 68ch; }
 .md-again p { color: var(--mist); }
+/* month tables (sunrise, moonrise), the eclipse result, month header rows */
+table.month tr.today th::after { content: 'Today'; margin-left: 8px; font-size: 13px; font-weight: 500; color: var(--rose-ink); background: var(--rose); border-radius: 999px; padding: 1px 8px; }
+table.month td small { color: var(--mist); }
+tr.mh th { padding-top: 18px; font-size: 18px; font-weight: 500; letter-spacing: .02em; }
+.ecl-times { list-style: none; padding: 0; margin: 10px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.ecl-times li { display: grid; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 12px; }
+.ecl-times span { color: var(--mist); font-size: 14px; }
+.ecl-times b { font-size: 22px; font-weight: 450; }
+.moon-facts.sum { margin-bottom: 18px; }
