@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Substitution timer: a game clock that beeps at each sub</title>
+<meta name="description" content="Free substitution timer for kids&#x27; soccer, basketball, hockey, netball and footy: a game clock that beeps and counts down to every planned change.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/benchwise/substitution-timer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Benchwise">
+<meta property="og:title" content="Substitution timer: a game clock that beeps at each sub">
+<meta property="og:description" content="Free substitution timer for kids&#x27; soccer, basketball, hockey, netball and footy: a game clock that beeps and counts down to every planned change.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/benchwise/substitution-timer/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/benchwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Benchwise: a fair sub rotation as a coloured team sheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="/benchwise/static/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/benchwise/static/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/benchwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/benchwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/benchwise/static/site.css">
+<link rel="stylesheet" href="/benchwise/static/tools.css"><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Substitution timer", "applicationCategory": "SportsApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/benchwise/substitution-timer/"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/benchwise/"}, {"@type": "ListItem", "position": 2, "name": "Substitution timer"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap top-in">
+  <a class="brand" href="/benchwise/"><svg class="mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0c1e3e"/><rect x="6" y="6" width="7" height="7" rx="2" fill="#c6f135"/><rect x="15" y="6" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="6" y="15" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="15" y="15" width="7" height="7" rx="2" fill="#c6f135"/></svg><span>Benchwise</span></a>
+  <nav class="menu" aria-label="Main"><a href="/benchwise/rotations/">Rotations</a><a href="/benchwise/playing-time-calculator/">Calculator</a><a href="/benchwise/guides/">Guides</a></nav>
+  <a class="btn btn-lime top-cta" href="/benchwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<div class="wrap page-calc">
+  <nav class="crumbs no-print" aria-label="Breadcrumb"><a href="/benchwise/">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Substitution timer</span></nav>
+  <header class="page-head no-print">
+    <h1>Substitution timer</h1>
+    <p class="answer">A free game clock for coaches that beeps at every planned substitution. Pick your sport, the period length and how often you change, press Start at the whistle, and it counts down to each change and to the end of the period. It runs in your browser; keep the page open with the screen on.</p>
+  </header>
+  <div class="calc" id="subtimer" data-applink="/benchwise/#app"><noscript><p>This tool needs JavaScript. You can still use the ready-made <a href="/benchwise/rotations/">rotation charts</a>.</p></noscript></div>
+  <div class="prose no-print">
+<h2>How to use it</h2>
+<ol>
+<li><b>Pick your sport,</b> then check the periods, their length and how often you want to change. The change times come from the same engine as the Benchwise app, so they match its rotation charts.</li>
+<li><b>Press Start at the whistle.</b> The clock counts up; underneath, it counts down to the next change. At each change it beeps twice and, on Android phones, vibrates.</li>
+<li><b>Pause</b> when the referee stops the clock, and use −10 s or +10 s if you started late. At the end of each period it beeps three times and stops; press <b>Next period</b> after the break.</li>
+</ol>
+<p>The clock keeps time from timestamps, so it stays right even if the screen sleeps, but the beeps only sound while this page is open and the phone is unlocked. “Keep the screen on” asks the browser to stop the screen sleeping while the clock runs; not every browser allows it. Turn the volume up: phones on silent may not beep.</p>
+<p>The timer tells you <i>when</i> to change. For <i>who</i>, print a chart from the <a href="/benchwise/playing-time-calculator/">playing time calculator</a>, or let the Benchwise app show who comes off and who goes on at every alert.</p>
+
+  <h2>Questions</h2><div class="faq"><details><summary>Can it beep when my phone is locked?</summary><p>No. A web page can't make sounds while the phone is locked. Keep this page open with the screen on. The Benchwise app also sends a notification at each change.</p></details><details><summary>What about sports with subs only at stoppages?</summary><p>Treat each beep as a target and change at the next dead ball. The referee decides.</p></details><details><summary>Does it work offline?</summary><p>Once the page has loaded, yes: everything runs in your browser and nothing is sent anywhere.</p></details></div></div>
+  <nav class="related no-print" aria-label="Related tools"><h2>More free tools</h2><ul class="lines"><li><a href="/benchwise/tournament-rotation-planner/">Tournament day rotation planner</a> <span>Several games in one day, minutes balanced across all of them.</span></li><li><a href="/benchwise/playing-time-tracker/">Season playing time tracker</a> <span>Minutes per game, totals and who is owed time.</span></li><li><a href="/benchwise/rotations/">Rotation charts</a> <span>Every sport and squad size.</span></li></ul></nav>
+  <p class="end-cta no-print"><span>Benchwise runs your rotation live on game day.</span> <a class="btn btn-lime" href="/benchwise/#app">Get the app</a></p>
+</div>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="brand brand-foot" href="/benchwise/"><svg class="mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0c1e3e"/><rect x="6" y="6" width="7" height="7" rx="2" fill="#c6f135"/><rect x="15" y="6" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="6" y="15" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="15" y="15" width="7" height="7" rx="2" fill="#c6f135"/></svg><span>Benchwise</span></a>
+    <p>Fair sub rotations for kids' sport. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/benchwise/rotations/">Rotation charts</a>
+    <a href="/benchwise/playing-time-calculator/">Playing time calculator</a>
+    <a href="/benchwise/tournament-rotation-planner/">Tournament planner</a>
+    <a href="/benchwise/playing-time-tracker/">Season tracker</a>
+    <a href="/benchwise/substitution-timer/">Substitution timer</a>
+    <a href="/benchwise/guides/">Guides</a>
+    <a href="/benchwise/support/">Support</a>
+    <a href="/benchwise/privacy/">Privacy</a>
+  </nav>
+  <p class="foot-also">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+  <p class="foot-copy">© 2026 Benchwise.</p>
+</div></footer>
+<script src="/benchwise/static/engine.js" defer></script><script src="/benchwise/static/subtimer.js" defer></script>
+</body>
+</html>

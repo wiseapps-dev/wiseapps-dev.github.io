@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playing time tracker: season minutes and fair share</title>
+<meta name="description" content="Track each player&#x27;s minutes across a season, see their fair share of field time and who is owed time. Free, any sport, saves as a CSV file.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/benchwise/playing-time-tracker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Benchwise">
+<meta property="og:title" content="Playing time tracker: season minutes and fair share">
+<meta property="og:description" content="Track each player&#x27;s minutes across a season, see their fair share of field time and who is owed time. Free, any sport, saves as a CSV file.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/benchwise/playing-time-tracker/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/benchwise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Benchwise: a fair sub rotation as a coloured team sheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="/benchwise/static/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/benchwise/static/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/benchwise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/benchwise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/benchwise/static/site.css">
+<link rel="stylesheet" href="/benchwise/static/tools.css"><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Season playing time tracker", "applicationCategory": "SportsApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/benchwise/playing-time-tracker/"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/benchwise/"}, {"@type": "ListItem", "position": 2, "name": "Season playing time tracker"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap top-in">
+  <a class="brand" href="/benchwise/"><svg class="mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0c1e3e"/><rect x="6" y="6" width="7" height="7" rx="2" fill="#c6f135"/><rect x="15" y="6" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="6" y="15" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="15" y="15" width="7" height="7" rx="2" fill="#c6f135"/></svg><span>Benchwise</span></a>
+  <nav class="menu" aria-label="Main"><a href="/benchwise/rotations/">Rotations</a><a href="/benchwise/playing-time-calculator/">Calculator</a><a href="/benchwise/guides/">Guides</a></nav>
+  <a class="btn btn-lime top-cta" href="/benchwise/#app">Get the app</a>
+</div></header>
+<main id="main">
+<div class="wrap page-calc">
+  <nav class="crumbs no-print" aria-label="Breadcrumb"><a href="/benchwise/">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Season playing time tracker</span></nav>
+  <header class="page-head no-print">
+    <h1>Season playing time tracker</h1>
+    <p class="answer">Type the minutes each player played in each game and the tracker adds up the season: games, minutes, each player's fair share of the field time and who is owed time. It works for any sport. Nothing is uploaded or stored: save the table as a CSV file and open it again next week.</p>
+  </header>
+  <div class="calc" id="tracker" data-applink="/benchwise/#app"><noscript><p>This tool needs JavaScript. You can still use the ready-made <a href="/benchwise/rotations/">rotation charts</a>.</p></noscript></div>
+  <div class="prose no-print">
+<h2>What counts as fair</h2>
+<p>A player's fair share of a game is the field time shared equally among the players who turned up: players on the field × game length ÷ players there. With 7 on for 40 minutes and 10 players there, that's 28 minutes each. A player who missed a game isn't owed time for it.</p>
+<p>The table adds up each player's games and minutes with the same season code as the Benchwise app, then compares the minutes played with the fair share. Players below 90% of their fair share are marked as owed time; above 110% as ahead. Start the players who are owed time next game, or give them the extra stint.</p>
+<h2>Keeping it from week to week</h2>
+<p>Nothing is saved on this page or sent anywhere. When you finish, press <b>Save as CSV</b> to download the table, and next week press <b>Open a CSV</b> to carry on. The file opens in any spreadsheet too. The Benchwise app records minutes automatically from the game clock and balances the next rotation for you.</p>
+
+  <h2>Questions</h2><div class="faq"><details><summary>What if a player was there but didn&#x27;t play?</summary><p>Type 0. An empty box means the player wasn't there, so that game doesn't count towards their fair share.</p></details><details><summary>Do keepers&#x27; minutes count?</summary><p>Yes. Time in goal is playing time, so type the whole time the player was on the field.</p></details><details><summary>Is my squad saved?</summary><p>No. Names and minutes stay in this browser tab and are never uploaded or stored. Save the CSV file to keep them.</p></details></div></div>
+  <nav class="related no-print" aria-label="Related tools"><h2>More free tools</h2><ul class="lines"><li><a href="/benchwise/tournament-rotation-planner/">Tournament day rotation planner</a> <span>Several games in one day, minutes balanced across all of them.</span></li><li><a href="/benchwise/substitution-timer/">Substitution timer</a> <span>A game clock that beeps at every change.</span></li><li><a href="/benchwise/guides/how-to-give-every-kid-equal-playing-time/">How to give every kid equal playing time</a> <span>The method, step by step.</span></li></ul></nav>
+  <p class="end-cta no-print"><span>Benchwise runs your rotation live on game day.</span> <a class="btn btn-lime" href="/benchwise/#app">Get the app</a></p>
+</div>
+</main>
+<footer class="foot"><div class="wrap foot-in">
+  <div class="foot-about">
+    <a class="brand brand-foot" href="/benchwise/"><svg class="mark" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7" fill="#0c1e3e"/><rect x="6" y="6" width="7" height="7" rx="2" fill="#c6f135"/><rect x="15" y="6" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="6" y="15" width="7" height="7" rx="2" fill="#3a4d72"/><rect x="15" y="15" width="7" height="7" rx="2" fill="#c6f135"/></svg><span>Benchwise</span></a>
+    <p>Fair sub rotations for kids' sport. Made by an independent developer.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/benchwise/rotations/">Rotation charts</a>
+    <a href="/benchwise/playing-time-calculator/">Playing time calculator</a>
+    <a href="/benchwise/tournament-rotation-planner/">Tournament planner</a>
+    <a href="/benchwise/playing-time-tracker/">Season tracker</a>
+    <a href="/benchwise/substitution-timer/">Substitution timer</a>
+    <a href="/benchwise/guides/">Guides</a>
+    <a href="/benchwise/support/">Support</a>
+    <a href="/benchwise/privacy/">Privacy</a>
+  </nav>
+  <p class="foot-also">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/scenewise/">Scenewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+  <p class="foot-copy">© 2026 Benchwise.</p>
+</div></footer>
+<script src="/benchwise/static/engine.js" defer></script><script src="/benchwise/static/tracker.js" defer></script>
+</body>
+</html>
