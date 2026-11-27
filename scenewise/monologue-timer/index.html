@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monologue Timer: How Long Is My Monologue? | Scenewise</title>
+<meta name="description" content="Paste a monologue to see how long it runs at a slow, steady or brisk pace, how many words to cut to fit 1 or 2 minutes, and time yourself.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/monologue-timer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Monologue Timer: How Long Is My Monologue? | Scenewise">
+<meta property="og:description" content="Paste a monologue to see how long it runs at a slow, steady or brisk pace, how many words to cut to fit 1 or 2 minutes, and time yourself.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/monologue-timer/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/scenewise/static/scripttools.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Monologue timer", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/scenewise/monologue-timer/", "description": "Paste a monologue to see how long it runs at a slow, steady or brisk pace, how many words to cut to fit 1 or 2 minutes, and time yourself."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/scenewise/"}, {"@type": "ListItem", "position": 2, "name": "Monologue timer"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench-head">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/scenewise/">Home</a></li><li aria-current="page">Monologue timer</li></ol></nav>
+  <h1>Monologue timer</h1>
+  <p class="lede">Paste your monologue to see its spoken word count and how long it runs at a slow, steady or brisk pace. Pick a time limit, such as one or two minutes for an audition, to see whether it fits and how many words to cut, then time yourself saying it aloud with the stopwatch.</p>
+</div>
+<div class="bench">
+  <div class="tool" data-tool="mono">
+  <div class="tool-label"><label for="mo-text">Your monologue</label><button type="button" class="btn ghost sm" data-act="example" data-text="I kept the ticket. Not because I meant to go back, I want to be clear about that. It was in the pocket of the blue coat, and I just never wore the blue coat again. Then last week it was cold, properly cold, and there it was. Platform four, the 6.15, a seat by the window. And I stood in the hall with one arm in the sleeve and I thought: you could still go. The train has left a thousand times since then. It will leave again tomorrow. Nobody is waiting at the other end, and that is not the point. The point is I kept the ticket. I folded it in half and I put it back.">Try an example</button></div>
+  <textarea id="mo-text" rows="7" spellcheck="false" placeholder="Paste your monologue or speech here."></textarea>
+  <p class="sub-label">Time limit</p>
+  <div class="seg" role="group" aria-label="Time limit" data-seg="target"><button type="button" data-v="0" aria-pressed="false" title="No time limit">None</button><button type="button" data-v="60" aria-pressed="false" title="One minute">1 min</button><button type="button" data-v="90" aria-pressed="false" title="Ninety seconds">90 s</button><button type="button" data-v="120" aria-pressed="true" title="Two minutes">2 min</button><button type="button" data-v="180" aria-pressed="false" title="Three minutes">3 min</button></div>
+  <div class="out mono-out" data-role="out" aria-live="polite"></div>
+  <div class="mono-watch"><p class="sub-label">Time yourself</p><p class="mono-clock" data-role="clock" role="timer">0:00</p>
+    <div class="row"><button type="button" class="btn primary" data-act="go">Start</button><button type="button" class="btn ghost" data-act="reset">Reset</button></div>
+    <ol class="mono-log" data-role="log" aria-live="polite"></ol></div>
+</div>
+  <noscript><p>This tool needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <aside class="plug" aria-label="The Scenewise app"><p><b>Then learn it.</b> The Scenewise app hides your speech a little more each time, from full text to first letters to a blank page, and checks you said it right.</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div><p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p></aside>
+  <div class="prose">
+<h2>How it estimates the time</h2>
+<p>It counts the spoken words, leaving out stage directions in brackets and a character name in capitals at the start of a line, and divides by a speaking pace. 140 words a minute is a steady, unhurried pace for a speech and the figure the Scenewise app uses for your lines; nerves usually push actors faster. The stopwatch tells you your real pace: say it aloud at performance speed, with the pauses, and press Stop at the last word.</p>
+<h2>Fitting a time limit</h2>
+<p>Auditions often set a limit, commonly one or two minutes, and panels may stop you when it runs out. If you're over, cut whole sentences rather than rushing: the pauses are where the acting is. Check the audition brief for the exact limit and whether it includes your introduction. It runs in your browser: nothing you paste is uploaded or stored.</p>
+<p>Learning it next? Read <a href="/scenewise/guides/how-to-memorize-a-monologue/">how to memorise a monologue</a>, or drill it with the <a href="/scenewise/first-letter-tool/">first-letter tool</a>.</p>
+</div>
+  <nav class="next-reads" aria-labelledby="more-h">
+    <h2 id="more-h">Guides that go with it</h2>
+    <ol class="playbill"><li><a href="/scenewise/guides/how-to-memorize-a-monologue/">How to memorise a monologue</a><p>Choose well, map the thoughts, learn it in sections, use first letters, and make it survive audition nerves.</p></li><li><a href="/scenewise/guides/how-to-self-tape-without-a-reader/">How to self-tape without a reader</a><p>A friend in the room or on a video call, a paid reader, or recorded lines: when each fits, plus where the reader sits and how loud.</p></li><li><a href="/scenewise/guides/first-letter-method/">The first-letter method for memorising text</a><p>Reduce each word to its first letter, recall from the letters, then fade them out. How it works and why it helps.</p></li></ol>
+    <p><a href="/scenewise/guides/">All guides to learning lines</a></p>
+  </nav>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Learn the whole part with Scenewise</h2>
+  <p>Import your script or sides, pick your part, and your phone reads every other character while your lines fade from full text to first letters to a blank page.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+<template id="sw-badges"><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></template>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/cue-script-maker/">Cue script maker</a></li>
+      <li><a href="/scenewise/script-breakdown/">Script breakdown</a></li>
+      <li><a href="/scenewise/monologue-timer/">Monologue timer</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer.</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/sample.js" defer></script><script src="/scenewise/static/scripttools.js" defer></script>
+</body>
+</html>

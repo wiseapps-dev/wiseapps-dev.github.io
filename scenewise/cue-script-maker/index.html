@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cue Script Maker: Your Lines and Cues Only | Scenewise</title>
+<meta name="description" content="Free cue script maker for actors. Paste a script, pick your part, and print your lines with just the cue before each one. Full, first letters or blank.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/cue-script-maker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Cue Script Maker: Your Lines and Cues Only | Scenewise">
+<meta property="og:description" content="Free cue script maker for actors. Paste a script, pick your part, and print your lines with just the cue before each one. Full, first letters or blank.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/cue-script-maker/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/scenewise/static/scripttools.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cue script maker", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/scenewise/cue-script-maker/", "description": "Free cue script maker for actors. Paste a script, pick your part, and print your lines with just the cue before each one. Full, first letters or blank."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/scenewise/"}, {"@type": "ListItem", "position": 2, "name": "Cue script maker"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench-head">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/scenewise/">Home</a></li><li aria-current="page">Cue script maker</li></ol></nav>
+  <h1>Cue script maker</h1>
+  <p class="lede">A cue script is your part on its own: each of your lines with only the last few words of the line before it, the cue you listen for. Paste a script, pick your character, choose the cue length and whether to show your lines in full, as first letters or blank, then print it. Free, no sign-up.</p>
+</div>
+<div class="bench">
+  <div class="tool" data-tool="cues">
+  <div class="tool-label"><label for="cs-text">Your script</label><button type="button" class="btn ghost sm" data-act="sample">Try the sample scene</button></div>
+  <textarea id="cs-text" rows="8" spellcheck="false" placeholder="NELL: I came back for the piano.&#10;ROSS: And?&#10;NELL: And it still knows the tune."></textarea>
+  <p class="help">Put each name in capitals before the line, like <i>NELL: I came back.</i> <a href="/scenewise/guides/how-to-format-a-script/">Formatting tips</a></p>
+  <p class="sub-label">Your part</p>
+  <div class="chips" data-role="chips" role="group" aria-label="Your character"></div>
+  <p class="sub-label">Cue length</p>
+  <div class="seg" role="group" aria-label="Cue length" data-seg="cuelen"><button type="button" data-v="3" aria-pressed="true" title="The last 3 words of the line before yours">3 words</button><button type="button" data-v="6" aria-pressed="false" title="The last 6 words">6 words</button><button type="button" data-v="all" aria-pressed="false" title="The whole line before yours">Whole line</button></div>
+  <p class="sub-label">Your lines</p>
+  <div class="seg" role="group" aria-label="How to show your lines" data-seg="show"><button type="button" data-v="full" aria-pressed="true" title="Your lines in full">Full</button><button type="button" data-v="letters" aria-pressed="false" title="Only the first letter of each word">First letters</button><button type="button" data-v="blank" aria-pressed="false" title="A blank space to say it from memory">Blank</button></div>
+  <p class="sub-label">Stage directions in brackets</p>
+  <div class="seg" role="group" aria-label="Stage directions" data-seg="dirs"><button type="button" data-v="yes" aria-pressed="true" title="Keep words in brackets">Keep</button><button type="button" data-v="no" aria-pressed="false" title="Leave out words in brackets">Leave out</button></div>
+  <p class="help" data-role="note" aria-live="polite"></p>
+  <div class="out cs-out" data-role="out"></div>
+  <div class="row"><button type="button" class="btn primary" data-act="print">Print</button><button type="button" class="btn" data-act="save">Save as text</button></div>
+</div>
+  <noscript><p>This tool needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <aside class="plug" aria-label="The Scenewise app"><p><b>Hear your cues instead of reading them.</b> The Scenewise app reads every other part aloud in its own voice and stops for your lines, hiding them a little more each time you run the scene.</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div><p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p></aside>
+  <div class="prose">
+<h2>How to use it</h2>
+<ol>
+<li><b>Paste your script</b> or a scene, or tap <b>Try the sample scene</b>. The same parser as the Scenewise app finds the characters, the scene headings and the stage directions.</li>
+<li><b>Pick your part.</b> The cue script lists every one of your lines with only the end of the line before it: the cue you listen for.</li>
+<li><b>Choose how much to show.</b> Full lines to learn from, first letters to test yourself, or blank to say each line from memory with only the cue in front of you.</li>
+<li><b>Print it</b> or save it as text for your phone. It runs in your browser: nothing you paste is uploaded or stored.</li>
+</ol>
+<h2>What a cue script is</h2>
+<p>Actors in Shakespeare's company were given only their own part: each speech with the last two or three words of the line before it. They learned to listen for those words instead of reading along. It still works: a cue script cuts a long play down to the lines you have to know and the moments you have to come in, and it stops you learning everyone else's lines by accident.</p>
+<p>To hear the other parts read aloud and come in on cue, try <a href="/scenewise/run-lines-online/">run lines online</a>. To see who is in which scene, use the <a href="/scenewise/script-breakdown/">script breakdown</a>.</p>
+</div>
+  <nav class="next-reads" aria-labelledby="more-h">
+    <h2 id="more-h">Guides that go with it</h2>
+    <ol class="playbill"><li><a href="/scenewise/guides/how-to-learn-lines-for-a-play/">How to learn lines for a play: a rehearsal timeline</a><p>From read-through to opening night: a week-by-week timeline, the off-book date, cue lines, calling for a line and line notes.</p></li><li><a href="/scenewise/guides/how-to-run-lines-without-a-scene-partner/">How to run lines without a scene partner</a><p>Six ways to run lines alone, from recording your cues to the cover card, plus the mistakes that waste solo practice.</p></li><li><a href="/scenewise/guides/how-to-format-a-script/">How to format a script so an app can read it</a><p>Names in capitals, NAME: line, directions in brackets, scene headings, and why scanned PDFs can&#x27;t be read.</p></li></ol>
+    <p><a href="/scenewise/guides/">All guides to learning lines</a></p>
+  </nav>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Learn the whole part with Scenewise</h2>
+  <p>Import your script or sides, pick your part, and your phone reads every other character while your lines fade from full text to first letters to a blank page.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+<template id="sw-badges"><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></template>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/cue-script-maker/">Cue script maker</a></li>
+      <li><a href="/scenewise/script-breakdown/">Script breakdown</a></li>
+      <li><a href="/scenewise/monologue-timer/">Monologue timer</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer.</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/sample.js" defer></script><script src="/scenewise/static/scripttools.js" defer></script>
+</body>
+</html>

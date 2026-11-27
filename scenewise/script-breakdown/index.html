@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Script Breakdown: Line Count per Character | Scenewise</title>
+<meta name="description" content="Paste a play or screenplay to count each character&#x27;s lines and words, see their share of the script, and chart who is in every scene. Free.">
+<link rel="canonical" href="https://wiseapps-dev.github.io/scenewise/script-breakdown/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scenewise">
+<meta property="og:title" content="Script Breakdown: Line Count per Character | Scenewise">
+<meta property="og:description" content="Paste a play or screenplay to count each character&#x27;s lines and words, see their share of the script, and chart who is in every scene. Free.">
+<meta property="og:url" content="https://wiseapps-dev.github.io/scenewise/script-breakdown/">
+<meta property="og:image" content="https://wiseapps-dev.github.io/scenewise/static/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scenewise, the line-learning app for actors">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110f">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="/scenewise/static/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/scenewise/static/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/scenewise/static/site.css">
+<link rel="icon" type="image/png" href="/scenewise/static/img/favicon.png">
+<link rel="apple-touch-icon" href="/scenewise/static/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/scenewise/static/scripttools.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Script breakdown: lines per character and scene chart", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://wiseapps-dev.github.io/scenewise/script-breakdown/", "description": "Paste a play or screenplay to count each character's lines and words, see their share of the script, and chart who is in every scene. Free."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wiseapps-dev.github.io/scenewise/"}, {"@type": "ListItem", "position": 2, "name": "Script breakdown"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a>
+  <nav class="links" aria-label="Main"><a href="/scenewise/run-lines-online/" class="wide-only">Run lines</a><a href="/scenewise/first-letter-tool/" class="wide-only">First letters</a><a href="/scenewise/guides/">Guides</a><a class="links-cta" href="/scenewise/#app">Get the app</a></nav>
+</header>
+<main id="main">
+
+<div class="bench-head">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/scenewise/">Home</a></li><li aria-current="page">Script breakdown</li></ol></nav>
+  <h1>Script breakdown: lines per character and scene chart</h1>
+  <p class="lede">Paste a script to count each character's lines and spoken words, their share of the dialogue and a rough speaking time, with a chart of who speaks in each scene. It helps directors and teachers balance parts, spot roles that could be doubled and plan rehearsals. Free, with no sign-up.</p>
+</div>
+<div class="bench">
+  <div class="tool" data-tool="breakdown">
+  <div class="tool-label"><label for="bd-text">Your script</label><button type="button" class="btn ghost sm" data-act="sample">Try the sample scene</button></div>
+  <textarea id="bd-text" rows="8" spellcheck="false" placeholder="SCENE 1. A kitchen.&#10;NELL: I came back for the piano.&#10;ROSS: And?"></textarea>
+  <p class="help">Put each name in capitals before the line, and scene headings on their own line, like <i>SCENE 2. The garden.</i> <a href="/scenewise/guides/how-to-format-a-script/">Formatting tips</a></p>
+  <div class="out bd-out" data-role="out" aria-live="polite"></div>
+  <div class="row"><button type="button" class="btn primary" data-act="print">Print</button><button type="button" class="btn" data-act="save">Save as CSV</button></div>
+</div>
+  <noscript><p>This tool needs JavaScript.</p></noscript>
+</div>
+<div class="read">
+  <aside class="plug" aria-label="The Scenewise app"><p><b>Rehearsing the part, not just counting it?</b> The Scenewise app imports PDF, Word and Final Draft scripts, reads the other characters aloud and tracks which of your scenes you know.</p><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div><p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p></aside>
+  <div class="prose">
+<h2>What it counts</h2>
+<ul>
+<li><b>Lines</b> are speeches: everything a character says before someone else speaks.</li>
+<li><b>Words</b> are spoken words only. Stage directions in brackets aren't counted.</li>
+<li><b>Speaking time</b> is the words at 140 a minute, the pace the Scenewise app assumes for your lines. Real scenes run longer, with pauses, business and reactions.</li>
+<li><b>The scene chart</b> shows who speaks in each scene and how many lines. Characters who are on stage but silent won't show, so check entrances in the script.</li>
+</ul>
+<h2>Using it to cast and schedule</h2>
+<p>Directors and teachers use a breakdown to balance parts across a cast, to see who could double two small roles because they never meet, and to plan rehearsals so nobody waits around for a scene they aren't in. Save it as a CSV file to open in a spreadsheet. It runs in your browser: nothing you paste is uploaded or stored.</p>
+<p>Once the parts are handed out, actors can make their own <a href="/scenewise/cue-script-maker/">cue script</a>, or you can <a href="/scenewise/send/">send the script to your cast</a> as a link.</p>
+</div>
+  <nav class="next-reads" aria-labelledby="more-h">
+    <h2 id="more-h">Guides that go with it</h2>
+    <ol class="playbill"><li><a href="/scenewise/guides/how-to-memorize-lines-fast/">How to memorise lines fast: what actually works</a><p>How actors really learn lines, and what memory research adds: meaning first, small chunks, testing yourself, spacing and sleep.</p></li><li><a href="/scenewise/guides/how-to-learn-lines-for-a-play/">How to learn lines for a play: a rehearsal timeline</a><p>From read-through to opening night: a week-by-week timeline, the off-book date, cue lines, calling for a line and line notes.</p></li><li><a href="/scenewise/guides/how-to-format-a-script/">How to format a script so an app can read it</a><p>Names in capitals, NAME: line, directions in brackets, scene headings, and why scanned PDFs can&#x27;t be read.</p></li></ol>
+    <p><a href="/scenewise/guides/">All guides to learning lines</a></p>
+  </nav>
+  <section class="finale" aria-labelledby="finale-h">
+  <h2 id="finale-h">Learn the whole part with Scenewise</h2>
+  <p>Import your script or sides, pick your part, and your phone reads every other character while your lines fade from full text to first letters to a blank page.</p>
+  <div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div>
+  <p class="terms">Free to download, with one optional unlock. No subscription, no account, no ads. Works offline.</p>
+</section>
+</div>
+<template id="sw-badges"><div class="store"><span class="store-soon">Coming soon for iPhone</span><span class="store-soon">Coming soon for Android</span></div></template>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-name"><a href="/scenewise/"><svg class="mark" viewBox="0 0 20 30" aria-hidden="true"><circle cx="10" cy="7.5" r="4.6"/><path d="M10 12.5V25.5M4.5 27.5h11"/></svg><span>Scenewise</span></a></p>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/scenewise/run-lines-online/">Run lines online</a></li>
+      <li><a href="/scenewise/first-letter-tool/">First-letter tool</a></li>
+      <li><a href="/scenewise/cue-script-maker/">Cue script maker</a></li>
+      <li><a href="/scenewise/script-breakdown/">Script breakdown</a></li>
+      <li><a href="/scenewise/monologue-timer/">Monologue timer</a></li>
+      <li><a href="/scenewise/send/">Send a script</a></li>
+      <li><a href="/scenewise/guides/">Guides</a></li>
+      <li><a href="/scenewise/support/">Support</a></li>
+      <li><a href="/scenewise/privacy/">Privacy</a></li>
+    </ul></nav>
+    <p class="foot-note">More from Wise Apps: <a href="https://wiseapps-dev.github.io/gapwise/">Gapwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/benchwise/">Benchwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/ropewise/">Ropewise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/closetwise/">Closetwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/pencilwise/">Pencilwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/stellarwise/">Stellarwise</a>&nbsp;<span aria-hidden="true">&middot;</span> <a href="https://wiseapps-dev.github.io/">All&nbsp;apps</a></p>
+    <p class="foot-note">© 2026 Scenewise. Made by an independent developer.</p>
+  </div>
+</footer>
+<script src="/scenewise/static/engine.js" defer></script><script src="/scenewise/static/sample.js" defer></script><script src="/scenewise/static/scripttools.js" defer></script>
+</body>
+</html>

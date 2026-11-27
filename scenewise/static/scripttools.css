@@ -1,0 +1,40 @@
+/* Scenewise free tools added November 2026: cue script maker, script breakdown, monologue timer. */
+.cs-out, .bd-out, .mono-out { white-space:normal; line-height:1.55; }
+.cs-title { font:600 1rem var(--sans); color:var(--house-2); margin-bottom:.6rem !important; }
+.cs-scene { font:400 1.35rem var(--serif); margin:1.2rem 0 .4rem; color:var(--house); }
+.cs-pair { padding:.55rem 0; border-bottom:1px dashed var(--batten); }
+.cs-cue { color:var(--house-3); font-size:.95rem; }
+.cs-mine { margin-top:.25rem !important; padding-left:1.4rem; }
+.cs-who { font:700 .78rem var(--sans); letter-spacing:.06em; text-transform:uppercase; color:var(--house-2); margin-right:.35rem; }
+.cs-mine .cs-who { color:var(--gel); }
+.cs-blank { display:inline-block; min-width:12rem; border-bottom:1px solid var(--house-3); }
+.tool .d { color:var(--house-3); font-style:italic; }
+.bd-sum { margin-bottom:1rem !important; font-family:var(--sans); }
+.bd-wrap { overflow-x:auto; margin:0 0 1.2rem; }
+.bd { border-collapse:collapse; font:400 .95rem var(--sans); }
+.bd caption { text-align:left; font:600 1rem var(--sans); color:var(--house-2); padding:0 0 .5rem; }
+.bd th, .bd td { padding:.4rem .7rem; border-bottom:1px solid var(--batten); text-align:right; white-space:nowrap; }
+.bd th[scope=row], .bd thead th:first-child { text-align:left; }
+.bd th[scope=row] { white-space:normal; min-width:9rem; }
+.bd.chart td { text-align:center; min-width:3rem; }
+.bd.chart td.in { background:rgba(var(--glow), .16); color:var(--gel); font-weight:700; }
+.mono-n { font:400 1.1rem var(--sans); }
+.mono-n b { font:400 2.2rem var(--serif); color:var(--gel); margin-right:.3rem; }
+.mono-est { list-style:none; padding:0; margin:.6rem 0; display:grid; gap:.35rem; font-family:var(--sans); }
+.mono-est li { display:flex; justify-content:space-between; gap:1rem; border-bottom:1px solid var(--batten); padding:.3rem 0; }
+.mono-est b { font-variant-numeric:tabular-nums; }
+.mono-fit { font-family:var(--sans); margin-top:.6rem !important; }
+.mono-fit.over b { color:var(--gel); }
+.mono-watch { margin-top:1.2rem; }
+.mono-clock { font:400 3.4rem/1.1 var(--serif); font-variant-numeric:tabular-nums; margin:.2rem 0 .6rem !important; }
+.mono-log { margin:.8rem 0 0; padding-left:1.2rem; font-family:var(--sans); }
+@media print {
+  body { background:#fff; color:#000; }
+  body > header, body > footer, .skip, .bar, .bench-head, .read, noscript, .tool > :not(.cs-out):not(.bd-out) { display:none !important; }
+  .bench, .tool { padding:0; margin:0; border:0; background:none; max-width:none; }
+  .cs-out, .bd-out { border:0; background:none; padding:0; margin:0; }
+  .cs-out *, .bd-out * { color:#000 !important; background:none !important; }
+  .cs-pair { break-inside:avoid; border-color:#999; }
+  .cs-blank { border-color:#000; }
+  .bd th, .bd td { border-color:#999; }
+}
