@@ -398,3 +398,33 @@ body.stk-on { padding-bottom: 76px; }
   .ticks input { border-color: #000; background: #fff; }
   h1 { font-size: 22pt; }
 }
+/* capsule wardrobe calculator and printable outfit calendar (November 2026) */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cap-in .field { margin-bottom: 16px; }
+.cap-in .inp input { width: 4ch; }
+.cap-next { grid-column: 1; margin: 14px 0 0; max-width: 26em; }
+.oform { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: end; margin-bottom: 24px; }
+.oform select, .oform input[type=number] { font: inherit; font-size: 1.05rem; min-height: 44px; padding: 0 10px; border: 1.5px solid var(--ink); border-radius: 10px; background: #fff; color: var(--ink); }
+.oform label { display: grid; gap: 4px; font-size: .9rem; }
+.oform .tick { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.osheet { background: #fff; padding: 18px; border-radius: 6px; max-width: 900px; }
+.otitle { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.6rem; font-stretch: 125%; font-weight: 300; margin: 0 0 10px; }
+.otitle span { font-size: .9rem; color: var(--ink2); }
+.ocal { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.ocal th { font-size: .8rem; font-weight: 500; text-align: left; padding: 4px; }
+.ocal td { border: 1px solid #9a9a96; height: 92px; vertical-align: top; padding: 4px 5px; }
+.ocal td.out { background: #f4f4f1; }
+.ocal .dn { display: block; font-size: .85rem; }
+.ocal .ln { display: block; border-bottom: 1px dotted #b5b5b0; height: 22px; }
+.otally { width: 100%; max-width: 420px; border-collapse: collapse; margin-top: 14px; }
+.otally caption { text-align: left; font-size: .9rem; padding-bottom: 4px; }
+.otally th { text-align: left; font-size: .8rem; font-weight: 500; }
+.otally td { border-bottom: 1px solid #9a9a96; height: 26px; }
+.otally td + td, .otally th + th { width: 40%; }
+.ofoot { font-size: .7rem; color: var(--ink2); margin: 8px 0 0; text-align: right; }
+@media print {
+  .ocal-page .lead, .ocal-page .oform, .ocal-page .prose-wrap, .ocal-page .rel, .ocal-page .crumbs { display: none !important; }
+  .osheet { padding: 0; max-width: none; }
+  .osheet.rows6 .ocal td { height: 31mm; } .osheet.rows5 .ocal td { height: 37mm; } .osheet.rows4 .ocal td { height: 44mm; }
+  .osheet.with-tally.rows6 .ocal td { height: 26mm; } .osheet.with-tally.rows5 .ocal td { height: 31mm; } .osheet.with-tally.rows4 .ocal td { height: 38mm; }
+}
